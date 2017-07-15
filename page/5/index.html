@@ -320,7 +320,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chang20159.com/模块管理与打包实践/">
+    <link itemprop="mainEntityOfPage" href="http://chang20159.com/call、apply和bind函数的polyfill实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YANFANG・CHANG">
@@ -339,7 +339,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/模块管理与打包实践/" itemprop="url">模块管理与打包实践</a></h1>
+                <a class="post-title-link" href="/call、apply和bind函数的polyfill实现/" itemprop="url">call、apply和bind函数的polyfill实现</a></h1>
         
 
         <div class="post-meta">
@@ -351,146 +351,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-15T15:40:45+08:00">
-                2017-07-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>关于javascript模块化编程的介绍可以参考<a href="http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html" target="_blank" rel="external">阮一峰的Javascript模块化编程系列</a>和<a href="http://zhaoda.net/webpack-handbook/index.html" target="_blank" rel="external">webpack中文指南</a>，详细讲述了模块系统的演进以及各种方式的使用方法。看完之后特来实践一下。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/模块管理与打包实践/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chang20159.com/常用WebAPI接口/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YANFANG・CHANG">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/photoo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端Girl">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/常用WebAPI接口/" itemprop="url">常用 Web API 接口</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-15T15:40:45+08:00">
-                2017-07-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-30T21:43:00+08:00">
+                2016-06-30
               </time>
             
 
@@ -547,16 +409,11 @@
 
       
         
-          <p>有时候是不是很容易头大，很多常见的api分不清，看下面这些，能弄明白它们的区别么？</p>
-<ul>
-<li>document.location 与 window.location</li>
-<li>document.URL 与 document.documentURI</li>
-<li>nodeValue、innerText 、textContent、innerHTML、outerHTML、outerText</li>
-<li>clientHeight、scrollHeight、offsetHeight（Left/Top/Width）</li>
-</ul>
+          <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">'chen'</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> foo = &#123;</div><div class="line">	<span class="attr">name</span>: <span class="string">'chang'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params">age,sex</span>)</span>&#123;</div><div class="line">	alert(<span class="keyword">this</span>.name + age + sex);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里有一个对象foo，一个函数sayHello，如果直接调用sayHello(),结果是弹出<code>chenundefinedundefined</code><br>我们希望调用函数sayHello,this能指向foo,通过this.name获得foo.name.<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/常用WebAPI接口/#more" rel="contents">
+            <a class="btn" href="/call、apply和bind函数的polyfill实现/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -602,7 +459,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chang20159.com/理解BFC/">
+    <link itemprop="mainEntityOfPage" href="http://chang20159.com/React快速开始（二）使用JSX/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YANFANG・CHANG">
@@ -621,7 +478,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/理解BFC/" itemprop="url">理解BFC</a></h1>
+                <a class="post-title-link" href="/React快速开始（二）使用JSX/" itemprop="url">React快速开始（二）使用JSX</a></h1>
         
 
         <div class="post-meta">
@@ -633,8 +490,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-15T15:40:45+08:00">
-                2017-07-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-30T08:44:00+08:00">
+                2016-06-30
               </time>
             
 
@@ -656,8 +513,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS</span>
+                  <a href="/categories/React/" itemprop="url" rel="index">
+                    <span itemprop="name">React</span>
                   </a>
                 </span>
 
@@ -691,10 +548,16 @@
 
       
         
-          <p>网上有太多关于BFC的文章，看了很多，还是不能理解。想想还是看全英文的官方文档，关于BFC的规则，在w3c文档中的<a href="https://www.w3.org/TR/CSS21/visuren.html" target="_blank" rel="external">第9章</a>和<a href="https://www.w3.org/TR/CSS21/visudet.html" target="_blank" rel="external">第10章</a>全局搜一下Block formatting context，就能找到。<br>
+          <blockquote>
+<p><a href="https://facebook.github.io/react/docs/introducing-jsx.html" target="_blank" rel="external">Introducing JSX</a></p>
+</blockquote>
+<p>JSX，全称 JavaScript XML ，一种类XML语言，它是JavaScript的语法扩展。</p>
+<p>没有使用JSX<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> element = React.createElement(</div><div class="line">  <span class="string">"h1"</span>,</div><div class="line">  <span class="literal">null</span>,</div><div class="line">  <span class="string">"Hello, world!"</span></div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p>使用JSX<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> element = <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, world!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>;</div></pre></td></tr></table></figure></p>
+<p>可以看出使用JSX可以让代码可读性更高、语义更清晰、更易维护。JSX类似于模板引擎，但功能更强大<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/理解BFC/#more" rel="contents">
+            <a class="btn" href="/React快速开始（二）使用JSX/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -740,7 +603,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chang20159.com/跨域问题解决方案/">
+    <link itemprop="mainEntityOfPage" href="http://chang20159.com/React快速开始（一）安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YANFANG・CHANG">
@@ -759,7 +622,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/跨域问题解决方案/" itemprop="url">跨域问题解决方案</a></h1>
+                <a class="post-title-link" href="/React快速开始（一）安装/" itemprop="url">React快速开始（一）安装</a></h1>
         
 
         <div class="post-meta">
@@ -771,8 +634,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-15T15:40:45+08:00">
-                2017-07-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-29T19:27:00+08:00">
+                2016-06-29
               </time>
             
 
@@ -794,8 +657,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工作/" itemprop="url" rel="index">
-                    <span itemprop="name">工作</span>
+                  <a href="/categories/React/" itemprop="url" rel="index">
+                    <span itemprop="name">React</span>
                   </a>
                 </span>
 
@@ -829,10 +692,13 @@
 
       
         
-          <p>在客户端会使用XMLHttpRequest 对象向后端应用发起请求，出于安全考虑，浏览器会限制脚本中发起的跨站请求。<br>前端项目域名： h5.51ping.com   后端项目域名： e.51ping.com<br>目前线上的解决方案是  通过跨域资源共享 CORS在请求头中自定义一个Header字段userInfo,后端应用从Header中获取userInfo.<br>但是放在cookie中，后端始终不能获取到。这里主要是解决后端应用不能从cookie中获取userInfo的问题.<br>
+          <blockquote>
+<p><a href="https://facebook.github.io/react/docs/installation.html" target="_blank" rel="external">Installation</a><br><a href="https://facebook.github.io/react/docs/optimizing-performance.html" target="_blank" rel="external">Optimizing Performance</a></p>
+</blockquote>
+<p>打算把React官方文档翻译一遍，有可能也会加入一点自己的理解。翻译出来就不用每次都去看一坨英文了，长痛不如短痛，希望能坚持下去啦。~</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/跨域问题解决方案/#more" rel="contents">
+            <a class="btn" href="/React快速开始（一）安装/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -878,7 +744,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chang20159.com/移动端H5开发小经验/">
+    <link itemprop="mainEntityOfPage" href="http://chang20159.com/使用Hexo+GitHub搭建静态博客/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YANFANG・CHANG">
@@ -897,7 +763,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/移动端H5开发小经验/" itemprop="url">移动端H5开发小经验</a></h1>
+                <a class="post-title-link" href="/使用Hexo+GitHub搭建静态博客/" itemprop="url">使用Hexo+GitHub搭建静态博客</a></h1>
         
 
         <div class="post-meta">
@@ -909,146 +775,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-15T15:40:45+08:00">
-                2017-07-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工作/" itemprop="url" rel="index">
-                    <span itemprop="name">工作</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Android手机软键盘挡住输入框？Android设置border-radius,背景颜色溢出？页面上数字变成可以点击的电话号码？<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/移动端H5开发小经验/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chang20159.com/给hexo+github page博客绑定域名的一些问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YANFANG・CHANG">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/photoo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端Girl">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/给hexo+github page博客绑定域名的一些问题/" itemprop="url">给Hexo+Github page博客绑定域名的一些问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-15T15:40:45+08:00">
-                2017-07-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-03T15:05:00+08:00">
+                2016-06-03
               </time>
             
 
@@ -1105,15 +833,148 @@
 
       
         
-          <p>项目终于做完了，忽然想到买了很久的域名一直没有用，本来以为还要备案啥的，就一直没倒腾。<br>今天研究了下域名绑定，居然很快就弄好了。但是也遇到了几个问题，还是记录一下吧~</p>
-<ul>
-<li>升级Node.js后，执行hexo generate报错</li>
-<li>Hexo博客绑定域名 CNAME文件问题</li>
-<li>个人主页添加域名后项目主页访问不了了</li>
-</ul>
+          <p>一直都想有个自己的空间写写东西，现在终于动起来啦~<br>网上找了好久的教程，选择方案也有很多，最后还是觉得基于GitHub，用Hexo来搭建最省事。（ps: 一开始还想自己写个主题来着，后来写哭了。。太费时费力）<br>关于主题的选择也是纠结了很久，一直找不到喜欢的主题，这个博客主题也是无意在一个网友的个人博客看到的，有了喜欢的主题，我才开始搭建这个博客。。。<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/给hexo+github page博客绑定域名的一些问题/#more" rel="contents">
+            <a class="btn" href="/使用Hexo+GitHub搭建静态博客/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://chang20159.com/【阅读笔记】JavaScript高级程序设计/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YANFANG・CHANG">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photoo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端Girl">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/【阅读笔记】JavaScript高级程序设计/" itemprop="url">【阅读笔记】JavaScript高级程序设计-面向对象</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-05-18T09:12:00+08:00">
+                2016-05-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>什么是对象？怎样创建对象？<br>构造函数、原型和实例之间有什么关系？原型链是怎样构成的？<br>JavaScript是怎样实现继承的？<br>如果不清楚，那就多看几遍【JavaScript高级程序设计】<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/【阅读笔记】JavaScript高级程序设计/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1190,8 +1051,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-15T15:40:45+08:00">
-                2017-07-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-21T18:41:00+08:00">
+                2016-04-21
               </time>
             
 
@@ -1252,6 +1113,144 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/隐藏元素的几种方法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://chang20159.com/Git基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YANFANG・CHANG">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photoo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端Girl">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/Git基础/" itemprop="url">Git基础</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-28T12:24:00+08:00">
+                2015-08-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Git是一个版本控制与管理工具。在Mac OS X上可以使用Homebrew安装Git。关于Homebrew的安装参见<a href="http://brew.sh/" target="_blank" rel="external">Homebrew 官网</a>。安装完成后，终端执行brew install git。然后就可以开始使用git啦~~<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/Git基础/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

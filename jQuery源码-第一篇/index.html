@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="jQuery3.1.1源码," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="在使用jQuery的过程中遇到很多的疑惑。jQuery为什么可以用美元符$表示？事件绑定的几个方法bind、delegate、on之间有什么区别？jQuery怎么判断checkbox是否被选中，有哪几种方法？这样的问题有很多，还记不住，日常使用到的jQuery API，既然用到了，就学习一下源码吧~理解了实现，就不怕忘记了。目前学习的版本是3.1.1，代码已经1万+行了。最新源码可从jquery">
+<meta name="keywords" content="jQuery3.1.1源码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【jQuery源码】第一篇">
+<meta property="og:url" content="http://chang20159.com/jQuery源码-第一篇/index.html">
+<meta property="og:site_name" content="前端Girl">
+<meta property="og:description" content="在使用jQuery的过程中遇到很多的疑惑。jQuery为什么可以用美元符$表示？事件绑定的几个方法bind、delegate、on之间有什么区别？jQuery怎么判断checkbox是否被选中，有哪几种方法？这样的问题有很多，还记不住，日常使用到的jQuery API，既然用到了，就学习一下源码吧~理解了实现，就不怕忘记了。目前学习的版本是3.1.1，代码已经1万+行了。最新源码可从jquery">
+<meta property="og:updated_time" content="2017-07-15T07:40:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【jQuery源码】第一篇">
+<meta name="twitter:description" content="在使用jQuery的过程中遇到很多的疑惑。jQuery为什么可以用美元符$表示？事件绑定的几个方法bind、delegate、on之间有什么区别？jQuery怎么判断checkbox是否被选中，有哪几种方法？这样的问题有很多，还记不住，日常使用到的jQuery API，既然用到了，就学习一下源码吧~理解了实现，就不怕忘记了。目前学习的版本是3.1.1，代码已经1万+行了。最新源码可从jquery">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://chang20159.com/jQuery源码-第一篇/"/>
+
+
+
+
+
+  <title>【jQuery源码】第一篇 | 前端Girl</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c044325210daededa91f1e0e580a6f1d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">前端Girl</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sharing">
+          <a href="http://sharing.chang20159.com/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-twitter"></i> <br />
+            
+            分享
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://chang20159.com/jQuery源码-第一篇/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YANFANG・CHANG">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photoo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端Girl">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">【jQuery源码】第一篇</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-15T15:40:45+08:00">
+                2017-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">JQuery</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在使用jQuery的过程中遇到很多的疑惑。<br>jQuery为什么可以用美元符$表示？<br>事件绑定的几个方法bind、delegate、on之间有什么区别？<br>jQuery怎么判断checkbox是否被选中，有哪几种方法？<br>这样的问题有很多，还记不住，日常使用到的jQuery API，既然用到了，就学习一下源码吧~<br>理解了实现，就不怕忘记了。<br>目前学习的版本是3.1.1，代码已经1万+行了。最新源码可从<a href="https://github.com/jquery/jquery" target="_blank" rel="external">jquery GitHub</a>获取。<br><a id="more"></a></p>
+<h2 id="总体结构"><a href="#总体结构" class="headerlink" title="总体结构"></a>总体结构</h2><p>JQuery的源码是一个立即执行的函数,带两个参数,对象global和函数factory</p>
+<ul>
+<li>global   &gt;  typeof window !== “undefined” ? window : this</li>
+<li>factory  &gt;  function( window, noGlobal ) {  …  }</li>
+<li><p>factory函数是构建jQuery的工厂，提供jQuery各种方法。当作为模块被引入时，输出jQuery，在浏览器中直接使用时，将jQuery赋给window.$。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">( <span class="function"><span class="keyword">function</span>(<span class="params"> global, factory </span>) </span>&#123;</div><div class="line"><span class="meta">	"use strict"</span>;</div><div class="line">	<span class="keyword">if</span> ( <span class="keyword">typeof</span> <span class="built_in">module</span> === <span class="string">"object"</span> &amp;&amp; <span class="keyword">typeof</span> <span class="built_in">module</span>.exports === <span class="string">"object"</span> ) &#123;</div><div class="line">		<span class="built_in">module</span>.exports = global.document ?</div><div class="line">			factory( global, <span class="literal">true</span> ) :</div><div class="line">			<span class="function"><span class="keyword">function</span>(<span class="params"> w </span>) </span>&#123;</div><div class="line">				<span class="keyword">if</span> ( !w.document ) &#123;</div><div class="line">					<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>( <span class="string">"jQuery requires a window with a document"</span>);</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">return</span> factory( w );</div><div class="line">			&#125;;</div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		factory( global );</div><div class="line">	&#125;</div><div class="line">&#125; )( <span class="keyword">typeof</span> <span class="built_in">window</span> !== <span class="string">"undefined"</span> ? <span class="built_in">window</span> : <span class="keyword">this</span>, <span class="function"><span class="keyword">function</span>(<span class="params"> window, noGlobal </span>) </span>&#123;</div><div class="line">	<span class="comment">//jQuery 是一个函数</span></div><div class="line">	<span class="keyword">var</span>	jQuery = <span class="function"><span class="keyword">function</span>(<span class="params"> selector, context </span>) </span>&#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">new</span> jQuery.fn.init( selector, context );</div><div class="line">		&#125;;</div><div class="line">		<span class="comment">// 核心方法</span></div><div class="line">		<span class="comment">// 回调系统</span></div><div class="line">		<span class="comment">// 异步队列</span></div><div class="line">		<span class="comment">// 数据缓存</span></div><div class="line">		<span class="comment">// 队列操作</span></div><div class="line">		<span class="comment">// 选择器引</span></div><div class="line">		<span class="comment">// 属性操作</span></div><div class="line">		<span class="comment">// 节点遍历</span></div><div class="line">		<span class="comment">// 文档处理</span></div><div class="line">		<span class="comment">// 样式操作</span></div><div class="line">		<span class="comment">// 属性操作</span></div><div class="line">		<span class="comment">// 事件体系</span></div><div class="line">		<span class="comment">// AJAX交互</span></div><div class="line">		<span class="comment">// 动画引擎</span></div><div class="line">	<span class="keyword">if</span> ( <span class="keyword">typeof</span> define === <span class="string">"function"</span> &amp;&amp; define.amd ) &#123;</div><div class="line">		define( <span class="string">"jquery"</span>, [], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">			<span class="keyword">return</span> jQuery;</div><div class="line">		&#125; );</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//在没有作为模块引入时，将jQuery赋给window.$和window.jQuery</span></div><div class="line">	<span class="keyword">if</span> ( !noGlobal ) &#123;</div><div class="line">		<span class="built_in">window</span>.jQuery = <span class="built_in">window</span>.$ = jQuery;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> jQuery;</div><div class="line">&#125; );</div></pre></td></tr></table></figure>
+</li>
+<li><p>当在其他模块中通过require(jQuery)的形式（CommonJS AMD等规范引入模块的方式）引入，并且在浏览器环境下，那这个代码的逻辑是这样的，将jQuery输出</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params"> window, true </span>) </span>&#123; </div><div class="line">	... </div><div class="line">	if ( <span class="keyword">typeof</span> define === <span class="string">"function"</span> &amp;&amp; define.amd ) &#123;</div><div class="line">		define( <span class="string">"jquery"</span>, [], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">			<span class="keyword">return</span> jQuery;</div><div class="line">		&#125; );</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>当在其他模块中通过require(jQuery)的形式引入，但不是在浏览器环境下，比如在nodejs环境中，global.document是不存在的，那逻辑就是这样。输出模块时抛出错误，提示当前环境因为没有window.document而不支持jQuery</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params"> w </span>) </span>&#123;</div><div class="line">				<span class="keyword">if</span> ( !w.document ) &#123;</div><div class="line">					<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>( <span class="string">"jQuery requires a window with a document"</span> );</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">return</span> factory( w );</div><div class="line">			&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果不是用require(jQuery)的形式引入，比如直接使用window.$，逻辑就是这样的，将构建好的jQuery赋给window.$和window.jQuery，这样就可以直接使用$了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params"> window, false </span>) </span>&#123; </div><div class="line">	... </div><div class="line">	window.jQuery = <span class="built_in">window</span>.$ = jQuery;</div><div class="line">	<span class="keyword">return</span> jQuery;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>在浏览器中 window == this，window.document存在，在nodejs环境下 global == this，不存在global.document。所以在nodejs环境中是不支持jQuery的。</p>
+<h2 id="JQuery扩展方法extend"><a href="#JQuery扩展方法extend" class="headerlink" title="JQuery扩展方法extend"></a>JQuery扩展方法extend</h2><h3 id="源码中extend方法的使用"><a href="#源码中extend方法的使用" class="headerlink" title="源码中extend方法的使用"></a>源码中extend方法的使用</h3><p>给jQuery自身和jQuery原型都定义了一个extend方法，在jQuery源码内部大部分jQuery和jQuery原型的属性都是用extend方法扩展的，jQuery的extend方法也常用来扩展对象，或者用于jQuery插件的开发。在jQuery中定义和使用extend如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//设置prototype属性</span></div><div class="line">jQuery.fn = jQuery.prototype = &#123; ... &#125;;</div><div class="line"><span class="comment">//给jQuery自身和jQuery原型都定义一个extend方法，</span></div><div class="line"><span class="comment">//用于扩展jQuery和jQuery.prototype的属性</span></div><div class="line">jQuery.extend = jQuery.fn.extend = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; ... &#125;;</div><div class="line">jQuery.fn.extend( &#123;</div><div class="line">	<span class="attr">on</span>: <span class="function"><span class="keyword">function</span>(<span class="params"> types, selector, data, fn </span>) </span>&#123; ... &#125;,</div><div class="line">	<span class="attr">one</span>: <span class="function"><span class="keyword">function</span>(<span class="params"> types, selector, data, fn </span>) </span>&#123; ... &#125;,</div><div class="line">	<span class="attr">off</span>: <span class="function"><span class="keyword">function</span>(<span class="params"> types, selector, fn </span>) </span>&#123; ... &#125; </div><div class="line">&#125;);</div><div class="line">jQuery.extend( &#123;</div><div class="line">	<span class="attr">attr</span>: <span class="function"><span class="keyword">function</span>(<span class="params"> elem, name, value </span>) </span>&#123; ... &#125;,</div><div class="line">	<span class="attr">removeAttr</span>: <span class="function"><span class="keyword">function</span>(<span class="params"> elem, value </span>) </span>&#123; ... &#125;</div><div class="line">&#125; );</div></pre></td></tr></table></figure></p>
+<h3 id="extend方法实现解析"><a href="#extend方法实现解析" class="headerlink" title="extend方法实现解析"></a>extend方法实现解析</h3><p>extend方法将参数都合并到target中,用法是这种形式： $.extend(target,src1,src2,…)</p>
+<ul>
+<li>如果第一个参数是布尔值，target就是第二个参数</li>
+<li>如果第一个参数不是布尔值，target就是第一个参数</li>
+<li>如果只有一个参数，target就是jQuery本身</li>
+<li>如果target不是object类型或者函数类型，target就是{}<br>扩展后返回的是target,所以如果不希望影响原有参数，可以设定一个空对象{}作为target,如$.extend({},src1,src2,…)或$.extend(true,{},src1,src2,…)<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">jQuery.extend = jQuery.fn.extend = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> options, name, src, copy, copyIsArray, clone,</div><div class="line">		target = <span class="built_in">arguments</span>[ <span class="number">0</span> ] || &#123;&#125;,  i = <span class="number">1</span>, length = <span class="built_in">arguments</span>.length,deep =<span class="literal">false</span>;</div><div class="line">	<span class="comment">//如果第一个参数是一个布尔值，根据这个布尔值决定是否深拷贝</span></div><div class="line">	<span class="keyword">if</span> ( <span class="keyword">typeof</span> target === <span class="string">"boolean"</span> ) &#123; </div><div class="line">		deep = target;</div><div class="line">		<span class="comment">// 如果第一个参数是一个布尔值，第二个参数作为target</span></div><div class="line">		target = <span class="built_in">arguments</span>[ i ] || &#123;&#125;;</div><div class="line">		i++;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// 如果target不是对象也不是函数，则将&#123;&#125;作为target，并且这个非对象的target不会被合并</span></div><div class="line">	<span class="keyword">if</span> ( <span class="keyword">typeof</span> target !== <span class="string">"object"</span> &amp;&amp; !jQuery.isFunction( target ) ) &#123;</div><div class="line">		target = &#123;&#125;;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// target就是jQuery</span></div><div class="line">	<span class="keyword">if</span> ( i === length ) &#123;</div><div class="line">		target = <span class="keyword">this</span>;</div><div class="line">		i--;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span> ( ; i &lt; length; i++ ) &#123;</div><div class="line">		<span class="comment">// 只处理非null 非undefined值</span></div><div class="line">		<span class="keyword">if</span> ( ( options = <span class="built_in">arguments</span>[ i ] ) != <span class="literal">null</span> ) &#123; </div><div class="line">			<span class="comment">// 合并每个参数对象的每一个属性</span></div><div class="line">			<span class="keyword">for</span> ( name <span class="keyword">in</span> options ) &#123;</div><div class="line">				src = target[ name ];</div><div class="line">				copy = options[ name ];</div><div class="line">				<span class="comment">// 已经合并的到target的就不再合并，如果要合并的参数中有相同的属性，但是属性值不同，会被覆盖</span></div><div class="line">				<span class="keyword">if</span> ( target === copy ) &#123;</div><div class="line">					<span class="keyword">continue</span>;</div><div class="line">				&#125;</div><div class="line">				<span class="comment">// 如果属性值是对象或者数组，并且deep为true,递归扩展，clone是子对象扩展的target</span></div><div class="line">				<span class="keyword">if</span> ( deep &amp;&amp; copy &amp;&amp; ( jQuery.isPlainObject( copy ) || ( copyIsArray = jQuery.isArray( copy ) ) ) ) &#123;</div><div class="line">					<span class="keyword">if</span> ( copyIsArray ) &#123;</div><div class="line">						copyIsArray = <span class="literal">false</span>;</div><div class="line">						clone = src &amp;&amp; jQuery.isArray( src ) ? src : [];</div><div class="line">					&#125; <span class="keyword">else</span> &#123;</div><div class="line">						clone = src &amp;&amp; jQuery.isPlainObject( src ) ? src : &#123;&#125;;</div><div class="line">					&#125;</div><div class="line">					<span class="comment">//子对象合并后的结果</span></div><div class="line">					target[ name ] = jQuery.extend( deep, clone, copy );</div><div class="line">				<span class="comment">// 如果属性值是undefined，不会合并到target中</span></div><div class="line">				&#125; <span class="keyword">else</span> <span class="keyword">if</span> ( copy !== <span class="literal">undefined</span> ) &#123;</div><div class="line">					target[ name ] = copy;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// 返回最终合并的结果</span></div><div class="line">	<span class="keyword">return</span> target;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="extend的用法"><a href="#extend的用法" class="headerlink" title="extend的用法"></a>extend的用法</h3><h4 id="如果有相同属性，且属性值都是对象"><a href="#如果有相同属性，且属性值都是对象" class="headerlink" title="如果有相同属性，且属性值都是对象"></a>如果有相同属性，且属性值都是对象</h4><p>var src1 = {name:”chang”,info:{age:24,sex:1,time:”2016”}};<br>var src2 = {name:”chen”,info:{age:26,sex:2,birth:”1945”}};</p>
+<h5 id="子对象递归合并"><a href="#子对象递归合并" class="headerlink" title="子对象递归合并"></a>子对象递归合并</h5><p>$.extend(true,{},src1,src2);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Object</div><div class="line">	info: Object</div><div class="line">		age: 26</div><div class="line">		birth: &quot;1945&quot;</div><div class="line">		sex: 2</div><div class="line">		time: &quot;2016&quot;</div><div class="line">		__proto__: Object</div><div class="line">	name: &quot;chen&quot;</div><div class="line">	__proto__: Object</div></pre></td></tr></table></figure></p>
+<h5 id="子对象后者属性值覆盖前者"><a href="#子对象后者属性值覆盖前者" class="headerlink" title="子对象后者属性值覆盖前者"></a>子对象后者属性值覆盖前者</h5><p>$.extend({},src1,src2); $.extend(false,{},src1,src2);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Object</div><div class="line">	info: Object</div><div class="line">		age: 26</div><div class="line">		birth: &quot;1945&quot;</div><div class="line">		sex: 2</div><div class="line">		__proto__: Object</div><div class="line">	name: &quot;chen&quot;</div><div class="line">	__proto__: Object</div></pre></td></tr></table></figure></p>
+<h4 id="有相同属性，但是只有一个属性是对象的情况"><a href="#有相同属性，但是只有一个属性是对象的情况" class="headerlink" title="有相同属性，但是只有一个属性是对象的情况"></a>有相同属性，但是只有一个属性是对象的情况</h4><p>var src1 = {namee:”chang”,info:{age:24,sex:1,time:”2016”}};<br>var src2 = {namee:”chen”,info:1234};</p>
+<h5 id="true-子对象info合并时不进行深度合并"><a href="#true-子对象info合并时不进行深度合并" class="headerlink" title="true + 子对象info合并时不进行深度合并"></a>true + 子对象info合并时不进行深度合并</h5><p>最后的src2合并时由于不是对象，所以不会进行深度合并，直接覆盖target中已有的info<br>$.extend(true,{},src1,src2);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Object &#123;namee: &quot;chen&quot;, info: 1234&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="true-子对象info合并时-target不是对象则不合并"><a href="#true-子对象info合并时-target不是对象则不合并" class="headerlink" title="true + 子对象info合并时,target不是对象则不合并"></a>true + 子对象info合并时,target不是对象则不合并</h5><p>子对象info合并时，是这样的，$.extend(true,1234,{age:24,sex:1,time:”2016”})<br>第一个合并参数不是对象，所有target是{}<br>$.extend(true,{},src2,src1)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Object</div><div class="line">	info: Object</div><div class="line">		age: 24</div><div class="line">		sex: 1</div><div class="line">		time: &quot;2016&quot;</div><div class="line">		__proto__: Object</div><div class="line">	namee: &quot;chang&quot;</div><div class="line">	__proto__: Object</div></pre></td></tr></table></figure></p>
+<h4 id="合并到自身"><a href="#合并到自身" class="headerlink" title="合并到自身"></a>合并到自身</h4><p>$.extend(src1);<br>$.info;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Object &#123;age: 24, sex: 1, time: &quot;2016&quot;&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://jquery.com/" target="_blank" rel="external">jquery官网</a></li>
+<li><a href="https://github.com/jquery/jquery" target="_blank" rel="external">jquery GitHub</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/jQuery3-1-1源码/" rel="tag"># jQuery3.1.1源码</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/下雨天/" rel="next" title="下雨天">
+                <i class="fa fa-chevron-left"></i> 下雨天
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/java与javascript/" rel="prev" title="Java 与 Javascript">
+                Java 与 Javascript <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/photoo.jpg"
+               alt="YANFANG・CHANG" />
+          <p class="site-author-name" itemprop="name">YANFANG・CHANG</p>
+           
+              <p class="site-description motion-element" itemprop="description">少年锦时</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#总体结构"><span class="nav-number">1.</span> <span class="nav-text">总体结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JQuery扩展方法extend"><span class="nav-number">2.</span> <span class="nav-text">JQuery扩展方法extend</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#源码中extend方法的使用"><span class="nav-number">2.1.</span> <span class="nav-text">源码中extend方法的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#extend方法实现解析"><span class="nav-number">2.2.</span> <span class="nav-text">extend方法实现解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#extend的用法"><span class="nav-number">2.3.</span> <span class="nav-text">extend的用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如果有相同属性，且属性值都是对象"><span class="nav-number">2.3.1.</span> <span class="nav-text">如果有相同属性，且属性值都是对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#子对象递归合并"><span class="nav-number">2.3.1.1.</span> <span class="nav-text">子对象递归合并</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#子对象后者属性值覆盖前者"><span class="nav-number">2.3.1.2.</span> <span class="nav-text">子对象后者属性值覆盖前者</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有相同属性，但是只有一个属性是对象的情况"><span class="nav-number">2.3.2.</span> <span class="nav-text">有相同属性，但是只有一个属性是对象的情况</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#true-子对象info合并时不进行深度合并"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">true + 子对象info合并时不进行深度合并</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#true-子对象info合并时-target不是对象则不合并"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">true + 子对象info合并时,target不是对象则不合并</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合并到自身"><span class="nav-number">2.3.3.</span> <span class="nav-text">合并到自身</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YANFANG・CHANG</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

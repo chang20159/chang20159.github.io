@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="let和const块级作用域let和const具有块级作用域，只在所在的代码块内有效。12345678//块级作用域var a = [];for(var i = 0; i &amp;lt; 10; i++)&amp;#123;    a[i] = function()&amp;#123;        console.log(i);    &amp;#125;;&amp;#125;a[6]();  //10">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6语法简要笔记">
+<meta property="og:url" content="http://chang20159.com/ES6语法学习/index.html">
+<meta property="og:site_name" content="前端Girl">
+<meta property="og:description" content="let和const块级作用域let和const具有块级作用域，只在所在的代码块内有效。12345678//块级作用域var a = [];for(var i = 0; i &amp;lt; 10; i++)&amp;#123;    a[i] = function()&amp;#123;        console.log(i);    &amp;#125;;&amp;#125;a[6]();  //10">
+<meta property="og:updated_time" content="2017-07-15T07:40:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6语法简要笔记">
+<meta name="twitter:description" content="let和const块级作用域let和const具有块级作用域，只在所在的代码块内有效。12345678//块级作用域var a = [];for(var i = 0; i &amp;lt; 10; i++)&amp;#123;    a[i] = function()&amp;#123;        console.log(i);    &amp;#125;;&amp;#125;a[6]();  //10">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://chang20159.com/ES6语法学习/"/>
+
+
+
+
+
+  <title>ES6语法简要笔记 | 前端Girl</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c044325210daededa91f1e0e580a6f1d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">前端Girl</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sharing">
+          <a href="http://sharing.chang20159.com/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-twitter"></i> <br />
+            
+            分享
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://chang20159.com/ES6语法学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YANFANG・CHANG">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photoo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端Girl">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ES6语法简要笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-15T15:40:45+08:00">
+                2017-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="let和const"><a href="#let和const" class="headerlink" title="let和const"></a>let和const</h2><h3 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h3><p>let和const具有块级作用域，只在所在的代码块内有效。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//块级作用域</span></div><div class="line"><span class="keyword">var</span> a = [];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</div><div class="line">    a[i] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(i);</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line">a[<span class="number">6</span>]();  <span class="comment">//10</span></div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> b = [];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; <span class="number">10</span>; j++)&#123;</div><div class="line">    b[j] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        println(j)</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line">b[<span class="number">6</span>](); <span class="comment">//6</span></div></pre></td></tr></table></figure>
+<h3 id="不存在变量提升"><a href="#不存在变量提升" class="headerlink" title="不存在变量提升"></a>不存在变量提升</h3><p>let/const不像var那样会发生“变量提升”现象。所以，变量一定要在声明后使用，否则报错。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 变量提升</span></div><div class="line"><span class="built_in">console</span>.log(foo); <span class="comment">// 输出undefined</span></div><div class="line"><span class="built_in">console</span>.log(bar); <span class="comment">// 报错ReferenceError</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> foo = <span class="number">2</span>;</div><div class="line"><span class="keyword">let</span> bar = <span class="number">2</span>;</div></pre></td></tr></table></figure></p>
+<h3 id="暂时性死区"><a href="#暂时性死区" class="headerlink" title="暂时性死区"></a>暂时性死区</h3><p>只要块级作用域内存在let/const命令，它所声明的变量就“绑定”（binding）这个区域，不再受外部声明的影响。<br>所以在此区域内的，在声明之前不能使用该变量。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//暂时性死区</span></div><div class="line"><span class="keyword">var</span> a = <span class="number">20159</span>;</div><div class="line"></div><div class="line">&#123;</div><div class="line">    a = <span class="string">"chang"</span>;</div><div class="line">    <span class="keyword">let</span> a ;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="不允许重复声明"><a href="#不允许重复声明" class="headerlink" title="不允许重复声明"></a>不允许重复声明</h3><p>let/const不允许在相同作用域内，重复声明同一个变量。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//不允许重复声明</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">let</span> name;</div><div class="line">    <span class="keyword">var</span> name;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="字符串模板"><a href="#字符串模板" class="headerlink" title="字符串模板"></a>字符串模板</h2><h3 id="字符串中嵌入变量"><a href="#字符串中嵌入变量" class="headerlink" title="字符串中嵌入变量"></a>字符串中嵌入变量</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//字符串模板</span></div><div class="line"><span class="keyword">let</span> number = <span class="number">20159</span>;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">`chang <span class="subst">$&#123;number&#125;</span>`</span>);</div></pre></td></tr></table></figure>
+<h3 id="支持多行字符串反斜杠"><a href="#支持多行字符串反斜杠" class="headerlink" title="支持多行字符串反斜杠"></a>支持多行字符串反斜杠</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> idea = <span class="string">`I like to do the front end.</span></div><div class="line">How can I do ?`;</div><div class="line"><span class="built_in">console</span>.log(idea);</div></pre></td></tr></table></figure>
+<h2 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h2><p>ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值,称为解构赋值。<br>解构赋值的规则是，只要等号右边的值不是对象，就先将其转为对象。按照此规则可以分为两类：数组的解构和对象的解构。</p>
+<h3 id="对象的解构赋值"><a href="#对象的解构赋值" class="headerlink" title="对象的解构赋值"></a>对象的解构赋值</h3><p>等号左侧是{}，则按右侧数据进行对象解构，此时等号右侧必须是对象或可转为对象的值(undefined和null无法转为对象)。<br><strong>对象的结构根据属性名来匹配。</strong><br>如下，是先找到左侧的同名属性name，再赋给该属性对应的变量name1。最终将profile.name的值付给了name1。如果左侧的属性在对象中没有，对应的变量值将会是undefined,比如sex<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> profile = &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">"chang"</span>,</div><div class="line">    <span class="attr">number</span>:<span class="number">20159</span></div><div class="line">&#125;;</div><div class="line"><span class="keyword">let</span> &#123; <span class="attr">name</span>:name1,<span class="attr">number</span>:number1,<span class="attr">age</span>:age1 = <span class="number">24</span>,<span class="attr">sex</span>:sex1 &#125; = profile;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"name1:%s,number1:%d,age1:%d,sex1:%s"</span>, name1,number1,age1,sex1);</div><div class="line">alert(<span class="string">`name1:<span class="subst">$&#123;name1&#125;</span>,number1:<span class="subst">$&#123;number1&#125;</span>,age1:<span class="subst">$&#123;age1&#125;</span>,sex1:<span class="subst">$&#123;sex1&#125;</span>`</span>);</div></pre></td></tr></table></figure></p>
+<p>如果新的变量名与对象的属性名相同，可以简写成下面这样，等同于 let name = profile.name;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> &#123; name,number,age,sex &#125; = profile;</div></pre></td></tr></table></figure></p>
+<h3 id="数组的解构赋值"><a href="#数组的解构赋值" class="headerlink" title="数组的解构赋值"></a>数组的解构赋值</h3><p>等号的右边的数据结构必须具Iterator接口，等号左边用[]表示<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> array = [<span class="string">"ch"</span>]</div></pre></td></tr></table></figure></p>
+<h3 id="指定变量的默认值"><a href="#指定变量的默认值" class="headerlink" title="指定变量的默认值"></a>指定变量的默认值</h3><p>等号左侧是[],则对右侧数据进行数组解构，此时等号右侧必须是具有Iterator结构的值。<br><strong>数组解构根据元素的顺序进行模式匹配。</strong></p>
+<h3 id="解构赋值的应用"><a href="#解构赋值的应用" class="headerlink" title="解构赋值的应用"></a>解构赋值的应用</h3><p>1.交换变量值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[x,y] = [y,x];</div></pre></td></tr></table></figure></p>
+<p>2.提取对象属性<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;userInfo,shopInfo&#125; = <span class="keyword">this</span>.props;</div></pre></td></tr></table></figure></p>
+<p>3.解构赋值也可用于函数调用时传参，形参相当于解构等式左侧值，实际传入的参数相当于等式右侧的值。</p>
+<h2 id="…-运算符"><a href="#…-运算符" class="headerlink" title="… 运算符"></a>… 运算符</h2><p>..运算符有两种，spread运算符和rest运算符,作用相反</p>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h4 id="spread运算符"><a href="#spread运算符" class="headerlink" title="spread运算符"></a>spread运算符</h4><p>spread运算符是将数组或类数组对象展开成一系列用逗号隔开的值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> array = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="keyword">let</span> new_array = [...array,<span class="number">4</span>,<span class="number">5</span>];    <span class="comment">//数组合并</span></div><div class="line"><span class="built_in">console</span>.log(new_array);</div><div class="line"><span class="keyword">let</span> copy_array = [...array];   <span class="comment">//数组深拷贝</span></div><div class="line"><span class="built_in">console</span>.log(copy_array);</div></pre></td></tr></table></figure></p>
+<h4 id="rest运算符"><a href="#rest运算符" class="headerlink" title="rest运算符"></a>rest运算符</h4><p>将逗号隔开的值序列组合成一个数组<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//结合数组的解构赋值</span></div><div class="line"><span class="keyword">let</span> [ value,...array ] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</div><div class="line"><span class="built_in">console</span>.log(<span class="string">`value:<span class="subst">$&#123;value&#125;</span>, array:<span class="subst">$&#123;array&#125;</span>`</span>); <span class="comment">//value:1, array:2,3,4</span></div><div class="line"></div><div class="line"><span class="comment">//用于函数不定长的参数,可避免使用arguments对象</span></div><div class="line"><span class="keyword">var</span> rest = <span class="function"><span class="keyword">function</span>(<span class="params">...args</span>)</span>&#123;</div><div class="line">-    <span class="built_in">console</span>.log(<span class="string">`rest.args:<span class="subst">$&#123;args[<span class="number">1</span>]&#125;</span>`</span>); <span class="comment">//rest.args:es5</span></div><div class="line">&#125;;</div><div class="line">rest(<span class="string">"es6"</span>,<span class="string">"es5"</span>,<span class="string">"es3"</span>);</div></pre></td></tr></table></figure></p>
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><h4 id="spread运算符-1"><a href="#spread运算符-1" class="headerlink" title="spread运算符"></a>spread运算符</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> object = &#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:<span class="number">2</span>&#125;;</div><div class="line"><span class="keyword">let</span> object1 = &#123;...object&#125;;</div><div class="line">object1.a = <span class="number">2</span>;</div><div class="line"><span class="comment">//object1 : &#123;a:2,b:2&#125;</span></div><div class="line"><span class="comment">//object : &#123;a:1,b:2&#125;</span></div></pre></td></tr></table></figure>
+<h4 id="rest运算符-1"><a href="#rest运算符-1" class="headerlink" title="rest运算符"></a>rest运算符</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> object = &#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:<span class="number">2</span>&#125;;</div><div class="line"><span class="keyword">let</span> &#123;...object2&#125; = &#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:<span class="number">2</span>&#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.dir(object2);</div><div class="line"><span class="comment">//&#123;a:1,b:2&#125;</span></div></pre></td></tr></table></figure>
+<h2 id="for…of循环"><a href="#for…of循环" class="headerlink" title="for…of循环"></a>for…of循环</h2><p>for…of可遍历数组的键值，for…in循环只能获得键名<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> array = [<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>];</div><div class="line">array.name = <span class="string">'es6'</span>;</div><div class="line"><span class="comment">//只返回可数字索引的键值 of: 10   of: 20  of: 30</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> value <span class="keyword">of</span> array)&#123;  <span class="built_in">console</span>.log(<span class="string">`of: <span class="subst">$&#123;value&#125;</span>`</span>); &#125; </div><div class="line"></div><div class="line"><span class="comment">//in: 0  in: 1  in: 2  in: name</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> value <span class="keyword">in</span> array)&#123;  <span class="built_in">console</span>.log(<span class="string">`in: <span class="subst">$&#123;value&#125;</span>`</span>); &#125; </div><div class="line"></div><div class="line"><span class="comment">//forEach: 0:10  forEach: 1:20  forEach: 2:30</span></div><div class="line">array.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item,index</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">`forEach: <span class="subst">$&#123;index&#125;</span>:<span class="subst">$&#123;item&#125;</span>`</span>);  </div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h2 id="Promise对象"><a href="#Promise对象" class="headerlink" title="Promise对象"></a>Promise对象</h2><p>Promise是一个构造函数，函数的参数是一个未来才会结束的事件，而函数的实例是这个事件执行的状态。简洁的说，Promise对象代表一个异步操作，可以获取异步操作的状态。<br>有三种状态：</p>
+<ul>
+<li>pending 进行中</li>
+<li>resolved 已完成</li>
+<li>rejected 已失败</li>
+</ul>
+<p>而且状态的改变只会从pending到resolved，或则从pending到rejected<br>注意：Promise一旦new了就会立即执行，无法中断</p>
+<p>用法:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    ...</div><div class="line">  if (<span class="comment">/* 异步操作成功 */</span>)&#123;</div><div class="line">    resolve(value);  <span class="comment">//执行resolve函数将状态从Pending变为Resolved</span></div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    reject(error);   <span class="comment">//执行reject函数将状态从Pending变为rejected</span></div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">／/then方法分别指定Resolved状态和Reject状态的回调函数。</div><div class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</div><div class="line">  <span class="comment">// Resolved状态时执行，value是resolve函数的参数</span></div><div class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</div><div class="line">  <span class="comment">// rejected状态时执行，value是reject函数的参数</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>实例方法：<br>1、Promise.prototype.then()  为Promise实例添加状态改变时的回调函数<br>2、Promise.prototype.catch() 指定发生错误时的回调函数<br>3、Promise.all()  接收多个Promise实例，返回一个新的Promise实例<br>  <strong>如果希望多个请求并发执行，可以使用Promise.all方法</strong><br>  例如：p = new Promise([p1,p2,p3])</p>
+<ul>
+<li>只有p1,p2,p3的状态都是已完成时，p的状态才会变成已完成，并将p1,p2,p3的返回值组成一个数组，传递给p的回调函数；</li>
+<li>只要p1,p2,p3有一个失败，p的状态就会变成失败，第一个被reject的实例的返回值，会传递给p的回调函数</li>
+<li>注意：p1、p2、p3都是Promise对象的实例，如果不是，就会先调用Promise.resolve方法，将参数转为Promise实例<br>4、Promise.race()  只要p1、p2、p3之中有一个实例率先改变状态，p的状态就跟着改变。率先改变状态的Promise 实例的返回值，传递给p的回调函数。<br>5、Promise.resolve()  返回一个新的 Promise 实例,实例的状态为resolved<br>6、Promise.reject()  返回一个新的 Promise 实例，实例的状态为rejected<br>7、Promise内部的错误不会冒泡到全局，可以通过在回调链尾端添加done方法抛出可能出现的错误<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Promise</span>.prototype.done = <span class="function"><span class="keyword">function</span> (<span class="params">onFulfilled, onRejected</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.then(onFulfilled, onRejected)</div><div class="line">    .catch(<span class="function"><span class="keyword">function</span> (<span class="params">reason</span>) </span>&#123;</div><div class="line">      <span class="comment">// 抛出一个全局错误</span></div><div class="line">      setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123; <span class="keyword">throw</span> reason &#125;, <span class="number">0</span>);</div><div class="line">    &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>8、finally(callback) 用于指定不管Promise对象最后状态如何，都会执行的操作.<br>接受一个普通的回调函数作为参数，该函数不管怎样都必须执行</p>
+<h2 id="Generator函数"><a href="#Generator函数" class="headerlink" title="Generator函数"></a>Generator函数</h2><p>Generator函数与yield关键字配合可以让代码分布执行，异步操作也是将一个任务分段执行，因此 可以使用Generator函数实现异步编程，拿到第一步的执行结果后再执行第二步，但是程序的写法却跟同步写法一样。看个例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>* <span class="title">generator</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">let</span> x = <span class="number">1</span>;</div><div class="line">  <span class="keyword">let</span> y = <span class="keyword">yield</span> x+<span class="number">1</span>;</div><div class="line">  <span class="keyword">let</span> z =  <span class="keyword">yield</span> x + <span class="number">2</span>;</div><div class="line">  <span class="built_in">console</span>.log(z);</div><div class="line">&#125;</div><div class="line"></div><div class="line">g = generator();</div><div class="line"><span class="keyword">let</span> step1 = g.next()</div><div class="line"><span class="built_in">console</span>.dir(step1)</div><div class="line"><span class="keyword">let</span> step2 = g.next(step1.value)</div><div class="line"><span class="built_in">console</span>.dir(step2)</div><div class="line"><span class="keyword">let</span> step3 = g.next(step2.value)</div><div class="line"><span class="built_in">console</span>.dir(step3)</div></pre></td></tr></table></figure></p>
+<p>结果如下，执行Generator函数返回一个指针对象，调用指针对象的next方法移动指针到yield语句，每次执行都从上一次结束的位置开始。next方法可以传入参数，这个参数是上一个阶段的执行结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&gt;Object</div><div class="line">  &gt;done: false</div><div class="line">  &gt;value: 2_</div><div class="line">  &gt;_proto__: Object</div><div class="line">&gt;Object</div><div class="line">  &gt;done: false</div><div class="line">  &gt;value: 3_</div><div class="line">  &gt;_proto__: Object</div><div class="line">3</div><div class="line">&gt;Object</div><div class="line">  &gt;done: true</div><div class="line">  &gt;value: undefined</div><div class="line">  &gt;__proto__: Object</div><div class="line">undefined</div></pre></td></tr></table></figure></p>
+<p>Generator函数能够让异步编程可以像写同步执行的代码一样，但是阶段执行的管理却很麻烦，我得知道什么时候执行那一步。有些方法可以让Generator函数自动执行，这里还没研究。</p>
+<h2 id="Set和Map"><a href="#Set和Map" class="headerlink" title="Set和Map"></a>Set和Map</h2><h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><p>Set实例是不重复值的集合</p>
+<p><strong>Set实例的属性和方法</strong><br>let list = new Set([1,2,2,4])</p>
+<p><strong>属性</strong></p>
+<ul>
+<li>size  返回成员数量</li>
+</ul>
+<p><strong>操作方法</strong></p>
+<ul>
+<li>add(value)：添加某个值，返回的是当前的Set对象，可以采用链式写法</li>
+<li>delete(value)：删除某个值，返回一个布尔值，表示删除是否成功。</li>
+<li>has(value)：返回一个布尔值，表示该值是否为Set的成员。</li>
+<li>clear()：清除所有成员，没有返回值。</li>
+</ul>
+<p><strong>遍历方法</strong></p>
+<ul>
+<li>keys()：返回键名的遍历器</li>
+<li>values()：返回键值的遍历器</li>
+<li>entries()：返回键值对的遍历器</li>
+<li>forEach()：使用回调函数遍历每个成员</li>
+</ul>
+<p>注意：WeakSet 结构与 Set 类似，也是不重复的值的集合，但WeakSet的成员只能是对象。并且WeakSet 中的对象都是弱引用，即垃圾回收机制不考虑 WeakSet 对该对象的引用</p>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><p>Map是键值对的集合，“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键<br>注意，只有对同一个对象的引用，Map 结构才将其视为同一个键。</p>
+<p><strong>Map实例的属性和方法</strong><br>let map = new Map([[‘name1’,’chang’],[‘name2’,’chen’]])</p>
+<p><strong>属性</strong></p>
+<ul>
+<li>size  返回成员数量</li>
+</ul>
+<p><strong>操作方法</strong></p>
+<ul>
+<li>set(value)：添加键值对，返回的是当前的Map对象，可以采用链式写法</li>
+<li>delete(value)：删除某个键，返回一个布尔值，表示删除是否成功。</li>
+<li>has(value)：返回一个布尔值，表示某个键是否在当前 Map 对象</li>
+<li>clear()：清除所有成员，没有返回值。</li>
+</ul>
+<p><strong>遍历方法</strong></p>
+<ul>
+<li>keys()：返回键名的遍历器</li>
+<li>values()：返回键值的遍历器</li>
+<li>entries()：返回键值对的遍历器</li>
+<li>forEach()：使用回调函数遍历每个成员</li>
+</ul>
+<p>注意：WeakMap结构与Map结构类似，也是用于生成键值对的集合，但WeakMap只接受对象作为键名（null除外），并且WeakMap的键名所指向的对象，不计入垃圾回收机制。</p>
+<p><strong>提示：垃圾回收机制依赖引用计数，如果一个值的引用次数不为0，垃圾回收机制就不会释放这块内存</strong></p>
+<h2 id="类修饰器"><a href="#类修饰器" class="headerlink" title="类修饰器"></a>类修饰器</h2><h2 id="import和export"><a href="#import和export" class="headerlink" title="import和export"></a>import和export</h2><p>ES6 模块的设计思想，是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。<br>模块功能由export和import两个命令完成。export对外输出模块，import用于引入模块。</p>
+<h3 id="export-写法"><a href="#export-写法" class="headerlink" title="export 写法"></a>export 写法</h3><p>import接受一对大括号，指定从其他模块导入的变量名。大括号中的变量名，必须与被导入模块对外接口的名称相同。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// 写法一</div><div class="line">export var value = 1;</div><div class="line">export function func()&#123;...&#125;;</div><div class="line"></div><div class="line">// 写法二</div><div class="line">var value = 1;</div><div class="line">function func()&#123;...&#125;;</div><div class="line">export &#123;value,func&#125;;</div><div class="line"></div><div class="line">// 写法三</div><div class="line">var value = 1;</div><div class="line">function func()&#123;...&#125;;</div><div class="line">export &#123;</div><div class="line">  value as value1,</div><div class="line">  func as func1,</div><div class="line">  func as func2</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h3 id="import写法"><a href="#import写法" class="headerlink" title="import写法"></a>import写法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 写法一</div><div class="line">import &#123; value, func&#125; from &apos;module&apos;</div><div class="line"></div><div class="line">// 写法二</div><div class="line">import * as Module from &apos;module&apos;</div></pre></td></tr></table></figure>
+<h3 id="export-default写法"><a href="#export-default写法" class="headerlink" title="export default写法"></a>export default写法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">export var value = 1;</div><div class="line">export default function func()&#123;...&#125;;</div><div class="line"></div><div class="line">import func, &#123;value&#125; from &apos;module&apos;</div></pre></td></tr></table></figure>
+<h2 id="async-函数"><a href="#async-函数" class="headerlink" title="async 函数"></a>async 函数</h2><p>其实是Generator函数的语法糖，将<strong>Generator函数</strong>和<strong>自动执行器</strong>，包装在一个函数里<br>Generator 函数需要调用next方法，每调一次执行一段。</p>
+<ul>
+<li>async函数返回一个Promise 对象，一旦遇到await就会先返回，等到异步操作完成再接着执行函数体内后面的语句。</li>
+<li>async函数的返回值，会作为then方法回调函数的参数。</li>
+<li>await命令后面是一个Promise 对象。如果不是，会被转成一个立即resolve的Promise 对象。<br>下面代码的执行结果是： 哈哈   嘿嘿    4<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">async function cal(x)&#123;</div><div class="line">    let result = await x + 1;</div><div class="line">    console.log(&apos;嘿嘿&apos;)</div><div class="line">    return result;</div><div class="line">&#125;</div><div class="line">cal(3).then(function(data)&#123;</div><div class="line">  console.log(data)</div><div class="line">&#125;)</div><div class="line">console.log(&apos;哈哈&apos;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>与Generator 函数相比</p>
+<ul>
+<li>async函数内置了执行器，像普通函数一样执行</li>
+<li>async和await，比星号和yield语义更清楚。async表示函数里有异步操作，await表示紧跟在后面的表达式需要等待结果。</li>
+<li>async函数的返回值是 Promise 对象</li>
+</ul>
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">x,y</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(x+y &gt; <span class="number">5</span>)&#123;</div><div class="line">       <span class="keyword">return</span> x * y</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>有了箭头函数，上面的方法可以写成：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(x,y) =&gt; &#123;</div><div class="line">  <span class="keyword">if</span>(x+y &gt; <span class="number">5</span>)&#123;</div><div class="line">      <span class="keyword">return</span> x * y</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>如果函数体只有一个return语句，可以将大括号和return省略<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(x,y) =&gt;  x * y</div></pre></td></tr></table></figure></p>
+<p>如果返回的是个对象,得加上（），参数如果只有一个，可以不要()<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(name) =&gt;  (&#123;<span class="attr">name</span>:name&#125;)</div></pre></td></tr></table></figure></p>
+<p>箭头函数其实就是一个用箭头简化了的匿名函数，不过与匿名函数有点区别。<br><strong>箭头函数内部的this是词法作用域，由上下文确定，指向函数定义时的上下文。</strong><br>下面的代码，obj.sayHello()得到的结果是undefined,因为this.name指向window或undefined<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;</div><div class="line">    name: &apos;chang&apos;,</div><div class="line">    sayHello: function () &#123;</div><div class="line">        var fn = function () &#123;</div><div class="line">            return this.name; // this指向window或undefined</div><div class="line">        &#125;;</div><div class="line">        return fn();</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>为了正常执行我们会这样做<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;</div><div class="line">    name: &apos;chang&apos;,</div><div class="line">    sayHello: function () &#123;</div><div class="line">        let _this = this</div><div class="line">        var fn = function () &#123;</div><div class="line">            return _this.name; // this指向window或undefined</div><div class="line">        &#125;;</div><div class="line">        return fn();</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>但是有了箭头函数就不需要了,可以写成这样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;</div><div class="line">    name: &apos;chang&apos;,</div><div class="line">    sayHello: function () &#123;</div><div class="line">        var fn = () =&gt; this.name;</div><div class="line">        return fn();</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">ECMAScript 6 入门</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise#参见" target="_blank" rel="external">MDN Promise</a></li>
+<li><a href="http://www.infoq.com/cn/es6-in-depth/" target="_blank" rel="external">深入浅出ES6 </a></li>
+<li><a href="https://promisesaplus.com/" target="_blank" rel="external">Promises/A+</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Hexo博客迁移至GitCafe(Coding)的Pages服务/" rel="next" title="Hexo博客迁移至GitCafe(Coding)的Pages服务">
+                <i class="fa fa-chevron-left"></i> Hexo博客迁移至GitCafe(Coding)的Pages服务
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/CSS小经验/" rel="prev" title="CSS小经验">
+                CSS小经验 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/photoo.jpg"
+               alt="YANFANG・CHANG" />
+          <p class="site-author-name" itemprop="name">YANFANG・CHANG</p>
+           
+              <p class="site-description motion-element" itemprop="description">少年锦时</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#let和const"><span class="nav-number">1.</span> <span class="nav-text">let和const</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#块级作用域"><span class="nav-number">1.1.</span> <span class="nav-text">块级作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不存在变量提升"><span class="nav-number">1.2.</span> <span class="nav-text">不存在变量提升</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#暂时性死区"><span class="nav-number">1.3.</span> <span class="nav-text">暂时性死区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不允许重复声明"><span class="nav-number">1.4.</span> <span class="nav-text">不允许重复声明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串模板"><span class="nav-number">2.</span> <span class="nav-text">字符串模板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串中嵌入变量"><span class="nav-number">2.1.</span> <span class="nav-text">字符串中嵌入变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#支持多行字符串反斜杠"><span class="nav-number">2.2.</span> <span class="nav-text">支持多行字符串反斜杠</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解构赋值"><span class="nav-number">3.</span> <span class="nav-text">解构赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对象的解构赋值"><span class="nav-number">3.1.</span> <span class="nav-text">对象的解构赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组的解构赋值"><span class="nav-number">3.2.</span> <span class="nav-text">数组的解构赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定变量的默认值"><span class="nav-number">3.3.</span> <span class="nav-text">指定变量的默认值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解构赋值的应用"><span class="nav-number">3.4.</span> <span class="nav-text">解构赋值的应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#…-运算符"><span class="nav-number">4.</span> <span class="nav-text">… 运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">4.1.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#spread运算符"><span class="nav-number">4.1.1.</span> <span class="nav-text">spread运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rest运算符"><span class="nav-number">4.1.2.</span> <span class="nav-text">rest运算符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象"><span class="nav-number">4.2.</span> <span class="nav-text">对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#spread运算符-1"><span class="nav-number">4.2.1.</span> <span class="nav-text">spread运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rest运算符-1"><span class="nav-number">4.2.2.</span> <span class="nav-text">rest运算符</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for…of循环"><span class="nav-number">5.</span> <span class="nav-text">for…of循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise对象"><span class="nav-number">6.</span> <span class="nav-text">Promise对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generator函数"><span class="nav-number">7.</span> <span class="nav-text">Generator函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set和Map"><span class="nav-number">8.</span> <span class="nav-text">Set和Map</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Set"><span class="nav-number">8.1.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map"><span class="nav-number">8.2.</span> <span class="nav-text">Map</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类修饰器"><span class="nav-number">9.</span> <span class="nav-text">类修饰器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#import和export"><span class="nav-number">10.</span> <span class="nav-text">import和export</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#export-写法"><span class="nav-number">10.1.</span> <span class="nav-text">export 写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#import写法"><span class="nav-number">10.2.</span> <span class="nav-text">import写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#export-default写法"><span class="nav-number">10.3.</span> <span class="nav-text">export default写法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#async-函数"><span class="nav-number">11.</span> <span class="nav-text">async 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#箭头函数"><span class="nav-number">12.</span> <span class="nav-text">箭头函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">13.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YANFANG・CHANG</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

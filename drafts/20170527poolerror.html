@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta property="og:type" content="website">
+<meta property="og:title" content="前端Girl">
+<meta property="og:url" content="http://chang20159.com/drafts/20170527poolerror.html">
+<meta property="og:site_name" content="前端Girl">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta property="og:updated_time" content="2017-07-15T07:40:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端Girl">
+<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://chang20159.com/drafts/20170527poolerror.html"/>
+
+
+
+
+
+  <title> | 前端Girl</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c044325210daededa91f1e0e580a6f1d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">前端Girl</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sharing">
+          <a href="http://sharing.chang20159.com/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-twitter"></i> <br />
+            
+            分享
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+  <header class="post-header">
+
+	<h1 class="post-title" itemprop="name headline"></h1>
+
+
+
+</header>
+
+    
+    
+      <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div><div class="line">319</div><div class="line">320</div><div class="line">321</div><div class="line">322</div></pre></td><td class="code"><pre><div class="line">[2017-05-26 17:32:45.367] [INFO] prism-monitor-logstore-web - Request ID:  03fc92b59f4454fb2f95f150ded372eb</div><div class="line">[2017-05-26 17:32:45.368] [INFO] prism-monitor-logstore-web - 查询条件 &#123;&#125;</div><div class="line">[2017-05-26 17:32:45.374] [TRACE] prism-monitor-logstore-web - Executing (default): SELECT `Id` AS `id`, `PageUrl` AS `target`, `FromUrl` AS `from`, `Type` AS `type`, `BrowserName` AS `browserName`, `BrowserVersion` AS `browserVersion`, `Ip` AS `ip`, `Title` AS `title`, `UserAgent` AS `userAgent`, `Row` AS `rowNum`, `Col` AS `colNum`, `DomType` AS `domType`, `DomId` AS `domId`, `DomClass` AS `domClass`, `DomXPosition` AS `domX`, `DomYPosition` AS `domY`, `Platform` AS `platform`, `Message` AS `msg`, `Attribute` AS `attribute`, `ApplyId` AS `applyId`, `Level` AS `level`, `Env` AS `env`, `Os` AS `os`, `Engine` AS `engine`, `AddTime` AS `addTime`, `UpdateTime` AS `updateTime` FROM `FT_Log` AS `log` ORDER BY addTime desc;</div><div class="line">[2017-05-26 17:35:28.602] [INFO] prism-monitor-logstore-web - &#123; SequelizeDatabaseError: read ETIMEDOUT</div><div class="line">    at Query.formatError (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/dialects/mysql/query.js:175:14)</div><div class="line">    at Query._callback (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/dialects/mysql/query.js:49:21)</div><div class="line">    at Query.Sequence.end (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/mysql/lib/protocol/sequences/Sequence.js:86:24)</div><div class="line">    at Protocol.handleNetworkError (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/mysql/lib/protocol/Protocol.js:364:14)</div><div class="line">    at Connection._handleNetworkError (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/mysql/lib/Connection.js:428:18)</div><div class="line">    at emitOne (events.js:96:13)</div><div class="line">    at Socket.emit (events.js:188:7)</div><div class="line">    at emitErrorNT (net.js:1276:8)</div><div class="line">    at _combinedTickCallback (internal/process/next_tick.js:74:11)</div><div class="line">    at process._tickDomainCallback (internal/process/next_tick.js:122:9)</div><div class="line">From previous event:</div><div class="line">    at Query.run (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/dialects/mysql/query.js:39:17)</div><div class="line">    at /data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/sequelize.js:849:20</div><div class="line">    at /data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/retry-as-promised/index.js:40:21</div><div class="line">From previous event:</div><div class="line">    at retryAsPromised (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/retry-as-promised/index.js:30:10)</div><div class="line">    at /data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/sequelize.js:848:12</div><div class="line">From previous event:</div><div class="line">    at Promise.then (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/promise.js:21:17)</div><div class="line">    at Model.bulkCreate (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/model.js:2154:6)</div><div class="line">    at LogDao._callee2$ (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/lib/dao/LogDao.js:76:50)</div><div class="line">    at tryCatch (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/regenerator-runtime/runtime.js:65:40)</div><div class="line">    at GeneratorFunctionPrototype.invoke [as _invoke] (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/regenerator-runtime/runtime.js:303:22)</div><div class="line">    at GeneratorFunctionPrototype.prototype.(anonymous function) [as next] (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/regenerator-runtime/runtime.js:117:21)</div><div class="line">    at step (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/lib/dao/LogDao.js:23:201)</div><div class="line">    at /data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/lib/dao/LogDao.js:23:457</div><div class="line">    at Promise.F (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/core-js/library/modules/_export.js:35:28)</div><div class="line">    at LogDao.&lt;anonymous&gt; (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/lib/dao/LogDao.js:23:99)</div><div class="line">    at LogDao.save (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/lib/dao/LogDao.js:102:26)</div><div class="line">    at LogService._callee$ (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/lib/services/LogService.js:103:48)</div><div class="line">    at tryCatch (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/regenerator-runtime/runtime.js:65:40)</div><div class="line">    at GeneratorFunctionPrototype.invoke [as _invoke] (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/regenerator-runtime/runtime.js:303:22)</div><div class="line">    at GeneratorFunctionPrototype.prototype.(anonymous function) [as next] (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/regenerator-runtime/runtime.js:117:21)</div><div class="line">    at step (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/lib/services/LogService.js:31:201)</div><div class="line">    at /data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/lib/services/LogService.js:31:457</div><div class="line">    at Promise.F (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/core-js/library/modules/_export.js:35:28)</div><div class="line">    at LogService.&lt;anonymous&gt; (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/lib/services/LogService.js:31:99)</div><div class="line">  name: &apos;SequelizeDatabaseError&apos;,</div><div class="line">  message: &apos;read ETIMEDOUT&apos;,</div><div class="line">  parent:</div><div class="line">   &#123; Error: read ETIMEDOUT</div><div class="line">       at exports._errnoException (util.js:1026:11)</div><div class="line">       at TCP.onread (net.js:569:26)</div><div class="line">       --------------------</div><div class="line">       at Protocol._enqueue (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/mysql/lib/protocol/Protocol.js:141:48)</div><div class="line">       at Connection.query (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/mysql/lib/Connection.js:208:25)</div><div class="line">       at /data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/dialects/mysql/query.js:40:21</div><div class="line">       at Promise._execute (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/debuggability.js:300:9)</div><div class="line">       at Promise._resolveFromExecutor (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:483:18)</div><div class="line">       at new Promise (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:79:10)</div><div class="line">       at Query.run (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/dialects/mysql/query.js:39:17)</div><div class="line">       at /data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/sequelize.js:849:20</div><div class="line">       at /data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/retry-as-promised/index.js:40:21</div><div class="line">       at Promise._execute (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/debuggability.js:300:9)</div><div class="line">       at Promise._resolveFromExecutor (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:483:18)</div><div class="line">       at new Promise (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:79:10)</div><div class="line">       at retryAsPromised (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/retry-as-promised/index.js:30:10)</div><div class="line">       at /data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/sequelize.js:848:12</div><div class="line">       at tryCatcher (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/util.js:16:23)</div><div class="line">       at Promise._settlePromiseFromHandler (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:512:31)</div><div class="line">     code: &apos;ETIMEDOUT&apos;,</div><div class="line">     errno: &apos;ETIMEDOUT&apos;,</div><div class="line">     syscall: &apos;read&apos;,</div><div class="line">     fatal: true,</div><div class="line">     sql: &apos;INSERT INTO `FT_Log` (`Id`,`PageUrl`,`Type`,`BrowserName`,`BrowserVersion`,`Ip`,`Title`,`UserAgent`,`Row`,`Col`,`Platform`,`Message`,`ApplyId`,`Env`,`Os`,`Engine`,`AddTime`,`UpdateTime`) VALUES (NULL,\&apos;http://www.uedfamily.com/news/list/2001.html\&apos;,\&apos;jsError\&apos;,\&apos;Firefox\&apos;,\&apos;52.0\&apos;,\&apos;127.0.0.1\&apos;,\&apos;千钧一发！动车进站瞬间女子跳轨 客运员死命拽回\&apos;,\&apos;Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:52.0) Gecko/20100101 Firefox/52.0\&apos;,\&apos;6774\&apos;,\&apos;4252\&apos;,\&apos;Apple Mac\&apos;,\&apos;Failed Context Types: Calling PropTypes validators directly is not supported by the `prop-types` package. Use `PropTypes.checkPropTypes()` to call them. Read more at http://fb.me/use-check-prop-types\&apos;,\&apos;10000010\&apos;,\&apos;Mac\&apos;,\&apos;OS X\&apos;,\&apos;Gecko\&apos;,\&apos;2017-07-17 04:08:13\&apos;,\&apos;2017-05-26 17:19:59\&apos;);&apos; &#125;,</div><div class="line">  original:</div><div class="line">   &#123; Error: read ETIMEDOUT</div><div class="line">       at exports._errnoException (util.js:1026:11)</div><div class="line">       at TCP.onread (net.js:569:26)</div><div class="line">       --------------------</div><div class="line">       at Protocol._enqueue (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/mysql/lib/protocol/Protocol.js:141:48)</div><div class="line">       at Connection.query (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/mysql/lib/Connection.js:208:25)</div><div class="line">       at /data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/dialects/mysql/query.js:40:21</div><div class="line">       at Promise._execute (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/debuggability.js:300:9)</div><div class="line">       at Promise._resolveFromExecutor (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:483:18)</div><div class="line">       at new Promise (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:79:10)</div><div class="line">       at Query.run (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/dialects/mysql/query.js:39:17)</div><div class="line">       at /data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/sequelize.js:849:20</div><div class="line">       at /data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/retry-as-promised/index.js:40:21</div><div class="line">       at Promise._execute (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/debuggability.js:300:9)</div><div class="line">       at Promise._resolveFromExecutor (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:483:18)</div><div class="line">       at new Promise (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:79:10)</div><div class="line">       at retryAsPromised (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/retry-as-promised/index.js:30:10)</div><div class="line">       at /data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/sequelize.js:848:12</div><div class="line">       at tryCatcher (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/util.js:16:23)</div><div class="line">       at Promise._settlePromiseFromHandler (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:512:31)</div><div class="line">     code: &apos;ETIMEDOUT&apos;,</div><div class="line">     errno: &apos;ETIMEDOUT&apos;,</div><div class="line">     syscall: &apos;read&apos;,</div><div class="line">     fatal: true,</div><div class="line">     sql: &apos;INSERT INTO `FT_Log` (`Id`,`PageUrl`,`Type`,`BrowserName`,`BrowserVersion`,`Ip`,`Title`,`UserAgent`,`Row`,`Col`,`Platform`,`Message`,`ApplyId`,`Env`,`Os`,`Engine`,`AddTime`,`UpdateTime`) VALUES (NULL,\&apos;http://www.uedfamily.com/news/list/2001.html\&apos;,\&apos;jsError\&apos;,\&apos;Firefox\&apos;,\&apos;52.0\&apos;,\&apos;127.0.0.1\&apos;,\&apos;千钧一发！动车进站瞬间女子跳轨 客运员死命拽回\&apos;,\&apos;Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:52.0) Gecko/20100101 Firefox/52.0\&apos;,\&apos;6774\&apos;,\&apos;4252\&apos;,\&apos;Apple Mac\&apos;,\&apos;Failed Context Types: Calling PropTypes validators directly is not supported by the `prop-types` package. Use `PropTypes.checkPropTypes()` to call them. Read more at http://fb.me/use-check-prop-types\&apos;,\&apos;10000010\&apos;,\&apos;Mac\&apos;,\&apos;OS X\&apos;,\&apos;Gecko\&apos;,\&apos;2017-07-17 04:08:13\&apos;,\&apos;2017-05-26 17:19:59\&apos;);&apos; &#125;,</div><div class="line">  sql: &apos;INSERT INTO `FT_Log` (`Id`,`PageUrl`,`Type`,`BrowserName`,`BrowserVersion`,`Ip`,`Title`,`UserAgent`,`Row`,`Col`,`Platform`,`Message`,`ApplyId`,`Env`,`Os`,`Engine`,`AddTime`,`UpdateTime`) VALUES (NULL,\&apos;http://www.uedfamily.com/news/list/2001.html\&apos;,\&apos;jsError\&apos;,\&apos;Firefox\&apos;,\&apos;52.0\&apos;,\&apos;127.0.0.1\&apos;,\&apos;千钧一发！动车进站瞬间女子跳轨 客运员死命拽回\&apos;,\&apos;Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:52.0) Gecko/20100101 Firefox/52.0\&apos;,\&apos;6774\&apos;,\&apos;4252\&apos;,\&apos;Apple Mac\&apos;,\&apos;Failed Context Types: Calling PropTypes validators directly is not supported by the `prop-types` package. Use `PropTypes.checkPropTypes()` to call them. Read more at http://fb.me/use-check-prop-types\&apos;,\&apos;10000010\&apos;,\&apos;Mac\&apos;,\&apos;OS X\&apos;,\&apos;Gecko\&apos;,\&apos;2017-07-17 04:08:13\&apos;,\&apos;2017-05-26 17:19:59\&apos;);&apos; &#125;</div><div class="line">[2017-05-26 17:36:02.972] [INFO] prism-monitor-logstore-web - &#123; SequelizeDatabaseError: read ETIMEDOUT</div><div class="line">    at Query.formatError (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/dialects/mysql/query.js:175:14)</div><div class="line">    at Query._callback (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/dialects/mysql/query.js:49:21)</div><div class="line">    at Query.Sequence.end (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/mysql/lib/protocol/sequences/Sequence.js:86:24)</div><div class="line">    at Protocol.handleNetworkError (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/mysql/lib/protocol/Protocol.js:364:14)</div><div class="line">    at Connection._handleNetworkError (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/mysql/lib/Connection.js:428:18)</div><div class="line">    at emitOne (events.js:96:13)</div><div class="line">    at Socket.emit (events.js:188:7)</div><div class="line">    at emitErrorNT (net.js:1276:8)</div><div class="line">    at _combinedTickCallback (internal/process/next_tick.js:74:11)</div><div class="line">    at process._tickDomainCallback (internal/process/next_tick.js:122:9)</div><div class="line">From previous event:</div><div class="line">    at Query.run (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/dialects/mysql/query.js:39:17)</div><div class="line">    at /data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/sequelize.js:849:20</div><div class="line">    at /data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/retry-as-promised/index.js:40:21</div><div class="line">From previous event:</div><div class="line">    at retryAsPromised (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/retry-as-promised/index.js:30:10)</div><div class="line">    at /data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/sequelize.js:848:12</div><div class="line">From previous event:</div><div class="line">    at Promise.then (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/promise.js:21:17)</div><div class="line">    at Model.bulkCreate (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/model.js:2154:6)</div><div class="line">    at LogDao._callee2$ (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/lib/dao/LogDao.js:76:50)</div><div class="line">    at tryCatch (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/regenerator-runtime/runtime.js:65:40)</div><div class="line">    at GeneratorFunctionPrototype.invoke [as _invoke] (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/regenerator-runtime/runtime.js:303:22)</div><div class="line">    at GeneratorFunctionPrototype.prototype.(anonymous function) [as next] (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/regenerator-runtime/runtime.js:117:21)</div><div class="line">    at step (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/lib/dao/LogDao.js:23:201)</div><div class="line">    at /data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/lib/dao/LogDao.js:23:457</div><div class="line">    at Promise.F (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/core-js/library/modules/_export.js:35:28)</div><div class="line">    at LogDao.&lt;anonymous&gt; (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/lib/dao/LogDao.js:23:99)</div><div class="line">    at LogDao.save (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/lib/dao/LogDao.js:102:26)</div><div class="line">    at LogService._callee$ (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/lib/services/LogService.js:103:48)</div><div class="line">    at tryCatch (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/regenerator-runtime/runtime.js:65:40)</div><div class="line">    at GeneratorFunctionPrototype.invoke [as _invoke] (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/regenerator-runtime/runtime.js:303:22)</div><div class="line">    at GeneratorFunctionPrototype.prototype.(anonymous function) [as next] (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/regenerator-runtime/runtime.js:117:21)</div><div class="line">    at step (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/lib/services/LogService.js:31:201)</div><div class="line">    at /data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/lib/services/LogService.js:31:457</div><div class="line">    at Promise.F (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/core-js/library/modules/_export.js:35:28)</div><div class="line">    at LogService.&lt;anonymous&gt; (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/lib/services/LogService.js:31:99)</div><div class="line">  name: &apos;SequelizeDatabaseError&apos;,</div><div class="line">  message: &apos;read ETIMEDOUT&apos;,</div><div class="line">  parent:</div><div class="line">   &#123; Error: read ETIMEDOUT</div><div class="line">       at exports._errnoException (util.js:1026:11)</div><div class="line">       at TCP.onread (net.js:569:26)</div><div class="line">       --------------------</div><div class="line">       at Protocol._enqueue (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/mysql/lib/protocol/Protocol.js:141:48)</div><div class="line">       at Connection.query (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/mysql/lib/Connection.js:208:25)</div><div class="line">       at /data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/dialects/mysql/query.js:40:21</div><div class="line">       at Promise._execute (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/debuggability.js:300:9)</div><div class="line">       at Promise._resolveFromExecutor (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:483:18)</div><div class="line">       at new Promise (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:79:10)</div><div class="line">       at Query.run (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/dialects/mysql/query.js:39:17)</div><div class="line">       at /data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/sequelize.js:849:20</div><div class="line">       at /data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/retry-as-promised/index.js:40:21</div><div class="line">       at Promise._execute (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/debuggability.js:300:9)</div><div class="line">       at Promise._resolveFromExecutor (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:483:18)</div><div class="line">       at new Promise (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:79:10)</div><div class="line">       at retryAsPromised (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/retry-as-promised/index.js:30:10)</div><div class="line">       at /data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/sequelize.js:848:12</div><div class="line">       at tryCatcher (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/util.js:16:23)</div><div class="line">       at Promise._settlePromiseFromHandler (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:512:31)</div><div class="line">     code: &apos;ETIMEDOUT&apos;,</div><div class="line">     errno: &apos;ETIMEDOUT&apos;,</div><div class="line">     syscall: &apos;read&apos;,</div><div class="line">     fatal: true,</div><div class="line">     sql: &apos;INSERT INTO `FT_Log` (`Id`,`PageUrl`,`Type`,`BrowserName`,`BrowserVersion`,`Ip`,`Title`,`UserAgent`,`Row`,`Col`,`Platform`,`Message`,`ApplyId`,`Env`,`Os`,`Engine`,`AddTime`,`UpdateTime`) VALUES (NULL,\&apos;https://www.baidu.com/msgList/6977.html\&apos;,\&apos;jsError\&apos;,\&apos;Chrome\&apos;,\&apos;21.0.1180.71\&apos;,\&apos;127.0.0.1\&apos;,\&apos;《悟空传》“悟空是我”特辑\&apos;,\&apos;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.71 Safari/537.1 LBBROWSER\&apos;,\&apos;2295\&apos;,\&apos;4067\&apos;,\&apos;Microsoft Windows\&apos;,\&apos;Failed Context Types: Calling PropTypes validators directly is not supported by the `prop-types` package. Use `PropTypes.checkPropTypes()` to call them. Read more at http://fb.me/use-check-prop-types\&apos;,\&apos;10000010\&apos;,\&apos;Windows\&apos;,\&apos;Windows 7\&apos;,\&apos;Webkit\&apos;,\&apos;Invalid date\&apos;,\&apos;2017-05-26 17:20:34\&apos;);&apos; &#125;,</div><div class="line">  original:</div><div class="line">   &#123; Error: read ETIMEDOUT</div><div class="line">       at exports._errnoException (util.js:1026:11)</div><div class="line">       at TCP.onread (net.js:569:26)</div><div class="line">       --------------------</div><div class="line">       at Protocol._enqueue (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/mysql/lib/protocol/Protocol.js:141:48)</div><div class="line">       at Connection.query (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/mysql/lib/Connection.js:208:25)</div><div class="line">       at /data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/dialects/mysql/query.js:40:21</div><div class="line">       at Promise._execute (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/debuggability.js:300:9)</div><div class="line">       at Promise._resolveFromExecutor (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:483:18)</div><div class="line">       at new Promise (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:79:10)</div><div class="line">       at Query.run (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/dialects/mysql/query.js:39:17)</div><div class="line">       at /data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/sequelize.js:849:20</div><div class="line">       at /data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/retry-as-promised/index.js:40:21</div><div class="line">       at Promise._execute (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/debuggability.js:300:9)</div><div class="line">       at Promise._resolveFromExecutor (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:483:18)</div><div class="line">       at new Promise (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:79:10)</div><div class="line">       at retryAsPromised (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/retry-as-promised/index.js:30:10)</div><div class="line">       at /data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/sequelize/lib/sequelize.js:848:12</div><div class="line">       at tryCatcher (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/util.js:16:23)</div><div class="line">       at Promise._settlePromiseFromHandler (/data/webapps/prism-monitor-logstore-web/releases/20170526170201/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:512:31)</div><div class="line">     code: &apos;ETIMEDOUT&apos;,</div><div class="line">     errno: &apos;ETIMEDOUT&apos;,</div><div class="line">     syscall: &apos;read&apos;,</div><div class="line">     fatal: true,</div><div class="line">     sql: &apos;INSERT INTO `FT_Log` (`Id`,`PageUrl`,`Type`,`BrowserName`,`BrowserVersion`,`Ip`,`Title`,`UserAgent`,`Row`,`Col`,`Platform`,`Message`,`ApplyId`,`Env`,`Os`,`Engine`,`AddTime`,`UpdateTime`) VALUES (NULL,\&apos;https://www.baidu.com/msgList/6977.html\&apos;,\&apos;jsError\&apos;,\&apos;Chrome\&apos;,\&apos;21.0.1180.71\&apos;,\&apos;127.0.0.1\&apos;,\&apos;《悟空传》“悟空是我”特辑\&apos;,\&apos;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.71 Safari/537.1 LBBROWSER\&apos;,\&apos;2295\&apos;,\&apos;4067\&apos;,\&apos;Microsoft Windows\&apos;,\&apos;Failed Context Types: Calling PropTypes validators directly is not supported by the `prop-types` package. Use `PropTypes.checkPropTypes()` to call them. Read more at http://fb.me/use-check-prop-types\&apos;,\&apos;10000010\&apos;,\&apos;Windows\&apos;,\&apos;Windows 7\&apos;,\&apos;Webkit\&apos;,\&apos;Invalid date\&apos;,\&apos;2017-05-26 17:20:34\&apos;);&apos; &#125;,</div><div class="line">  sql: &apos;INSERT INTO `FT_Log` (`Id`,`PageUrl`,`Type`,`BrowserName`,`BrowserVersion`,`Ip`,`Title`,`UserAgent`,`Row`,`Col`,`Platform`,`Message`,`ApplyId`,`Env`,`Os`,`Engine`,`AddTime`,`UpdateTime`) VALUES (NULL,\&apos;https://www.baidu.com/msgList/6977.html\&apos;,\&apos;jsError\&apos;,\&apos;Chrome\&apos;,\&apos;21.0.1180.71\&apos;,\&apos;127.0.0.1\&apos;,\&apos;《悟空传》“悟空是我”特辑\&apos;,\&apos;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.71 Safari/537.1 LBBROWSER\&apos;,\&apos;2295\&apos;,\&apos;4067\&apos;,\&apos;Microsoft Windows\&apos;,\&apos;Failed Context Types: Calling PropTypes validators directly is not supported by the `prop-types` package. Use `PropTypes.checkPropTypes()` to call them. Read more at http://fb.me/use-check-prop-types\&apos;,\&apos;10000010\&apos;,\&apos;Windows\&apos;,\&apos;Windows 7\&apos;,\&apos;Webkit\&apos;,\&apos;Invalid date\&apos;,\&apos;2017-05-26 17:20:34\&apos;);&apos; &#125;</div><div class="line">[2017-05-26 17:38:29.001] [INFO] prism-monitor-logstore-web - Request ID:  f560306eecbec7ac19ddec93dd2bd1fd</div><div class="line">[2017-05-26 17:38:29.002] [INFO] prism-monitor-logstore-web - 查询条件 &#123;&#125;</div><div class="line">[2017-05-26 17:38:29.010] [TRACE] prism-monitor-logstore-web - Executing (default): SELECT `Id` AS `id`, `PageUrl` AS `target`, `FromUrl` AS `from`, `Type` AS `type`, `BrowserName` AS `browserName`, `BrowserVersion` AS `browserVersion`, `Ip` AS `ip`, `Title` AS `title`, `UserAgent` AS `userAgent`, `Row` AS `rowNum`, `Col` AS `colNum`, `DomType` AS `domType`, `DomId` AS `domId`, `DomClass` AS `domClass`, `DomXPosition` AS `domX`, `DomYPosition` AS `domY`, `Platform` AS `platform`, `Message` AS `msg`, `Attribute` AS `attribute`, `ApplyId` AS `applyId`, `Level` AS `level`, `Env` AS `env`, `Os` AS `os`, `Engine` AS `engine`, `AddTime` AS `addTime`, `UpdateTime` AS `updateTime` FROM `FT_Log` AS `log` ORDER BY addTime desc;</div><div class="line">appenv &#123;&quot;env&quot;:&quot;test&quot;,&quot;deployenv&quot;:&quot;qa&quot;,&quot;zkserver&quot;:&quot;10.72.198.216:2181,10.72.193.216:2181,10.72.196.216:2181,10.72.194.216:2181,10.72.195.216:2181&quot;&#125;</div><div class="line">Zookeeper connection: connecting...</div><div class="line">Zookeeper connection: state(connected).</div><div class="line">[2017-05-26 17:46:23.349] [DEBUG] prism-monitor-logstore-web - redis subscribe key: prism-logger-errorLog</div><div class="line">[2017-05-26 17:59:14.773] [INFO] prism-monitor-logstore-web - Request ID:  8b083300819c94ba9cbcbb6bf101b718</div><div class="line">[2017-05-26 17:59:14.776] [INFO] prism-monitor-logstore-web - 查询条件 &#123;&#125;</div><div class="line">[2017-05-26 17:59:14.804] [TRACE] prism-monitor-logstore-web - Executing (default): SELECT `Id` AS `id`, `PageUrl` AS `target`, `FromUrl` AS `from`, `Type` AS `type`, `BrowserName` AS `browserName`, `BrowserVersion` AS `browserVersion`, `Ip` AS `ip`, `Title` AS `title`, `UserAgent` AS `userAgent`, `Row` AS `rowNum`, `Col` AS `colNum`, `DomType` AS `domType`, `DomId` AS `domId`, `DomClass` AS `domClass`, `DomXPosition` AS `domX`, `DomYPosition` AS `domY`, `Platform` AS `platform`, `Message` AS `msg`, `Attribute` AS `attribute`, `ApplyId` AS `applyId`, `Level` AS `level`, `Env` AS `env`, `Os` AS `os`, `Engine` AS `engine`, `AddTime` AS `addTime`, `UpdateTime` AS `updateTime` FROM `FT_Log` AS `log` ORDER BY addTime desc;</div><div class="line">[2017-05-26 18:14:40.436] [ERROR] prism-monitor-logstore-web - query &#123; SequelizeDatabaseError: read ETIMEDOUT</div><div class="line">    at Query.formatError (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/sequelize/lib/dialects/mysql/query.js:175:14)</div><div class="line">    at Query._callback (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/sequelize/lib/dialects/mysql/query.js:49:21)</div><div class="line">    at Query.Sequence.end (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/mysql/lib/protocol/sequences/Sequence.js:86:24)</div><div class="line">    at Protocol.handleNetworkError (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/mysql/lib/protocol/Protocol.js:364:14)</div><div class="line">    at Connection._handleNetworkError (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/mysql/lib/Connection.js:428:18)</div><div class="line">    at emitOne (events.js:96:13)</div><div class="line">    at Socket.emit (events.js:188:7)</div><div class="line">    at emitErrorNT (net.js:1276:8)</div><div class="line">    at _combinedTickCallback (internal/process/next_tick.js:74:11)</div><div class="line">    at process._tickDomainCallback (internal/process/next_tick.js:122:9)</div><div class="line">From previous event:</div><div class="line">    at Query.run (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/sequelize/lib/dialects/mysql/query.js:39:17)</div><div class="line">    at /data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/sequelize/lib/sequelize.js:849:20</div><div class="line">    at /data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/retry-as-promised/index.js:40:21</div><div class="line">From previous event:</div><div class="line">    at retryAsPromised (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/retry-as-promised/index.js:30:10)</div><div class="line">    at ConnectionManager.&lt;anonymous&gt; (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/sequelize/lib/sequelize.js:848:12)</div><div class="line">From previous event:</div><div class="line">    at Promise.then (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/sequelize/lib/promise.js:21:17)</div><div class="line">    at Model.findAll (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/sequelize/lib/model.js:1395:6)</div><div class="line">    at LogDao._callee$ (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/lib/dao/LogDao.js:44:50)</div><div class="line">    at tryCatch (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/regenerator-runtime/runtime.js:65:40)</div><div class="line">    at GeneratorFunctionPrototype.invoke [as _invoke] (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/regenerator-runtime/runtime.js:303:22)</div><div class="line">    at GeneratorFunctionPrototype.prototype.(anonymous function) [as next] (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/regenerator-runtime/runtime.js:117:21)</div><div class="line">    at step (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/lib/dao/LogDao.js:23:201)</div><div class="line">    at /data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/lib/dao/LogDao.js:23:457</div><div class="line">    at Promise.F (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/core-js/library/modules/_export.js:35:28)</div><div class="line">    at LogDao.&lt;anonymous&gt; (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/lib/dao/LogDao.js:23:99)</div><div class="line">    at LogDao.query (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/lib/dao/LogDao.js:58:25)</div><div class="line">    at LogService._callee2$ (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/lib/services/LogService.js:301:48)</div><div class="line">    at tryCatch (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/regenerator-runtime/runtime.js:65:40)</div><div class="line">    at GeneratorFunctionPrototype.invoke [as _invoke] (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/regenerator-runtime/runtime.js:303:22)</div><div class="line">    at GeneratorFunctionPrototype.prototype.(anonymous function) [as next] (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/regenerator-runtime/runtime.js:117:21)</div><div class="line">    at step (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/lib/services/LogService.js:31:201)</div><div class="line">    at /data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/lib/services/LogService.js:31:457</div><div class="line">    at Promise.F (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/core-js/library/modules/_export.js:35:28)</div><div class="line">    at LogService.&lt;anonymous&gt; (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/lib/services/LogService.js:31:99)</div><div class="line">  name: &apos;SequelizeDatabaseError&apos;,</div><div class="line">  message: &apos;read ETIMEDOUT&apos;,</div><div class="line">  parent:</div><div class="line">   &#123; Error: read ETIMEDOUT</div><div class="line">       at exports._errnoException (util.js:1026:11)</div><div class="line">       at TCP.onread (net.js:569:26)</div><div class="line">       --------------------</div><div class="line">       at Protocol._enqueue (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/mysql/lib/protocol/Protocol.js:141:48)</div><div class="line">       at Connection.query (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/mysql/lib/Connection.js:208:25)</div><div class="line">       at /data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/sequelize/lib/dialects/mysql/query.js:40:21</div><div class="line">       at Promise._execute (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/debuggability.js:300:9)</div><div class="line">       at Promise._resolveFromExecutor (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:483:18)</div><div class="line">       at new Promise (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:79:10)</div><div class="line">       at Query.run (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/sequelize/lib/dialects/mysql/query.js:39:17)</div><div class="line">       at /data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/sequelize/lib/sequelize.js:849:20</div><div class="line">       at /data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/retry-as-promised/index.js:40:21</div><div class="line">       at Promise._execute (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/debuggability.js:300:9)</div><div class="line">       at Promise._resolveFromExecutor (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:483:18)</div><div class="line">       at new Promise (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:79:10)</div><div class="line">       at retryAsPromised (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/retry-as-promised/index.js:30:10)</div><div class="line">       at ConnectionManager.&lt;anonymous&gt; (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/sequelize/lib/sequelize.js:848:12)</div><div class="line">       at ConnectionManager.tryCatcher (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/util.js:16:23)</div><div class="line">       at Promise._settlePromiseFromHandler (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:512:31)</div><div class="line">     code: &apos;ETIMEDOUT&apos;,</div><div class="line">     errno: &apos;ETIMEDOUT&apos;,</div><div class="line">     syscall: &apos;read&apos;,</div><div class="line">     fatal: true,</div><div class="line">     sql: &apos;SELECT `Id` AS `id`, `PageUrl` AS `target`, `FromUrl` AS `from`, `Type` AS `type`, `BrowserName` AS `browserName`, `BrowserVersion` AS `browserVersion`, `Ip` AS `ip`, `Title` AS `title`, `UserAgent` AS `userAgent`, `Row` AS `rowNum`, `Col` AS `colNum`, `DomType` AS `domType`, `DomId` AS `domId`, `DomClass` AS `domClass`, `DomXPosition` AS `domX`, `DomYPosition` AS `domY`, `Platform` AS `platform`, `Message` AS `msg`, `Attribute` AS `attribute`, `ApplyId` AS `applyId`, `Level` AS `level`, `Env` AS `env`, `Os` AS `os`, `Engine` AS `engine`, `AddTime` AS `addTime`, `UpdateTime` AS `updateTime` FROM `FT_Log` AS `log` ORDER BY addTime desc;&apos; &#125;,</div><div class="line">  original:</div><div class="line">   &#123; Error: read ETIMEDOUT</div><div class="line">       at exports._errnoException (util.js:1026:11)</div><div class="line">       at TCP.onread (net.js:569:26)</div><div class="line">       --------------------</div><div class="line">       at Protocol._enqueue (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/mysql/lib/protocol/Protocol.js:141:48)</div><div class="line">       at Connection.query (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/mysql/lib/Connection.js:208:25)</div><div class="line">       at /data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/sequelize/lib/dialects/mysql/query.js:40:21</div><div class="line">       at Promise._execute (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/debuggability.js:300:9)</div><div class="line">       at Promise._resolveFromExecutor (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:483:18)</div><div class="line">       at new Promise (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:79:10)</div><div class="line">       at Query.run (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/sequelize/lib/dialects/mysql/query.js:39:17)</div><div class="line">       at /data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/sequelize/lib/sequelize.js:849:20</div><div class="line">       at /data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/retry-as-promised/index.js:40:21</div><div class="line">       at Promise._execute (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/debuggability.js:300:9)</div><div class="line">       at Promise._resolveFromExecutor (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:483:18)</div><div class="line">       at new Promise (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:79:10)</div><div class="line">       at retryAsPromised (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/retry-as-promised/index.js:30:10)</div><div class="line">       at ConnectionManager.&lt;anonymous&gt; (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/sequelize/lib/sequelize.js:848:12)</div><div class="line">       at ConnectionManager.tryCatcher (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/util.js:16:23)</div><div class="line">       at Promise._settlePromiseFromHandler (/data/webapps/prism-monitor-logstore-web/releases/20170526174607/prism-monitor-logstore-web.node/node_modules/bluebird/js/release/promise.js:512:31)</div><div class="line">     code: &apos;ETIMEDOUT&apos;,</div><div class="line">     errno: &apos;ETIMEDOUT&apos;,</div><div class="line">     syscall: &apos;read&apos;,</div><div class="line">     fatal: true,</div><div class="line">     sql: &apos;SELECT `Id` AS `id`, `PageUrl` AS `target`, `FromUrl` AS `from`, `Type` AS `type`, `BrowserName` AS `browserName`, `BrowserVersion` AS `browserVersion`, `Ip` AS `ip`, `Title` AS `title`, `UserAgent` AS `userAgent`, `Row` AS `rowNum`, `Col` AS `colNum`, `DomType` AS `domType`, `DomId` AS `domId`, `DomClass` AS `domClass`, `DomXPosition` AS `domX`, `DomYPosition` AS `domY`, `Platform` AS `platform`, `Message` AS `msg`, `Attribute` AS `attribute`, `ApplyId` AS `applyId`, `Level` AS `level`, `Env` AS `env`, `Os` AS `os`, `Engine` AS `engine`, `AddTime` AS `addTime`, `UpdateTime` AS `updateTime` FROM `FT_Log` AS `log` ORDER BY addTime desc;&apos; &#125;,</div><div class="line">  sql: &apos;SELECT `Id` AS `id`, `PageUrl` AS `target`, `FromUrl` AS `from`, `Type` AS `type`, `BrowserName` AS `browserName`, `BrowserVersion` AS `browserVersion`, `Ip` AS `ip`, `Title` AS `title`, `UserAgent` AS `userAgent`, `Row` AS `rowNum`, `Col` AS `colNum`, `DomType` AS `domType`, `DomId` AS `domId`, `DomClass` AS `domClass`, `DomXPosition` AS `domX`, `DomYPosition` AS `domY`, `Platform` AS `platform`, `Message` AS `msg`, `Attribute` AS `attribute`, `ApplyId` AS `applyId`, `Level` AS `level`, `Env` AS `env`, `Os` AS `os`, `Engine` AS `engine`, `AddTime` AS `addTime`, `UpdateTime` AS `updateTime` FROM `FT_Log` AS `log` ORDER BY addTime desc;&apos; &#125;</div><div class="line">[2017-05-26 18:14:40.444] [INFO] prism-monitor-logstore-web - 2017-05-26 18:14:40.443 10.66.66.30 -- GET /monitor/logstore/log/query 200 HTTP/1.0, 44 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 925672ms</div><div class="line">appenv &#123;&quot;env&quot;:&quot;test&quot;,&quot;deployenv&quot;:&quot;qa&quot;,&quot;zkserver&quot;:&quot;10.72.198.216:2181,10.72.193.216:2181,10.72.196.216:2181,10.72.194.216:2181,10.72.195.216:2181&quot;&#125;</div><div class="line">Zookeeper connection: connecting...</div><div class="line">Zookeeper connection: state(connected).</div><div class="line">[2017-05-26 18:50:39.000] [DEBUG] prism-monitor-logstore-web - redis subscribe key: prism-logger-errorLog</div><div class="line">[2017-05-26 18:53:50.602] [INFO] prism-monitor-logstore-web - Request ID:  6a577e18fad3373092008e6442982d92</div><div class="line">[2017-05-26 18:53:50.607] [INFO] prism-monitor-logstore-web - 查询条件 &#123;&#125;</div><div class="line">[2017-05-26 18:53:50.634] [TRACE] prism-monitor-logstore-web - Executing (default): SELECT `Id` AS `id`, `PageUrl` AS `target`, `FromUrl` AS `from`, `Type` AS `type`, `BrowserName` AS `browserName`, `BrowserVersion` AS `browserVersion`, `Ip` AS `ip`, `Title` AS `title`, `UserAgent` AS `userAgent`, `Row` AS `rowNum`, `Col` AS `colNum`, `DomType` AS `domType`, `DomId` AS `domId`, `DomClass` AS `domClass`, `DomXPosition` AS `domX`, `DomYPosition` AS `domY`, `Platform` AS `platform`, `Message` AS `msg`, `Attribute` AS `attribute`, `ApplyId` AS `applyId`, `Level` AS `level`, `Env` AS `env`, `Os` AS `os`, `Engine` AS `engine`, `AddTime` AS `addTime`, `UpdateTime` AS `updateTime` FROM `FT_Log` AS `log` ORDER BY addTime desc;</div><div class="line">[2017-05-26 18:53:50.768] [INFO] prism-monitor-logstore-web - 2017-05-26 18:53:50.767 10.66.66.30 -- GET /monitor/logstore/log/query 200 HTTP/1.0, 469393 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 167ms</div><div class="line">[2017-05-26 18:59:56.051] [INFO] prism-monitor-logstore-web - Request ID:  2088266ddf328fc4cf9779c4044ec960</div><div class="line">[2017-05-26 18:59:56.056] [INFO] prism-monitor-logstore-web - 查询条件 &#123;&#125;</div><div class="line">[2017-05-26 18:59:56.074] [TRACE] prism-monitor-logstore-web - Executing (default): SELECT `Id` AS `id`, `PageUrl` AS `target`, `FromUrl` AS `from`, `Type` AS `type`, `BrowserName` AS `browserName`, `BrowserVersion` AS `browserVersion`, `Ip` AS `ip`, `Title` AS `title`, `UserAgent` AS `userAgent`, `Row` AS `rowNum`, `Col` AS `colNum`, `DomType` AS `domType`, `DomId` AS `domId`, `DomClass` AS `domClass`, `DomXPosition` AS `domX`, `DomYPosition` AS `domY`, `Platform` AS `platform`, `Message` AS `msg`, `Attribute` AS `attribute`, `ApplyId` AS `applyId`, `Level` AS `level`, `Env` AS `env`, `Os` AS `os`, `Engine` AS `engine`, `AddTime` AS `addTime`, `UpdateTime` AS `updateTime` FROM `FT_Log` AS `log` ORDER BY addTime desc;</div><div class="line">[2017-05-26 18:59:56.210] [INFO] prism-monitor-logstore-web - 2017-05-26 18:59:56.210 10.66.66.30 -- GET /monitor/logstore/log/query 200 HTTP/1.0, 469393 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 162ms</div><div class="line">appenv &#123;&quot;env&quot;:&quot;test&quot;,&quot;deployenv&quot;:&quot;qa&quot;,&quot;zkserver&quot;:&quot;10.72.198.216:2181,10.72.193.216:2181,10.72.196.216:2181,10.72.194.216:2181,10.72.195.216:2181&quot;&#125;</div><div class="line">Zookeeper connection: connecting...</div><div class="line">Zookeeper connection: state(connected).</div><div class="line">[2017-05-26 19:26:43.366] [DEBUG] prism-monitor-logstore-web - redis subscribe key: prism-logger-errorLog</div><div class="line">appenv &#123;&quot;env&quot;:&quot;test&quot;,&quot;deployenv&quot;:&quot;qa&quot;,&quot;zkserver&quot;:&quot;10.72.198.216:2181,10.72.193.216:2181,10.72.196.216:2181,10.72.194.216:2181,10.72.195.216:2181&quot;&#125;</div><div class="line">Zookeeper connection: connecting...</div><div class="line">Zookeeper connection: state(connected).</div><div class="line">[2017-05-26 19:28:57.646] [DEBUG] prism-monitor-logstore-web - redis subscribe key: prism-logger-errorLog</div><div class="line">[2017-05-26 19:31:38.655] [INFO] prism-monitor-logstore-web - Request ID:  b2e7af24b7927cb6bd85f2fd19d5b34b</div><div class="line">[2017-05-26 19:31:38.659] [INFO] prism-monitor-logstore-web - 查询条件 &#123;&#125;</div><div class="line">[2017-05-26 19:31:38.754] [TRACE] prism-monitor-logstore-web - Executing (default): SELECT `Id` AS `id`, `PageUrl` AS `target`, `FromUrl` AS `from`, `Type` AS `type`, `BrowserName` AS `browserName`, `BrowserVersion` AS `browserVersion`, `Ip` AS `ip`, `Title` AS `title`, `UserAgent` AS `userAgent`, `Row` AS `rowNum`, `Col` AS `colNum`, `DomType` AS `domType`, `DomId` AS `domId`, `DomClass` AS `domClass`, `DomXPosition` AS `domX`, `DomYPosition` AS `domY`, `Platform` AS `platform`, `Message` AS `msg`, `Attribute` AS `attribute`, `ApplyId` AS `applyId`, `Level` AS `level`, `Env` AS `env`, `Os` AS `os`, `Engine` AS `engine`, `AddTime` AS `addTime`, `UpdateTime` AS `updateTime` FROM `FT_Log` AS `log` ORDER BY addTime desc;</div><div class="line">[2017-05-26 19:31:38.920] [INFO] prism-monitor-logstore-web - 2017-05-26 19:31:38.919 10.66.66.30 -- GET /monitor/logstore/log/query 200 HTTP/1.0, 469393 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 267ms</div><div class="line">[2017-05-26 19:45:09.535] [INFO] prism-monitor-logstore-web - Request ID:  7edfea555b7141aa44295cf2ddf22357</div><div class="line">[2017-05-26 19:45:09.539] [INFO] prism-monitor-logstore-web - 查询条件 &#123;&#125;</div><div class="line">[2017-05-26 19:45:09.570] [TRACE] prism-monitor-logstore-web - Executing (default): SELECT `Id` AS `id`, `PageUrl` AS `target`, `FromUrl` AS `from`, `Type` AS `type`, `BrowserName` AS `browserName`, `BrowserVersion` AS `browserVersion`, `Ip` AS `ip`, `Title` AS `title`, `UserAgent` AS `userAgent`, `Row` AS `rowNum`, `Col` AS `colNum`, `DomType` AS `domType`, `DomId` AS `domId`, `DomClass` AS `domClass`, `DomXPosition` AS `domX`, `DomYPosition` AS `domY`, `Platform` AS `platform`, `Message` AS `msg`, `Attribute` AS `attribute`, `ApplyId` AS `applyId`, `Level` AS `level`, `Env` AS `env`, `Os` AS `os`, `Engine` AS `engine`, `AddTime` AS `addTime`, `UpdateTime` AS `updateTime` FROM `FT_Log` AS `log` ORDER BY addTime desc;</div><div class="line">[2017-05-26 19:45:09.707] [INFO] prism-monitor-logstore-web - 2017-05-26 19:45:09.707 10.66.67.23 -- GET /monitor/logstore/log/query 200 HTTP/1.0, 469393 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 173ms</div><div class="line">packet_write_wait: Connection to 10.72.220.164 port 58422: Broken pipe</div></pre></td></tr></table></figure>
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/photoo.jpg"
+               alt="YANFANG・CHANG" />
+          <p class="site-author-name" itemprop="name">YANFANG・CHANG</p>
+           
+              <p class="site-description motion-element" itemprop="description">少年锦时</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YANFANG・CHANG</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

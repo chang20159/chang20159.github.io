@@ -1,0 +1,1055 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+    
+  <url>
+    <loc>http://chang20159.com/CSS%E5%B0%8F%E7%BB%8F%E9%AA%8C/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>CSS小经验</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>CSS</tag>
+         
+         
+           
+             
+              <breadCrumb title="工作" url="http://chang20159.com/categories/%E5%B7%A5%E4%BD%9C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/ES6%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>ES6语法简要笔记</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="JavaScript" url="http://chang20159.com/categories/JavaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/Hexo%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%87%B3GitCafe(Coding)%E7%9A%84Pages%E6%9C%8D%E5%8A%A1/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo博客迁移至GitCafe(Coding)的Pages服务</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+        <tag>Coding</tag>
+         
+         
+           
+             
+              <breadCrumb title="静态博客" url="http://chang20159.com/categories/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/IE%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B7%A8%E5%9F%9F%E8%AE%BF%E9%97%AE%E5%A4%B1%E8%B4%A5/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>IE浏览器跨域访问失败</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>CORS</tag>
+         
+        <tag>兼容性问题</tag>
+         
+        <tag>IE</tag>
+         
+         
+           
+             
+              <breadCrumb title="工作" url="http://chang20159.com/categories/%E5%B7%A5%E4%BD%9C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/Git%E5%9F%BA%E7%A1%80/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>Git基础</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://chang20159.com/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/Immutable.js%20%E4%BD%BF%E7%94%A8mergeWith%E8%A7%A3%E5%86%B3Map%E5%92%8CList%E7%9B%B8%E4%BA%92%E5%B5%8C%E5%A5%97%E6%97%B6%E7%9A%84%E5%90%88%E5%B9%B6%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>Immutable.js 使用mergeWith解决Map和List相互嵌套时的合并问题</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="工作" url="http://chang20159.com/categories/%E5%B7%A5%E4%BD%9C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/JavaScript%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript事件</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="JavaScript" url="http://chang20159.com/categories/JavaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/Jquery%E5%9C%A8%E5%8A%A8%E6%80%81%E7%94%9F%E6%88%90%E7%9A%84DOM%E8%8A%82%E7%82%B9%E7%BB%91%E5%AE%9A%E4%BA%8B%E4%BB%B6%E6%97%A0%E6%95%88/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>jQuery在动态生成的节点上绑定事件无效</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>jQuery</tag>
+         
+         
+           
+             
+              <breadCrumb title="JQuery" url="http://chang20159.com/categories/JQuery/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/Linux%E5%91%BD%E4%BB%A4/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>常用Linux命令</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://chang20159.com/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/Node%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98%E5%B0%8F%E7%BB%93/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>Nodejs开发问题小结</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>Nodejs</tag>
+         
+         
+           
+             
+              <breadCrumb title="工作" url="http://chang20159.com/categories/%E5%B7%A5%E4%BD%9C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/React%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%EF%BC%88%E4%B8%83%EF%BC%89%E6%9D%A1%E4%BB%B6%E6%B8%B2%E6%9F%93/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>React快速开始（七）条件渲染</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>React快速开始</tag>
+         
+         
+           
+             
+              <breadCrumb title="React" url="http://chang20159.com/categories/React/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/React%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%EF%BC%88%E4%B8%80%EF%BC%89%E5%AE%89%E8%A3%85/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>React快速开始（一）安装</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>React快速开始</tag>
+         
+         
+           
+             
+              <breadCrumb title="React" url="http://chang20159.com/categories/React/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/React%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%EF%BC%88%E4%B8%89%EF%BC%89%E6%B8%B2%E6%9F%93%E5%85%83%E7%B4%A0/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>React快速开始（三）渲染元素</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>React快速开始</tag>
+         
+         
+           
+             
+              <breadCrumb title="React" url="http://chang20159.com/categories/React/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/React%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%EF%BC%88%E4%BA%8C%EF%BC%89%E4%BD%BF%E7%94%A8JSX/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>React快速开始（二）使用JSX</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>React快速开始</tag>
+         
+         
+           
+             
+              <breadCrumb title="React" url="http://chang20159.com/categories/React/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/React%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%EF%BC%88%E4%B9%9D%EF%BC%89%E8%A1%A8%E5%8D%95/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>React快速开始（九）React中的表单</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>React快速开始</tag>
+         
+         
+           
+             
+              <breadCrumb title="React" url="http://chang20159.com/categories/React/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/React%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%EF%BC%88%E4%BA%94%EF%BC%89State%E5%92%8C%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>React快速开始（五）State和生命周期</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>React快速开始</tag>
+         
+         
+           
+             
+              <breadCrumb title="React" url="http://chang20159.com/categories/React/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/React%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%EF%BC%88%E5%85%AB%EF%BC%89Lists%E5%92%8CKeys/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>React快速开始（八）Lists和Keys</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>React快速开始</tag>
+         
+         
+           
+             
+              <breadCrumb title="React" url="http://chang20159.com/categories/React/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/Prism%20%E8%BD%BB%E9%87%8F%E7%BA%A7%E4%BB%A3%E7%A0%81%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E5%BA%93/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>Prism 轻量级代码语法高亮库</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>语法高亮</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://chang20159.com/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/React%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%EF%BC%88%E5%85%AD%EF%BC%89%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>React快速开始（六）事件处理</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>React快速开始</tag>
+         
+         
+           
+             
+              <breadCrumb title="React" url="http://chang20159.com/categories/React/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/call%E3%80%81apply%E5%92%8Cbind%E5%87%BD%E6%95%B0%E7%9A%84polyfill%E5%AE%9E%E7%8E%B0/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>call、apply和bind函数的polyfill实现</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="JavaScript" url="http://chang20159.com/categories/JavaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/React%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%EF%BC%88%E5%8D%81%EF%BC%89state%E6%8F%90%E5%8D%87/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>React快速开始（十）state提升</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>React快速开始</tag>
+         
+         
+           
+             
+              <breadCrumb title="React" url="http://chang20159.com/categories/React/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/React%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89%E7%BB%84%E5%90%88vs%E7%BB%A7%E6%89%BF/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>React快速开始（十一）组合 vs 继承</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>React快速开始</tag>
+         
+         
+           
+             
+              <breadCrumb title="React" url="http://chang20159.com/categories/React/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/React%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%EF%BC%88%E5%9B%9B%EF%BC%89%E7%BB%84%E4%BB%B6%E5%92%8Cprops/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>React快速开始（四）组件和props</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>React快速开始</tag>
+         
+         
+           
+             
+              <breadCrumb title="React" url="http://chang20159.com/categories/React/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/jQuery%E6%BA%90%E7%A0%81-%E4%BB%8E%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A%E7%9C%8B%E7%BC%93%E5%AD%98%E8%AE%BE%E8%AE%A1/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>【jQuery源码】从事件绑定看缓存设计</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>jQuery3.1.1源码</tag>
+         
+         
+           
+             
+              <breadCrumb title="JQuery" url="http://chang20159.com/categories/JQuery/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/jQuery%E6%BA%90%E7%A0%81-%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A%E4%B8%8E%E8%A7%A3%E7%BB%91/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>【jQuery源码】事件绑定与解绑</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>jQuery3.1.1源码</tag>
+         
+         
+           
+             
+              <breadCrumb title="JQuery" url="http://chang20159.com/categories/JQuery/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/hexo-theme-next%E4%B8%BB%E9%A2%98vendors%E7%9B%AE%E5%BD%95%E4%B8%8B%E8%B5%84%E6%BA%90%E6%89%BE%E4%B8%8D%E5%88%B0/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>NexT主题中vendors目录下资源找不到报404</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+        <tag>Jekyll</tag>
+         
+         
+           
+             
+              <breadCrumb title="静态博客" url="http://chang20159.com/categories/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/socket.io%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>使用socket.io进行websocket通信无法连接</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>nodejs</tag>
+         
+        <tag>socket.io</tag>
+         
+        <tag>websocket</tag>
+         
+         
+           
+             
+              <breadCrumb title="工作" url="http://chang20159.com/categories/%E5%B7%A5%E4%BD%9C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/javacript%E4%B8%AD%E6%B5%AE%E7%82%B9%E8%BF%90%E7%AE%97%E4%BA%A7%E7%94%9F%E8%AF%AF%E5%B7%AE/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript浮点运算在某些情况下产生误差</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="工作" url="http://chang20159.com/categories/%E5%B7%A5%E4%BD%9C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/java%E4%B8%8Ejavascript/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>Java 与 Javascript</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="JavaScript" url="http://chang20159.com/categories/JavaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/jQuery%E6%BA%90%E7%A0%81-%E7%AC%AC%E4%B8%80%E7%AF%87/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>【jQuery源码】第一篇</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>jQuery3.1.1源码</tag>
+         
+         
+           
+             
+              <breadCrumb title="JQuery" url="http://chang20159.com/categories/JQuery/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/%E4%B8%8B%E9%9B%A8%E5%A4%A9/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>下雨天</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="日常" url="http://chang20159.com/categories/%E6%97%A5%E5%B8%B8/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/%E3%80%90%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E3%80%91JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>【阅读笔记】JavaScript高级程序设计-面向对象</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="JavaScript" url="http://chang20159.com/categories/JavaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/%E4%BD%BF%E7%94%A8Hexo+GitHub%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>使用Hexo+GitHub搭建静态博客</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+        <tag>GitHub</tag>
+         
+         
+           
+             
+              <breadCrumb title="静态博客" url="http://chang20159.com/categories/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/%E5%89%8D%E7%AB%AF%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7Gulp/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>前端构建工具Gulp</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>Gulp</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端构建" url="http://chang20159.com/categories/%E5%89%8D%E7%AB%AF%E6%9E%84%E5%BB%BA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>制作WebIcon字体</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>字体图标</tag>
+         
+         
+           
+             
+              <breadCrumb title="CSS" url="http://chang20159.com/categories/CSS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/%E5%B0%8F%E6%A1%94%E5%AD%90/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>小桔子</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="日常" url="http://chang20159.com/categories/%E6%97%A5%E5%B8%B8/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%88%9D%E4%BD%93%E9%AA%8C/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>小程序初体验</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="小程序" url="http://chang20159.com/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>水平垂直居中方法</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>CSS</tag>
+         
+         
+           
+             
+              <breadCrumb title="CSS" url="http://chang20159.com/categories/CSS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/ECharts%E7%BB%98%E5%88%B6%E5%9B%BE%E5%BD%A2%EF%BC%8C%E4%B8%8D%E5%90%8C%E6%97%B6%E9%97%B4%E6%AE%B5%E5%8C%BA%E5%9F%9F%E9%A2%9C%E8%89%B2%E4%B8%8D%E5%90%8C/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>ECharts绘制图形，不同时间段区域颜色不同</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>ECharts</tag>
+         
+         
+           
+             
+              <breadCrumb title="工作" url="http://chang20159.com/categories/%E5%B7%A5%E4%BD%9C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/%E6%A8%A1%E5%9D%97%E7%AE%A1%E7%90%86%E4%B8%8E%E6%89%93%E5%8C%85%E5%AE%9E%E8%B7%B5/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>模块管理与打包实践</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>模块化编程</tag>
+         
+        <tag>webpack</tag>
+         
+        <tag>requirejs</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具" url="http://chang20159.com/categories/%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/%E5%B8%B8%E7%94%A8WebAPI%E6%8E%A5%E5%8F%A3/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>常用 Web API 接口</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="JavaScript" url="http://chang20159.com/categories/JavaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/%E7%90%86%E8%A7%A3BFC/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>理解BFC</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>CSS</tag>
+         
+         
+           
+             
+              <breadCrumb title="CSS" url="http://chang20159.com/categories/CSS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>跨域问题解决方案</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>CORS</tag>
+         
+        <tag>Cookie</tag>
+         
+        <tag>跨域</tag>
+         
+         
+           
+             
+              <breadCrumb title="工作" url="http://chang20159.com/categories/%E5%B7%A5%E4%BD%9C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/%E7%A7%BB%E5%8A%A8%E7%AB%AFH5%E5%BC%80%E5%8F%91%E5%B0%8F%E7%BB%8F%E9%AA%8C/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>移动端H5开发小经验</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="工作" url="http://chang20159.com/categories/%E5%B7%A5%E4%BD%9C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/%E7%BB%99hexo+github%20page%E5%8D%9A%E5%AE%A2%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>给Hexo+Github page博客绑定域名的一些问题</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+        <tag>GitHub</tag>
+         
+         
+           
+             
+              <breadCrumb title="静态博客" url="http://chang20159.com/categories/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/%E9%9A%90%E8%97%8F%E5%85%83%E7%B4%A0%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>隐藏元素的几种方法及应用</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>CSS</tag>
+         
+         
+           
+             
+              <breadCrumb title="CSS" url="http://chang20159.com/categories/CSS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  <url>
+    <loc>http://chang20159.com/drafts/JavaScript%E5%AF%B9%E8%B1%A1.html</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript对象</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+         
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://chang20159.com/drafts/Nodejs%E5%85%A5%E9%97%A8.html</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>阅读笔记】JavaScript权威指南-理解闭包</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+         
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+    
+  <url>
+    <loc>http://chang20159.com/drafts/%5B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%5DJavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97-%E7%90%86%E8%A7%A3%E9%97%AD%E5%8C%85.html</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>阅读笔记】JavaScript权威指南-理解闭包</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+         
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/drafts/javascript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B.html</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript异步编程</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+         
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://chang20159.com/drafts/normalize.css%E4%B8%8Ereset.css.html</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>normalize.css与reset.css</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+         
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+  <url>
+    <loc>http://chang20159.com/%E5%90%84%E7%A7%8D%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%96%B9%E6%B3%95/</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>各种深拷贝方法</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="JavaScript" url="http://chang20159.com/categories/JavaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+</urlset>

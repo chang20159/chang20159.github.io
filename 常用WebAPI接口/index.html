@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="有时候是不是很容易头大，很多常见的api分不清，看下面这些，能弄明白它们的区别么？  document.location 与 window.location document.URL 与 document.documentURI nodeValue、innerText 、textContent、innerHTML、outerHTML、outerText clientHeight、scrollHei">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用 Web API 接口">
+<meta property="og:url" content="http://chang20159.com/常用WebAPI接口/index.html">
+<meta property="og:site_name" content="前端Girl">
+<meta property="og:description" content="有时候是不是很容易头大，很多常见的api分不清，看下面这些，能弄明白它们的区别么？  document.location 与 window.location document.URL 与 document.documentURI nodeValue、innerText 、textContent、innerHTML、outerHTML、outerText clientHeight、scrollHei">
+<meta property="og:image" content="http://chang20159.com/images/note_web_api.png">
+<meta property="og:updated_time" content="2017-07-15T07:40:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常用 Web API 接口">
+<meta name="twitter:description" content="有时候是不是很容易头大，很多常见的api分不清，看下面这些，能弄明白它们的区别么？  document.location 与 window.location document.URL 与 document.documentURI nodeValue、innerText 、textContent、innerHTML、outerHTML、outerText clientHeight、scrollHei">
+<meta name="twitter:image" content="http://chang20159.com/images/note_web_api.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://chang20159.com/常用WebAPI接口/"/>
+
+
+
+
+
+  <title>常用 Web API 接口 | 前端Girl</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c044325210daededa91f1e0e580a6f1d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">前端Girl</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sharing">
+          <a href="http://sharing.chang20159.com/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-twitter"></i> <br />
+            
+            分享
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://chang20159.com/常用WebAPI接口/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YANFANG・CHANG">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photoo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端Girl">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">常用 Web API 接口</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-15T15:40:45+08:00">
+                2017-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>有时候是不是很容易头大，很多常见的api分不清，看下面这些，能弄明白它们的区别么？</p>
+<ul>
+<li>document.location 与 window.location</li>
+<li>document.URL 与 document.documentURI</li>
+<li>nodeValue、innerText 、textContent、innerHTML、outerHTML、outerText</li>
+<li>clientHeight、scrollHeight、offsetHeight（Left/Top/Width）</li>
+</ul>
+<a id="more"></a>
+<p>要想知道它们有什么不同，还是得先捋捋它们都是谁的属性和方法，看看常用web api的继承关系，想想它们都有哪些属性和方法</p>
+<p><img src="/images/note_web_api.png" alt=""></p>
+<h2 id="EventTarget"><a href="#EventTarget" class="headerlink" title="EventTarget"></a>EventTarget</h2><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>EventTarget.addEventListener()</li>
+<li>EventTarget.removeEventListener()</li>
+<li>EventTarget.dispatchEvent()</li>
+</ul>
+<h2 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h2><p>Node是一个接口，许多DOM类型从这个接口继承,如Document，Element</p>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><ul>
+<li>Node.baseURI</li>
+<li>Node.childNodes      所有子节点</li>
+<li>Node.firstChild      第一个子节点</li>
+<li>Node.lastChild       最后一个子节点</li>
+<li>Node.previousSibling 前一个兄弟节点</li>
+<li>Node.nextSibling     下一个兄弟节点</li>
+<li>Node.parentNode      父节点(可能是元素节点也可能是文档节点)</li>
+<li>Node.parentElement   当前节点的父元素节点</li>
+<li>Node.nodeValue   返回或设置当前节点的值</li>
+<li>Node.nodeType    节点的类型</li>
+<li>Node.nodeName    节点名称</li>
+<li>Node.innerText    一个节点及其后代的“渲染”文本内容的属性   </li>
+<li>Node.textContent  一个节点及其后代的文本内容</li>
+<li>Node.replaceChild(newChild, oldChild)</li>
+</ul>
+<h3 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>parentNode.appendChild(child)  将一个节点添加到指定父节点的子节点列表末尾</li>
+<li>parentNode.removeChild(child) </li>
+<li>Node.cloneNode  返回调用该方法的节点的一个副本</li>
+<li>parentElement.contains( otherNode )   传入的节点是否为该节点的后代节点</li>
+<li>parentElement.hasChildNodes() 当前节点是否包含有子节点</li>
+<li>parentElement.insertBefore(newElement, referenceElement)</li>
+</ul>
+<h3 id="节点类型常量"><a href="#节点类型常量" class="headerlink" title="节点类型常量"></a>节点类型常量</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">常量</th>
+<th style="text-align:left">值</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Node.ELEMENT_NODE</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">一个 元素 节点，例如 &lt;p&gt; 和 &lt;div&gt;</td>
+</tr>
+<tr>
+<td style="text-align:left">Node.TEXT_NODE</td>
+<td style="text-align:left">3</td>
+<td style="text-align:left">Element 或者 Attr 中实际的  文字</td>
+</tr>
+<tr>
+<td style="text-align:left">Node.PROCESSING_INSTRUCTION_NODE</td>
+<td style="text-align:left">7</td>
+<td style="text-align:left">一个用于XML文档的 ProcessingInstruction ，例如 &lt;?xml-stylesheet … ?&gt; 声明</td>
+</tr>
+<tr>
+<td style="text-align:left">Node.COMMENT_NODE</td>
+<td style="text-align:left">8</td>
+<td style="text-align:left">一个 Comment 节点</td>
+</tr>
+<tr>
+<td style="text-align:left">Node.DOCUMENT_NODE</td>
+<td style="text-align:left">9</td>
+<td style="text-align:left">一个 Document 节点。</td>
+</tr>
+<tr>
+<td style="text-align:left">Node.DOCUMENT_TYPE_NODE</td>
+<td style="text-align:left">10</td>
+<td style="text-align:left">描述文档类型的 DocumentType 节点。例如 &lt;!DOCTYPE html&gt;  就是用于 HTML5 的。</td>
+</tr>
+<tr>
+<td style="text-align:left">Node.DOCUMENT_FRAGMENT_NODE</td>
+<td style="text-align:left">11</td>
+<td style="text-align:left">一个 DocumentFragment 节点</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ParentNode"><a href="#ParentNode" class="headerlink" title="ParentNode"></a>ParentNode</h2><h3 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h3><ul>
+<li>childElementCount</li>
+<li>children</li>
+<li>firstElementChild</li>
+<li>lastElementChild</li>
+</ul>
+<h3 id="方法-2"><a href="#方法-2" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>append()</li>
+<li>prepend()</li>
+<li>querySelectorAll()</li>
+</ul>
+<h2 id="ChildNode"><a href="#ChildNode" class="headerlink" title="ChildNode"></a>ChildNode</h2><h3 id="方法-3"><a href="#方法-3" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>after()</li>
+<li>before()</li>
+<li>remove()</li>
+</ul>
+<h2 id="Document"><a href="#Document" class="headerlink" title="Document"></a>Document</h2><h3 id="属性-2"><a href="#属性-2" class="headerlink" title="属性"></a>属性</h3><ul>
+<li>document.body  </li>
+<li>document.characterSet</li>
+<li>document.doctype</li>
+<li>document.domain</li>
+<li>document.head</li>
+<li>document.body</li>
+<li>document.location</li>
+<li>document.documentURI</li>
+<li>document.URL</li>
+</ul>
+<h3 id="方法-4"><a href="#方法-4" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>document.createElement()</li>
+<li>document.createTextNode</li>
+<li>document.getElementById()</li>
+<li>document.getElementsByClassName()</li>
+<li>document.getElementsByName()</li>
+<li>document.getElementsByTagName()</li>
+<li>document.querySelector()</li>
+<li>document.querySelectorAll()</li>
+<li>document.write()</li>
+<li>document.writeln()</li>
+</ul>
+<h2 id="Element"><a href="#Element" class="headerlink" title="Element"></a>Element</h2><h3 id="属性-3"><a href="#属性-3" class="headerlink" title="属性"></a>属性</h3><ul>
+<li>Element.attributes</li>
+<li>Element.classList<ul>
+<li>Element.classList.add()</li>
+<li>Element.classList.remove()</li>
+<li>Element.classList.item()</li>
+<li>Element.classList.toggle()</li>
+<li>Element.classList.contains()</li>
+</ul>
+</li>
+<li>Element.className</li>
+<li>Element.tagName</li>
+<li>Element.id</li>
+<li><p>Element.name</p>
+</li>
+<li><p>Element.innerHTML</p>
+</li>
+<li><p>Element.outerHTML</p>
+</li>
+<li><p>Element.clientHeight</p>
+</li>
+<li>Element.clientLeft</li>
+<li>Element.clientTop</li>
+<li><p>Element.clientWidth</p>
+</li>
+<li><p>Element.scrollHeight</p>
+</li>
+<li>Element.scrollLeft</li>
+<li>Element.scrollTop</li>
+<li>Element.scrollWidth</li>
+</ul>
+<h3 id="方法-5"><a href="#方法-5" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>Element.getElementsByClassName()</li>
+<li>Element.getElementsByTagName()</li>
+<li>Element.querySelector()</li>
+<li>Element.querySelectorAll()</li>
+<li>Element.getAttribute()</li>
+<li>Element.removeAttribute()</li>
+</ul>
+<h2 id="HTMLElement"><a href="#HTMLElement" class="headerlink" title="HTMLElement"></a>HTMLElement</h2><h3 id="属性-4"><a href="#属性-4" class="headerlink" title="属性"></a>属性</h3><ul>
+<li>HTMLElement.offsetHeight</li>
+<li>HTMLElement.offsetLeft</li>
+<li>HTMLElement.offsetTop</li>
+<li>HTMLElement.offsetWidth</li>
+<li>HTMLElement.offsetParent 返回一个指向最近的包含该元素的定位元素</li>
+<li><p>HTMLElement.style</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">elt.style.cssText = &quot;color: blue&quot;; // 设置多个样式属性 </div><div class="line">elt.setAttribute(&quot;style&quot;, &quot;color: blue&quot;); // 设置多个样式属性 </div><div class="line">elt.style.color = &quot;blue&quot;; // 直接设置样式属性</div></pre></td></tr></table></figure>
+</li>
+<li><p>HTMLElement.dataset  获取自定义的数据属性</p>
+</li>
+<li>HTMLElement.contentEditable  表明元素是否是可编辑的</li>
+<li>HTMLElement.dir  获取或设置当前元素的元素内容的文本书写方向</li>
+</ul>
+<h3 id="方法-6"><a href="#方法-6" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>HTMLElement.click() 可以用来模拟鼠标左键单击一个元素</li>
+<li>HTMLElement.blur()  用来移除当前元素所获得的键盘焦点</li>
+<li>HTMLElement.focus() 可以设置指定元素获取焦点</li>
+</ul>
+<h2 id="Window"><a href="#Window" class="headerlink" title="Window"></a>Window</h2><h3 id="属性-5"><a href="#属性-5" class="headerlink" title="属性"></a>属性</h3><ul>
+<li>window.console</li>
+<li>window.document</li>
+<li>window.history 用来获取History 对象的引用</li>
+<li>window.innerHeight 浏览器窗口的视口（viewport）高度（以像素为单位），包括水平滚动条</li>
+<li>window.innerWidth 浏览器视口（viewport）宽度（单位：像素）包括垂直滚动条</li>
+<li>window.location</li>
+<li>window.navigator 查询一些关于运行当前脚本的应用程序的相关信息</li>
+<li>window.top  返回窗口体系中的最顶层窗口的引用</li>
+<li>window.parent 返回当前窗口的父对象</li>
+</ul>
+<h3 id="方法-7"><a href="#方法-7" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>window.setInterval  重复调用一个函数或执行一个代码段，以固定的时间延迟在每次调用之间。返回一个 intervalID</li>
+<li>window.setTimeout 在定时到期后执行一段代码</li>
+<li>window.resizeTo(aWidth, aHeight)   动态调整窗口的大小</li>
+</ul>
+<h2 id="区分相似接口属性"><a href="#区分相似接口属性" class="headerlink" title="区分相似接口属性"></a>区分相似接口属性</h2><h3 id="document-location-与-window-location"><a href="#document-location-与-window-location" class="headerlink" title="document.location 与 window.location"></a>document.location 与 window.location</h3><p>没发现有啥区别</p>
+<h3 id="Node-nodeValue、Node-innerText-、Node-textContent-、Element-innerHTML、Element-outerHTML"><a href="#Node-nodeValue、Node-innerText-、Node-textContent-、Element-innerHTML、Element-outerHTML" class="headerlink" title="Node.nodeValue、Node.innerText 、Node.textContent 、Element.innerHTML、Element.outerHTML"></a>Node.nodeValue、Node.innerText 、Node.textContent 、Element.innerHTML、Element.outerHTML</h3><p>1、Node.nodeValue<br>返回或设置当前节点的值,不同类型的节点nodeValue值不同.nodeValue为null,对它赋值也没效果.<br>|节点类型  | nodeValue的值<br>|:—|:—<br>|Node.COMMENT_NODE |注释的文本内容<br>|Node.DOCUMENT_FRAGMENT_NODE   | null<br>|Node.DOCUMENT_TYPE_NODE        | null<br>|Node.ELEMENT_NODE | null<br>|Node.TEXT_NODE |  文本节点的内容</p>
+<p>2、Node.innerText<br>表示一个节点及其后代的“渲染”文本内容。<br>3、Node.textContent<br>表示一个节点及其后代的文本内容</p>
+<p>4、Element.innerHTML<br>返回元素后代 HTML 文本</p>
+<p>5、Element.outerHTML<br>返回包含描述元素及其后代的序列化HTML片段</p>
+<p>innerText意识到样式，并且不会返回隐藏元素的文本，而textContent会。<br>innerText 受 CSS 样式的影响，它会触发重排（reflow），但textContent 不会<br>textContent会获取所有元素的内容，包括 script 和 style 元素，而 innerText 不会<br>innerHTML文本会被解析为HTML,但textContent不会，使用textContent可以防止XSS 攻击<br>outerHTML不仅返回元素后代 HTML 文本，还包括元素本身<br>例：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"p1"</span>&gt;</span>111<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"p2"</span>&gt;</span>222<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"p3"</span>&gt;</span>333<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&gt;$(&apos;#container&apos;).innerText</div><div class="line">&quot;111</div><div class="line"></div><div class="line">222&quot;</div><div class="line">&gt;$(&apos;#container&apos;).textContent</div><div class="line">&quot;</div><div class="line">        111</div><div class="line">        222</div><div class="line">    &quot;</div><div class="line">&gt;$(&apos;#container&apos;).innerHTML</div><div class="line">&quot;</div><div class="line">        &lt;p class=&quot;p1&quot;&gt;111&lt;/p&gt;</div><div class="line">        &lt;p class=&quot;p2&quot;&gt;222&lt;/p&gt;</div><div class="line">    &quot;</div><div class="line">&gt;$(&apos;#container&apos;).outerHTML</div><div class="line">&quot;&lt;div id=&quot;container&quot;&gt;</div><div class="line">        &lt;p class=&quot;p1&quot;&gt;111&lt;/p&gt;</div><div class="line">        &lt;p class=&quot;p2&quot;&gt;222&lt;/p&gt;</div><div class="line">    &lt;/div&gt;&quot;</div><div class="line">&gt;$(&apos;#container&apos;).nodeValue</div><div class="line">null</div></pre></td></tr></table></figure>
+<h3 id="Element-clientHeight、Element-scrollHeight、HTMLElement-offsetHeight（Left-Top-Width）"><a href="#Element-clientHeight、Element-scrollHeight、HTMLElement-offsetHeight（Left-Top-Width）" class="headerlink" title="Element.clientHeight、Element.scrollHeight、HTMLElement.offsetHeight（Left/Top/Width）"></a>Element.clientHeight、Element.scrollHeight、HTMLElement.offsetHeight（Left/Top/Width）</h3><p>1、Element.clientHeight<br>只读属性，返回<strong>元素内部</strong>的高度(单位像素)，包含内边距，但不包括水平滚动条、边框和外边距。<br>2、Element.scrollHeight<br>只读属性，计量<strong>元素内容高度</strong>，包括overflow样式属性导致的视图中不可见内容。<br>没有垂直滚动条的情况下，scrollHeight值与clientHeight值相同<br>3、HTMLElement.offsetHeight<br>只读属性,返回该元素的像素高度，高度包含该元素的垂直内边距和边框，且是一个整数。<br>通常，元素的offsetHeight是一种衡量标准，包括元素的边框、垂直内边距和元素的水平滚动条（如果存在且渲染的话）和元素的CSS高度。</p>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"> &lt;div id=&quot;container&quot;&gt;</div><div class="line">    &lt;div class=&quot;content&quot;&gt;111&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">#container&#123;</div><div class="line">    width: 200px;</div><div class="line">    height: 200px;</div><div class="line">    border: 5px solid #ff6633;</div><div class="line">    overflow: scroll;</div><div class="line">    padding: 3px;</div><div class="line">&#125;</div><div class="line">.content&#123;</div><div class="line">    height: 300px;</div><div class="line">    width: 100px;</div><div class="line">    border: 10px solid #000;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&gt;$(&apos;#container&apos;).clientHeight</div><div class="line">206  </div><div class="line">&gt;$(&apos;#container&apos;).scrollHeight</div><div class="line">326  </div><div class="line">&gt;$(&apos;#container&apos;).offsetHeight</div><div class="line">216</div><div class="line"></div><div class="line">&gt;$(&apos;.content&apos;).clientHeight</div><div class="line">300</div><div class="line">&gt;$(&apos;.content&apos;).scrollHeight</div><div class="line">300</div><div class="line">&gt;$(&apos;.content&apos;).offsetHeight</div><div class="line">320</div></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget" target="_blank" rel="external">EventTarget</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window" target="_blank" rel="external">Window</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node" target="_blank" rel="external">Node</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/ParentNode" target="_blank" rel="external">ParentNode</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/ChildNode" target="_blank" rel="external">ChildNode</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element" target="_blank" rel="external">Element</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document" target="_blank" rel="external">Document</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement" target="_blank" rel="external">HTMLElement</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalEventHandlers" target="_blank" rel="external">GlobalEventHandlers</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/理解BFC/" rel="next" title="理解BFC">
+                <i class="fa fa-chevron-left"></i> 理解BFC
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/模块管理与打包实践/" rel="prev" title="模块管理与打包实践">
+                模块管理与打包实践 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/photoo.jpg"
+               alt="YANFANG・CHANG" />
+          <p class="site-author-name" itemprop="name">YANFANG・CHANG</p>
+           
+              <p class="site-description motion-element" itemprop="description">少年锦时</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#EventTarget"><span class="nav-number">1.</span> <span class="nav-text">EventTarget</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法"><span class="nav-number">1.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node"><span class="nav-number">2.</span> <span class="nav-text">Node</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性"><span class="nav-number">2.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法-1"><span class="nav-number">2.2.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#节点类型常量"><span class="nav-number">2.3.</span> <span class="nav-text">节点类型常量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ParentNode"><span class="nav-number">3.</span> <span class="nav-text">ParentNode</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性-1"><span class="nav-number">3.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法-2"><span class="nav-number">3.2.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ChildNode"><span class="nav-number">4.</span> <span class="nav-text">ChildNode</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法-3"><span class="nav-number">4.1.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Document"><span class="nav-number">5.</span> <span class="nav-text">Document</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性-2"><span class="nav-number">5.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法-4"><span class="nav-number">5.2.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Element"><span class="nav-number">6.</span> <span class="nav-text">Element</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性-3"><span class="nav-number">6.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法-5"><span class="nav-number">6.2.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTMLElement"><span class="nav-number">7.</span> <span class="nav-text">HTMLElement</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性-4"><span class="nav-number">7.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法-6"><span class="nav-number">7.2.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Window"><span class="nav-number">8.</span> <span class="nav-text">Window</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性-5"><span class="nav-number">8.1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法-7"><span class="nav-number">8.2.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区分相似接口属性"><span class="nav-number">9.</span> <span class="nav-text">区分相似接口属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#document-location-与-window-location"><span class="nav-number">9.1.</span> <span class="nav-text">document.location 与 window.location</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-nodeValue、Node-innerText-、Node-textContent-、Element-innerHTML、Element-outerHTML"><span class="nav-number">9.2.</span> <span class="nav-text">Node.nodeValue、Node.innerText 、Node.textContent 、Element.innerHTML、Element.outerHTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element-clientHeight、Element-scrollHeight、HTMLElement-offsetHeight（Left-Top-Width）"><span class="nav-number">9.3.</span> <span class="nav-text">Element.clientHeight、Element.scrollHeight、HTMLElement.offsetHeight（Left/Top/Width）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">10.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YANFANG・CHANG</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

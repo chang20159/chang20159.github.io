@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="jQuery3.1.1源码," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="jQuery事件是DOM事件的封装，提供了一些事件绑定和触发的方法,并且支持自定义事件。  绑定事件  bind delegate   on one blur focus focusin focusout resize scroll …等事件名方法   解绑事件  unbind undelegate off   触发事件  trigger">
+<meta name="keywords" content="jQuery3.1.1源码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【jQuery源码】事件绑定与解绑">
+<meta property="og:url" content="http://chang20159.com/jQuery源码-事件绑定与解绑/index.html">
+<meta property="og:site_name" content="前端Girl">
+<meta property="og:description" content="jQuery事件是DOM事件的封装，提供了一些事件绑定和触发的方法,并且支持自定义事件。  绑定事件  bind delegate   on one blur focus focusin focusout resize scroll …等事件名方法   解绑事件  unbind undelegate off   触发事件  trigger">
+<meta property="og:image" content="http://chang20159.com/images/jqueryEventAdd/QQ20170208-213500@2x.png">
+<meta property="og:updated_time" content="2017-07-15T07:40:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【jQuery源码】事件绑定与解绑">
+<meta name="twitter:description" content="jQuery事件是DOM事件的封装，提供了一些事件绑定和触发的方法,并且支持自定义事件。  绑定事件  bind delegate   on one blur focus focusin focusout resize scroll …等事件名方法   解绑事件  unbind undelegate off   触发事件  trigger">
+<meta name="twitter:image" content="http://chang20159.com/images/jqueryEventAdd/QQ20170208-213500@2x.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://chang20159.com/jQuery源码-事件绑定与解绑/"/>
+
+
+
+
+
+  <title>【jQuery源码】事件绑定与解绑 | 前端Girl</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c044325210daededa91f1e0e580a6f1d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">前端Girl</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sharing">
+          <a href="http://sharing.chang20159.com/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-twitter"></i> <br />
+            
+            分享
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://chang20159.com/jQuery源码-事件绑定与解绑/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YANFANG・CHANG">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photoo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端Girl">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">【jQuery源码】事件绑定与解绑</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-15T15:40:45+08:00">
+                2017-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">JQuery</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>jQuery事件是DOM事件的封装，提供了一些事件绑定和触发的方法,并且支持自定义事件。</p>
+<ul>
+<li>绑定事件 <ul>
+<li><a href="http://jquery.cuishifeng.cn/bind.html" target="_blank" rel="external">bind</a></li>
+<li><a href="http://jquery.cuishifeng.cn/delegate.html" target="_blank" rel="external">delegate</a>  </li>
+<li><a href="http://jquery.cuishifeng.cn/on.html" target="_blank" rel="external">on</a></li>
+<li><a href="http://jquery.cuishifeng.cn/one.html" target="_blank" rel="external">one</a></li>
+<li>blur focus focusin focusout resize scroll …等事件名方法</li>
+</ul>
+</li>
+<li>解绑事件 <ul>
+<li><a href="http://jquery.cuishifeng.cn/unbind.html" target="_blank" rel="external">unbind</a></li>
+<li><a href="http://jquery.cuishifeng.cn/undelegate.html" target="_blank" rel="external">undelegate</a></li>
+<li><a href="http://jquery.cuishifeng.cn/off.html" target="_blank" rel="external">off</a></li>
+</ul>
+</li>
+<li>触发事件 <ul>
+<li><a href="http://jquery.cuishifeng.cn/trigger.html" target="_blank" rel="external">trigger</a><a id="more"></a>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="对外提供的方法"><a href="#对外提供的方法" class="headerlink" title="对外提供的方法"></a>对外提供的方法</h3><p>从源码看<br>1、绑定事件的bind、delegate最终都是调用jQuery.prototype.on方法，jQuery.prototype.on调用的是一个全局的on方法 on( elem, types, selector, data, fn, one ) ，与on方法的区别：</p>
+<ul>
+<li>bind方法的selector是null,不支持传入selector</li>
+<li>delegate方法只是参数的传入顺序与on方法不同,jQuery 3.0中已弃用此方法，用 on()代替。</li>
+</ul>
+<p>2、 移除事件的unbind、undelegate最终都是调用jQuery.prototype.off方法function( types, selector, fn ) ,与off方法的区别：</p>
+<ul>
+<li>unbind方法的selector是null,不支持传入selector</li>
+<li>undelegate方法只是参数的传入顺序与off方法不同</li>
+</ul>
+<p>3、 one方法绑定的事件处理器只执行一次，它与on方法相同，调用的全局的on方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">jQuery.fn.extend( &#123;</div><div class="line">    <span class="attr">bind</span>: <span class="function"><span class="keyword">function</span>(<span class="params"> types, data, fn </span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.on( types, <span class="literal">null</span>, data, fn );</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">unbind</span>: <span class="function"><span class="keyword">function</span>(<span class="params"> types, fn </span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.off( types, <span class="literal">null</span>, fn );</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">delegate</span>: <span class="function"><span class="keyword">function</span>(<span class="params"> selector, types, data, fn </span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.on( types, selector, data, fn );</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">undelegate</span>: <span class="function"><span class="keyword">function</span>(<span class="params"> selector, types, fn </span>) </span>&#123;</div><div class="line">        <span class="comment">// ( namespace ) or ( selector, types [, fn] )</span></div><div class="line">        <span class="keyword">return</span> <span class="built_in">arguments</span>.length === <span class="number">1</span> ?</div><div class="line">            <span class="keyword">this</span>.off( selector, <span class="string">"**"</span> ) :</div><div class="line">            <span class="keyword">this</span>.off( types, selector || <span class="string">"**"</span>, fn );</div><div class="line">    &#125;</div><div class="line">&#125; );</div><div class="line">jQuery.fn.extend( &#123;</div><div class="line">    <span class="attr">on</span>: <span class="function"><span class="keyword">function</span>(<span class="params"> types, selector, data, fn </span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> on( <span class="keyword">this</span>, types, selector, data, fn );</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">one</span>: <span class="function"><span class="keyword">function</span>(<span class="params"> types, selector, data, fn </span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> on( <span class="keyword">this</span>, types, selector, data, fn, <span class="number">1</span> );</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">off</span>: <span class="function"><span class="keyword">function</span>(<span class="params"> types, selector, fn </span>) </span>&#123;</div><div class="line">        ....</div><div class="line">    &#125;</div><div class="line">&#125; );</div></pre></td></tr></table></figure></p>
+<p>jQuery还提供了一种绑定事件的方法,将事件类型名作为jQuery.prototype的方法属性名，所以我们还可以这样绑定事件：$(‘#id’).click(eventHandler)。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">jQuery.each( ( <span class="string">"blur focus focusin focusout resize scroll click dblclick "</span> +</div><div class="line">    <span class="string">"mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave "</span> +</div><div class="line">    <span class="string">"change select submit keydown keypress keyup contextmenu"</span> ).split( <span class="string">" "</span> ),</div><div class="line">    <span class="function"><span class="keyword">function</span>(<span class="params"> i, name </span>) </span>&#123;</div><div class="line">    <span class="comment">// Handle event binding</span></div><div class="line">    jQuery.fn[ name ] = <span class="function"><span class="keyword">function</span>(<span class="params"> data, fn </span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="built_in">arguments</span>.length &gt; <span class="number">0</span> ?</div><div class="line">            <span class="keyword">this</span>.on( name, <span class="literal">null</span>, data, fn ) :</div><div class="line">            <span class="keyword">this</span>.trigger( name );</div><div class="line">    &#125;;</div><div class="line">&#125; );</div><div class="line">jQuery.fn.extend( &#123;</div><div class="line">    <span class="attr">hover</span>: <span class="function"><span class="keyword">function</span>(<span class="params"> fnOver, fnOut </span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.mouseenter( fnOver ).mouseleave( fnOut || fnOver );</div><div class="line">    &#125;</div><div class="line">&#125; );</div></pre></td></tr></table></figure></p>
+<h3 id="on函数"><a href="#on函数" class="headerlink" title="on函数"></a>on函数</h3><p>jQuery.prototype上绑定事件的方法 bind、delegate、on、one最终都是调用全局的on( elem, types, selector, data, fn, one )方法，有这些参数：</p>
+<ul>
+<li>elem 数组类型 要绑定事件的dom元素 </li>
+<li>types 事件对象(a map of types/handlers) 或者事件类型(click、change) </li>
+<li>selector 选择器</li>
+<li>data 附加参数，在使用trigger方法触发事件时传入，用户操作触发时，data是undefined</li>
+<li>fn  事件处理函数，事件触发后要做的事情</li>
+<li>one 传入参数为1，事件只执行一次，然后移除事件<br>on方法的绝大部分代码都是在处理参数不同（数量和类型）的情况下，统一调用jQuery.event.add( this, types, fn, data, selector )方法<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">on</span>(<span class="params"> elem, types, selector, data, fn, one </span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> origFn, type;</div><div class="line">    <span class="comment">// Types can be a map of types/handlers</span></div><div class="line">    <span class="comment">// 例如$('#id').on(&#123;click:clickHandler,change:changeHandler&#125;,'#id0',&#123;name:'on'&#125;)</span></div><div class="line">    <span class="keyword">if</span> ( <span class="keyword">typeof</span> types === <span class="string">"object"</span> ) &#123; </div><div class="line">        <span class="comment">// 【1】( types-Object, selector, data ) types是object时只有三个参数的情况</span></div><div class="line">        <span class="comment">// 当types是一个对象时，需要对每一个type依次绑定对应的事件处理器</span></div><div class="line">        <span class="comment">// 并在一次调用on方法前做个参数处理</span></div><div class="line">        <span class="keyword">if</span> ( <span class="keyword">typeof</span> selector !== <span class="string">"string"</span> ) &#123;</div><div class="line">            <span class="comment">//【2】( types-Object, data )</span></div><div class="line">            <span class="comment">// 如果第三个参数不是string类型，那参数中就没有selector</span></div><div class="line">            <span class="comment">// 例如$('#id').on(&#123;click:clickHandler,change:changeHandler&#125;,&#123;name:'on'&#125;)</span></div><div class="line">            data = data || selector; <span class="comment">// data = null || &#123;name:'on'&#125;</span></div><div class="line">            selector = <span class="literal">undefined</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span> ( type <span class="keyword">in</span> types ) &#123;</div><div class="line">            on( elem, type, selector, data, types[ type ], one );</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> elem;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//如果第4位参数data 和第5位参数fn没有，即$('#id').on(param1,param2)这样只有两位参数</span></div><div class="line">    <span class="comment">//elem之后的参数依次是事件类型和事件处理函数</span></div><div class="line">    <span class="keyword">if</span> ( data == <span class="literal">null</span> &amp;&amp; fn == <span class="literal">null</span> ) &#123;</div><div class="line">        <span class="comment">// 【3】( types, fn ) 只有两个参数，事件类型和事件处理器</span></div><div class="line">        fn = selector;</div><div class="line">        data = selector = <span class="literal">undefined</span>;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ( fn == <span class="literal">null</span> ) &#123;</div><div class="line">        <span class="keyword">if</span> ( <span class="keyword">typeof</span> selector === <span class="string">"string"</span> ) &#123;</div><div class="line">            <span class="comment">// 【4】( types, selector, fn ) 三个参数，事件类型，过滤elem后代元素的选择器，事件处理器</span></div><div class="line">            fn = data;</div><div class="line">            data = <span class="literal">undefined</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">//【5】( types, data, fn )</span></div><div class="line">            fn = data;</div><div class="line">            data = selector;</div><div class="line">            selector = <span class="literal">undefined</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//【6】fn也可以是一个false值，在on方法中fn为false时，转为一个直接返回false的函数，作为后续调用的jQuery.event.add方法的参数</span></div><div class="line">    <span class="comment">// false值就是做一个直接返回false的函数的简写</span></div><div class="line">    <span class="keyword">if</span> ( fn === <span class="literal">false</span> ) &#123;</div><div class="line">        fn = <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ( !fn ) &#123; <span class="comment">//如果没有事件处理器就啥也不干，返回这个dom元素</span></div><div class="line">        <span class="keyword">return</span> elem;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//【7】事件只会触发一次就移除时，对事件处理函数进行封装</span></div><div class="line">    <span class="comment">//第一次触发执行时，先移除事件处理器，再执行事件</span></div><div class="line">    <span class="keyword">if</span> ( one === <span class="number">1</span> ) &#123;</div><div class="line">        origFn = fn;</div><div class="line">        fn = <span class="function"><span class="keyword">function</span>(<span class="params"> event </span>) </span>&#123;</div><div class="line">            <span class="comment">// Can use an empty set, since event contains the info</span></div><div class="line">            jQuery().off( event );</div><div class="line">            <span class="keyword">return</span> origFn.apply( <span class="keyword">this</span>, <span class="built_in">arguments</span> );</div><div class="line">        &#125;;</div><div class="line">        <span class="comment">// Use same guid so caller can remove using origFn</span></div><div class="line">        fn.guid = origFn.guid || ( origFn.guid = jQuery.guid++ );</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> elem.each( <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        jQuery.event.add( <span class="keyword">this</span>, types, fn, data, selector );</div><div class="line">    &#125; );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="jQuery-event-add方法"><a href="#jQuery-event-add方法" class="headerlink" title="jQuery.event.add方法"></a>jQuery.event.add方法</h4><p>jQuery.event.add将每个事件处理器封装成事件处理对象，包括唯一标识、事件处理函数、选择器等属性。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div></pre></td><td class="code"><pre><div class="line">add: <span class="function"><span class="keyword">function</span>(<span class="params"> elem, types, handler, data, selector </span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> handleObjIn, eventHandle, tmp,</div><div class="line">            events, t, handleObj,</div><div class="line">            special, handlers, type, namespaces, origType,</div><div class="line">            elemData = dataPriv.get( elem );</div><div class="line">        <span class="comment">// 对elem第一次绑定事件前，elemData为空对象&#123;&#125;</span></div><div class="line">        <span class="keyword">if</span> ( !elemData ) &#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// 传入的形式是&#123;handler：handler，selector：selector&#125;</span></div><div class="line">        <span class="keyword">if</span> ( handler.handler ) &#123;</div><div class="line">            handleObjIn = handler;</div><div class="line">            handler = handleObjIn.handler;</div><div class="line">            selector = handleObjIn.selector;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// 判断选择器是否存在</span></div><div class="line">        <span class="keyword">if</span> ( selector ) &#123;</div><div class="line">            jQuery.find.matchesSelector( documentElement, selector );</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// 给事件处理器添加唯一标识</span></div><div class="line">        <span class="keyword">if</span> ( !handler.guid ) &#123;</div><div class="line">            handler.guid = jQuery.guid++;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 第一次给该元素绑定时初始化elemData的events属性和handle属性</span></div><div class="line">        <span class="keyword">if</span> ( !( events = elemData.events ) ) &#123;</div><div class="line">            events = elemData.events = &#123;&#125;;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> ( !( eventHandle = elemData.handle ) ) &#123;</div><div class="line">            eventHandle = elemData.handle = <span class="function"><span class="keyword">function</span>(<span class="params"> e </span>) </span>&#123;</div><div class="line">                <span class="comment">// Discard the second event of a jQuery.event.trigger() and</span></div><div class="line">                <span class="comment">// when an event is called after a page has unloaded</span></div><div class="line">                <span class="keyword">return</span> <span class="keyword">typeof</span> jQuery !== <span class="string">"undefined"</span> &amp;&amp; jQuery.event.triggered !== e.type ?</div><div class="line">                    jQuery.event.dispatch.apply( elem, <span class="built_in">arguments</span> ) : <span class="literal">undefined</span>;</div><div class="line">            &#125;;</div><div class="line">        &#125;</div><div class="line">        types = ( types || <span class="string">""</span> ).match( rnothtmlwhite ) || [ <span class="string">""</span> ];</div><div class="line">        t = types.length;</div><div class="line">        <span class="keyword">while</span> ( t-- ) &#123;</div><div class="line">            tmp = rtypenamespace.exec( types[ t ] ) || [];</div><div class="line">            type = origType = tmp[ <span class="number">1</span> ];</div><div class="line">            namespaces = ( tmp[ <span class="number">2</span> ] || <span class="string">""</span> ).split( <span class="string">"."</span> ).sort();</div><div class="line">            <span class="keyword">if</span> ( !type ) &#123; <span class="keyword">continue</span>; &#125;</div><div class="line">            <span class="comment">// If event changes its type, use the special event handlers for the changed type</span></div><div class="line">            special = jQuery.event.special[ type ] || &#123;&#125;;</div><div class="line">            <span class="comment">// If selector defined, determine special event api type, otherwise given type</span></div><div class="line">            type = ( selector ? special.delegateType : special.bindType ) || type;</div><div class="line">            <span class="comment">// Update special based on newly reset type</span></div><div class="line">            special = jQuery.event.special[ type ] || &#123;&#125;;</div><div class="line">            <span class="comment">// handleObj is passed to all event handlers</span></div><div class="line">            handleObj = jQuery.extend( &#123;</div><div class="line">                <span class="attr">type</span>: type,</div><div class="line">                <span class="attr">origType</span>: origType,</div><div class="line">                <span class="attr">data</span>: data,</div><div class="line">                <span class="attr">handler</span>: handler,</div><div class="line">                <span class="attr">guid</span>: handler.guid,</div><div class="line">                <span class="attr">selector</span>: selector,</div><div class="line">                <span class="attr">needsContext</span>: selector &amp;&amp; jQuery.expr.match.needsContext.test( selector ),</div><div class="line">                <span class="attr">namespace</span>: namespaces.join( <span class="string">"."</span> )</div><div class="line">            &#125;, handleObjIn );</div><div class="line"></div><div class="line">            <span class="comment">// 在events对象中，存储该元素绑定事件对应的事件处理器数组</span></div><div class="line">            <span class="comment">// 对该元素的某一类型事件第一次绑定事件处理器时，对handlers初始化为空数组[]</span></div><div class="line">            <span class="keyword">if</span> ( !( handlers = events[ type ] ) ) &#123;</div><div class="line">                handlers = events[ type ] = [];</div><div class="line">                handlers.delegateCount = <span class="number">0</span>;</div><div class="line">                <span class="comment">// Only use addEventListener if the special events handler returns false</span></div><div class="line">                <span class="comment">// 只有在此种条件下才会直接用addEventListener绑定事件</span></div><div class="line">                <span class="keyword">if</span> ( !special.setup ||</div><div class="line">                    special.setup.call( elem, data, namespaces, eventHandle ) === <span class="literal">false</span> ) &#123;</div><div class="line">                    <span class="keyword">if</span> ( elem.addEventListener ) &#123;</div><div class="line">                        elem.addEventListener( type, eventHandle );</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> ( special.add ) &#123;</div><div class="line">                special.add.call( elem, handleObj );</div><div class="line">                <span class="keyword">if</span> ( !handleObj.handler.guid ) &#123;</div><div class="line">                    handleObj.handler.guid = handler.guid;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">// 将处理器对象存放在dataPriv.get( elem )[type].handlers中</span></div><div class="line">            <span class="comment">// 如果是事件代理，处理器对象放在列表前面，用splice实现，将handleObj插入最后一个事件代理处理器之后 </span></div><div class="line">            <span class="keyword">if</span> ( selector ) &#123;</div><div class="line">                handlers.splice( handlers.delegateCount++, <span class="number">0</span>, handleObj );</div><div class="line">            &#125; <span class="keyword">else</span> &#123; <span class="comment">//如果不是事件代理，直接放在列表最后，用push即可</span></div><div class="line">                handlers.push( handleObj );</div><div class="line">            &#125;</div><div class="line">            jQuery.event.global[ type ] = <span class="literal">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>当事件绑定顺序如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#J_content'</span>).on(<span class="string">'click'</span>,clickHandler);</div><div class="line">$(<span class="string">'#J_content'</span>).on(<span class="string">'click'</span>,clickHandler);</div><div class="line">$(<span class="string">'#J_content'</span>).on(<span class="string">'click'</span>,<span class="string">'#J_jump'</span>,clickHandler);</div><div class="line">$(<span class="string">'#J_content'</span>).on(<span class="string">'click'</span>,<span class="string">'#J_jump1'</span>,clickHandler1);</div><div class="line">$(<span class="string">'#J_content'</span>).on(<span class="string">'mousedown'</span>,<span class="string">'#J_jump1'</span>,clickHandler1);</div></pre></td></tr></table></figure></p>
+<p>events的内容为：<br><img src="/images/jqueryEventAdd/QQ20170208-213500@2x.png" alt=""></p>
+<ul>
+<li>其中guid为事件处理器的唯一标识，事件处理器clickHandler的guid为1，clickHandler1的guid为2。</li>
+<li>events中存放每个事件对应的多个事件处理器对象</li>
+<li>当类型相同、处理器相同是，也会存入一个事件处理器对象</li>
+<li>对于同一类型的事件处理器，事件代理处理器总会放在前面<h4 id="事件绑定用法"><a href="#事件绑定用法" class="headerlink" title="事件绑定用法"></a>事件绑定用法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">clickHandler</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"事件处理"</span>);</div><div class="line">&#125;</div><div class="line">$(<span class="string">'#J_confirm'</span>).click(clickHandler);</div><div class="line">$(<span class="string">'#J_confirm'</span>).on(<span class="string">'click'</span>,clickHandler);</div><div class="line">$(<span class="string">'#J_confirm'</span>).on(&#123;</div><div class="line">    <span class="attr">click</span>:  clickHandler,</div><div class="line">    <span class="attr">mousedown</span>: clickHandler</div><div class="line">&#125;);</div><div class="line">$(<span class="string">'#J_confirm'</span>).bind(<span class="string">'click'</span>,clickHandler)</div><div class="line">$(<span class="string">'#J_content'</span>).on(<span class="string">'click'</span>,<span class="string">'#J_jump'</span>,clickHandler);</div><div class="line">$(<span class="string">'#J_content'</span>).one(<span class="string">'click'</span>,<span class="string">'#J_jump'</span>,clickHandler);</div><div class="line">$(<span class="string">'#J_confirm'</span>).one(<span class="string">'click'</span>,clickHandler);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>用trigger触发事件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function clickHandler(e,name)&#123;</div><div class="line">    console.log(name + &quot; 事件处理&quot;);</div><div class="line">&#125;</div><div class="line">$(&quot;#J_confirm&quot;).click(clickHandler);</div><div class="line">$(&quot;#J_confirm&quot;).trigger(&quot;click&quot;, &quot;use trigger&quot;);</div><div class="line">// 可简写如下</div><div class="line">$(&quot;#J_confirm&quot;).click(clickHandler).trigger(&quot;click&quot;, &quot;use trigger&quot;);</div></pre></td></tr></table></figure></p>
+<h3 id="off方法"><a href="#off方法" class="headerlink" title="off方法"></a>off方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">off: <span class="function"><span class="keyword">function</span>(<span class="params"> types, selector, fn </span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> handleObj, type;</div><div class="line">        <span class="keyword">if</span> ( types &amp;&amp; types.preventDefault &amp;&amp; types.handleObj ) &#123;</div><div class="line">            <span class="comment">// ( event )  dispatched jQuery.Event</span></div><div class="line">            handleObj = types.handleObj;</div><div class="line">            jQuery( types.delegateTarget ).off(</div><div class="line">                handleObj.namespace ?</div><div class="line">                    handleObj.origType + <span class="string">"."</span> + handleObj.namespace :</div><div class="line">                    handleObj.origType,</div><div class="line">                handleObj.selector,</div><div class="line">                handleObj.handler</div><div class="line">            );</div><div class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> ( <span class="keyword">typeof</span> types === <span class="string">"object"</span> ) &#123;</div><div class="line">            <span class="comment">// ( types-object [, selector] )</span></div><div class="line">            <span class="keyword">for</span> ( type <span class="keyword">in</span> types ) &#123;</div><div class="line">                <span class="keyword">this</span>.off( type, selector, types[ type ] );</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> ( selector === <span class="literal">false</span> || <span class="keyword">typeof</span> selector === <span class="string">"function"</span> ) &#123;</div><div class="line">            <span class="comment">// ( types [, fn] )</span></div><div class="line">            fn = selector;</div><div class="line">            selector = <span class="literal">undefined</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> ( fn === <span class="literal">false</span> ) &#123;</div><div class="line">            fn = returnFalse;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.each( <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            jQuery.event.remove( <span class="keyword">this</span>, types, fn, selector );</div><div class="line">        &#125; );</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h4 id="jQuery-event-remove方法"><a href="#jQuery-event-remove方法" class="headerlink" title="jQuery.event.remove方法"></a>jQuery.event.remove方法</h4><p>remove方法最终调用javascript提供的removeEventListener<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> ( elem.removeEventListener ) &#123;</div><div class="line">        elem.removeEventListener( type, handle );</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<h4 id="事件解绑用法"><a href="#事件解绑用法" class="headerlink" title="事件解绑用法"></a>事件解绑用法</h4><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://jquery.com/" target="_blank" rel="external">jQuery官网</a></li>
+<li><a href="https://github.com/jquery/jquery" target="_blank" rel="external">jQuery GitHub</a></li>
+<li><a href="http://jquery.cuishifeng.cn/index.html" target="_blank" rel="external">jQuery API 3.1.0 速查表  –作者：Shifone</a></li>
+<li><a href="http://www.imooc.com/learn/222" target="_blank" rel="external">慕课网 jQuery源码解析（DOM与核心模块）</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/jQuery3-1-1源码/" rel="tag"># jQuery3.1.1源码</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/hexo-theme-next主题vendors目录下资源找不到/" rel="next" title="NexT主题中vendors目录下资源找不到报404">
+                <i class="fa fa-chevron-left"></i> NexT主题中vendors目录下资源找不到报404
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/jQuery源码-从事件绑定看缓存设计/" rel="prev" title="【jQuery源码】从事件绑定看缓存设计">
+                【jQuery源码】从事件绑定看缓存设计 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/photoo.jpg"
+               alt="YANFANG・CHANG" />
+          <p class="site-author-name" itemprop="name">YANFANG・CHANG</p>
+           
+              <p class="site-description motion-element" itemprop="description">少年锦时</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#对外提供的方法"><span class="nav-number">1.</span> <span class="nav-text">对外提供的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#on函数"><span class="nav-number">2.</span> <span class="nav-text">on函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-event-add方法"><span class="nav-number">2.1.</span> <span class="nav-text">jQuery.event.add方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件绑定用法"><span class="nav-number">2.2.</span> <span class="nav-text">事件绑定用法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#off方法"><span class="nav-number">3.</span> <span class="nav-text">off方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#jQuery-event-remove方法"><span class="nav-number">3.1.</span> <span class="nav-text">jQuery.event.remove方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件解绑用法"><span class="nav-number">3.2.</span> <span class="nav-text">事件解绑用法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YANFANG・CHANG</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

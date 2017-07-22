@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="模块化编程,webpack,requirejs," />
+  <meta name="keywords" content="Vue," />
 
 
 
@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="关于javascript模块化编程的介绍可以参考阮一峰的Javascript模块化编程系列和webpack中文指南，详细讲述了模块系统的演进以及各种方式的使用方法。看完之后特来实践一下。">
-<meta name="keywords" content="模块化编程,webpack,requirejs">
+<meta name="description" content="Vue组件库开发，记录过程中的问题和经验。 手机端Vue组件，戳&amp;gt;  Swan UI">
+<meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="模块管理与打包实践">
-<meta property="og:url" content="http://chang20159.com/模块管理与打包实践/index.html">
+<meta property="og:title" content="Vue组件开发常见问题及技巧">
+<meta property="og:url" content="http://chang20159.com/Vue组件库开发问题及技巧/index.html">
 <meta property="og:site_name" content="前端Girl">
-<meta property="og:description" content="关于javascript模块化编程的介绍可以参考阮一峰的Javascript模块化编程系列和webpack中文指南，详细讲述了模块系统的演进以及各种方式的使用方法。看完之后特来实践一下。">
-<meta property="og:updated_time" content="2016-09-10T04:24:00.000Z">
+<meta property="og:description" content="Vue组件库开发，记录过程中的问题和经验。 手机端Vue组件，戳&amp;gt;  Swan UI">
+<meta property="og:updated_time" content="2017-07-22T15:38:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="模块管理与打包实践">
-<meta name="twitter:description" content="关于javascript模块化编程的介绍可以参考阮一峰的Javascript模块化编程系列和webpack中文指南，详细讲述了模块系统的演进以及各种方式的使用方法。看完之后特来实践一下。">
+<meta name="twitter:title" content="Vue组件开发常见问题及技巧">
+<meta name="twitter:description" content="Vue组件库开发，记录过程中的问题和经验。 手机端Vue组件，戳&amp;gt;  Swan UI">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://chang20159.com/模块管理与打包实践/"/>
+  <link rel="canonical" href="http://chang20159.com/Vue组件库开发问题及技巧/"/>
 
 
 
 
 
-  <title>模块管理与打包实践 | 前端Girl</title>
+  <title>Vue组件开发常见问题及技巧 | 前端Girl</title>
   
 
 
@@ -320,7 +320,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://chang20159.com/模块管理与打包实践/">
+    <link itemprop="mainEntityOfPage" href="http://chang20159.com/Vue组件库开发问题及技巧/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YANFANG・CHANG">
@@ -337,7 +337,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">模块管理与打包实践</h1>
+          <h1 class="post-title" itemprop="name headline">Vue组件开发常见问题及技巧</h1>
         
 
         <div class="post-meta">
@@ -349,8 +349,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-10T12:24:00+08:00">
-                2016-09-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-06T09:00:01+08:00">
+                2017-07-06
               </time>
             
 
@@ -372,8 +372,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
+                  <a href="/categories/Vue/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue</span>
                   </a>
                 </span>
 
@@ -406,323 +406,66 @@
       
 
       
-        <p>关于javascript模块化编程的介绍可以参考<a href="http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html" target="_blank" rel="external">阮一峰的Javascript模块化编程系列</a>和<a href="http://zhaoda.net/webpack-handbook/index.html" target="_blank" rel="external">webpack中文指南</a>，详细讲述了模块系统的演进以及各种方式的使用方法。看完之后特来实践一下。<br><a id="more"></a></p>
-<h2 id="原始的JS文件加载"><a href="#原始的JS文件加载" class="headerlink" title="原始的JS文件加载"></a>原始的JS文件加载</h2><p>来看下在html中用script标签引入js文件的情况      </p>
-<p>新建一个文件目录   <code>mkdir ScriptTag</code>    </p>
-<p>进入此目录   <code>cd ScriptTag</code></p>
-<p>在此文件中新建文件    <code>touch index.html</code>       </p>
-<p>内容如下：    </p>
-<pre><code>&lt;html&gt;
-    &lt;head&gt;
-        &lt;title&gt;webpack&lt;/title&gt;
-        &lt;meta charset=&quot;utf-8&quot;&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;script src=&quot;module1.js&quot;&gt;&lt;/script&gt;
-        &lt;script src=&quot;module2.js&quot;&gt;&lt;/script&gt;
-
-        &lt;script type=&quot;text/javascript&quot;&gt;
-            printModule1FileName();
-            printModule2FileName();
-        &lt;/script&gt;
-    &lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>新建module1.js  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var filename = &quot;module1&quot;;</div><div class="line">function printModule1FileName()&#123;</div><div class="line">	document.write(`This is $&#123;filename&#125;&lt;br/&gt;`);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>新建module2.js      </p>
-<pre><code>var filename = &quot;module2&quot;;
-function printModule2FileName(){
-    document.write(`This is ${filename}&lt;br/&gt;`);
-}
-</code></pre><p>打开index.html文件，浏览器中显示:    </p>
-<pre><code>This is module2    
-This is module2     
-</code></pre><p>将index.html中引入的js文件交换顺序    </p>
-<pre><code>&lt;script src=&quot;module2.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;module1.js&quot;&gt;&lt;/script&gt;    
-</code></pre><p>此时浏览器中显示：  </p>
-<pre><code>This is module1    
-This is module1     
-</code></pre><p>使用这种方式引入js文件，每个js文件中的变量和方法都暴露在全局作用域下，并按照js文件的引入顺序加载，所以当module1和module2中都有filename这个变量且最后引入module2时，加载完成后的filename最终指向的是module2.js中定义的字符串“module2”。当引入的多个js文件中存在多个相同名字的function，在调用此function是也会造成冲突。  </p>
-<p>除了<strong>全局作用域下容易造成变量冲突</strong>这种弊端之外，还有：   </p>
+        <p>Vue组件库开发，记录过程中的问题和经验。 手机端Vue组件，戳&gt;  <a href="https://github.com/future-team/swan-ui" target="_blank" rel="external">Swan UI</a></p>
+<a id="more"></a>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="一、-click-native-组件原生事件触发两次"><a href="#一、-click-native-组件原生事件触发两次" class="headerlink" title="一、@click.native 组件原生事件触发两次"></a>一、@click.native 组件原生事件触发两次</h3><p>调成手机模式，原因还没弄清楚…囧</p>
+<h3 id="二、props检测设定任意类型"><a href="#二、props检测设定任意类型" class="headerlink" title="二、props检测设定任意类型"></a>二、props检测设定任意类型</h3><p>设置为null</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">props: &#123;</div><div class="line">	title: null</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="三、组件外部传入class无法覆盖组件内部动态class"><a href="#三、组件外部传入class无法覆盖组件内部动态class" class="headerlink" title="三、组件外部传入class无法覆盖组件内部动态class"></a>三、组件外部传入class无法覆盖组件内部动态class</h3><p>当给自定义组件添加class时，组件根元素上class的顺序是：</p>
 <ul>
-<li>当js文件之间存在依赖关系时，必须严格保证加载顺序，被依赖的文件要放在前面。   </li>
-<li>加载时，浏览器会停止渲染（同步加载），加载文件越多，浏览器响应的时间越长。  </li>
+<li>inner-class（内部class）</li>
+<li>outer-class(外部传入class)</li>
+<li>inner-computed-class(内部动态计算class)</li>
 </ul>
-<p><strong>注</strong>： 这里用到了ES6模板文本特性，我用的chrome,说明chrome是支持ES6的，但不是全部都支持，比如export和import.</p>
-<h2 id="使用RequireJS加载模块"><a href="#使用RequireJS加载模块" class="headerlink" title="使用RequireJS加载模块"></a>使用RequireJS加载模块</h2><p>RequireJS是基于AMD规范实现的，在学习RequireJS之前，先介绍一下CommonJS和AMD这两种模块规范。    </p>
-<h3 id="CommonJS规范"><a href="#CommonJS规范" class="headerlink" title="CommonJS规范"></a>CommonJS规范</h3><p>CommonJS是为了解决javascript的作用域问题而定义的模块形式，使每个模块可以在它自身的作用域中执行。规范的主要内容是：必须通过module.exports暴露对外的变量或接口；通过require()方法导入其他模块的的输出到当前模块，并且require模块是同步加载。    </p>
-<p>用于在服务端解析javacript的<a href="https://nodejs.org/en/" target="_blank" rel="external">Nodejs</a>就是参照CommonJS规范实现的，在浏览器端也有对CommonJS模块规范的实现，比如<a href="http://browserify.org/" target="_blank" rel="external">Browserify</a>。但同步加载  模块的方式不适合在浏览器环境中,因为需要等待所有模块都加载完成才开始渲染页面，响应时间很长。</p>
-<p>因而，浏览器端的模块只能采用异步加载，这才有了AMD规范的诞生。</p>
-<h3 id="AMD规范"><a href="#AMD规范" class="headerlink" title="AMD规范"></a>AMD规范</h3><p>AMD(异步模块定义)规范支持在浏览器环境中异步加载模块。<a href="http://requirejs.org/" target="_blank" rel="external">RequireJS</a>正是AMD规范的一种实现。 </p>
-<p><strong>AMD规范的的核心思想</strong>：模块的加载不影响在它之后的程序的执行，所有依赖这个模块的语句都定义在一个回调函数中，模块加载完成后，再运行回调函数。</p>
-<h3 id="RequireJS"><a href="#RequireJS" class="headerlink" title="RequireJS"></a>RequireJS</h3><p>RequireJS定义了三个变量：requirejs, require, define.其中requirejs === require</p>
-<p><strong>模块的定义</strong>：通过<strong>define函数</strong>定义在闭包中，define函数格式为： </p>
-<pre><code>define(String id,String[] dependencies,Function|Object factory)
-</code></pre><ul>
-<li>id:模块的名字，可选参数</li>
-<li>dependencies： 自身依赖的模块列表，这些依赖模块的输出作为factory的参数。可选参数。如果没有指定，则默认的依赖模块为[‘require’,’exports’,’module’]</li>
-<li>factory: 一个函数或者对象。若是一个函数，该函数的返回值就是模块的输出。</li>
-</ul>
-<p><strong>模块的加载</strong>：require方法用来加载依赖模块，并执行加载完之后的逻辑，require定义格式为：    </p>
-<pre><code>require(String[] dependencies,Function callback)
-</code></pre><p>下面来画个页面，用RequireJS来解决模块的定义、依赖和加载问题。目录结构如下：</p>
-<pre><code>.
-├── entry.js
-├── index.html
-├── lib
-│   └── require.js
-└── module
-    ├── module1.js
-    └── module2.js
-</code></pre><p>要使用define和require函数定义和加载模块需要引入require.js文件。<br>从<a href="http://requirejs.org/docs/download.html" target="_blank" rel="external">RequireJS 官网</a>下载最新版本，放在lib文件下。</p>
-<p>其中module1和module2是打印文件名的两个模块，定义如下：<br>module1.js  </p>
-<pre><code>define(function(){
-    function printModule1FileName(){
-        document.write(&apos;This is module1&lt;br/&gt;&apos;);
-    }
-    return {
-        filename:&quot;module1&quot;,
-        printModule1FileName:printModule1FileName
-    };
-});
-</code></pre><p>module2.js     </p>
-<pre><code>define(function(){
-    var printModule2FileName = function(){
-        document.write(&apos;This is module2&lt;br/&gt;&apos;);
-    }
-    return {
-        filename:&quot;module2&quot;,
-        printModule2FileName:printModule2FileName
-    };
-});
-</code></pre><p>在entry.js中导入模块并调用依赖模块中的方法打印文件名  </p>
-<pre><code>require.config({
-    path: {
-        module: &apos;./module&apos;,
-    }
-});
-require([&apos;module/module1.js&apos;,&apos;module/module2.js&apos;],function(module1,module2){
-    document.write(`${module1.filename} and ${module2.filename}&lt;br/&gt;`);
-    module1.printModule1FileName();
-    module2.printModule2FileName();
-});
-</code></pre><p>在index.html中引入require.js和entry.js    </p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-    &lt;head&gt;
-        &lt;title&gt;RequireJS&lt;/title&gt;
-        &lt;meta charset=&quot;utf-8&quot;&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;script src=&quot;lib/require.js&quot;&gt;&lt;/script&gt;   
-        &lt;script src=&quot;entry.js&quot;&gt;&lt;/script&gt;
-        &lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>chrome浏览器打开index.html,显示   </p>
-<pre><code>module1 and module2
-This is module1
-This is module2
-</code></pre><p>RequireJS解决了并行加载模块的问题，但因为还有以下弊端    </p>
+<p>使用组件：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">sw-button</span> <span class="attr">class</span>=<span class="string">"outer-class"</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">sw-button</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>组件内部结构：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"inner-class"</span> <span class="attr">:class</span>=<span class="string">"&#123;'inner-dynamic-class':true&#125;"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">slot</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>最终结构：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"inner-class outer-class inner-dynamic-class"</span> &gt;</span></div><div class="line">	按钮 </div><div class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>对于需要修改组件样式的使用方，外部传入组件的class属性 outer-class 始终在内部动态属性之前，无法覆盖内部属性</p>
+<p><strong>解决办法是：组件外部也是用动态class</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">sw-button</span> <span class="attr">:class</span>=<span class="string">"&#123;'outer-class':true&#125;"</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">sw-button</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="四、根节点需唯一"><a href="#四、根节点需唯一" class="headerlink" title="四、根节点需唯一"></a>四、根节点需唯一</h3><p style="color:red;"><br>Component template should contain exactly one root element. If you are using v-if on multiple elements, use v-else-if to chain them instead.<br></p>
+
+<p>外包一个div</p>
+<h3 id="五、找不到vue-template-compiler模块"><a href="#五、找不到vue-template-compiler模块" class="headerlink" title="五、找不到vue-template-compiler模块"></a>五、找不到vue-template-compiler模块</h3><p style="color:red;"><br>ERROR in ./src/app.vue<br>Module build failed: Error: Cannot find module ‘vue-template-compiler’<br></p>
+
+<figure class="highlight plain"><figcaption><span>install vue-template-compiler --save``` 不行</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">加上```sudo npm install vue-template-compiler</div></pre></td></tr></table></figure>
+<h3 id="六：组件未注册"><a href="#六：组件未注册" class="headerlink" title="六：组件未注册"></a>六：组件未注册</h3><p style="color:red;"><br><br>[Vue warn]: Unknown custom element: <sw-button> - did you register the component correctly? For recursive components, make sure to provide the “name” option.<br><br></sw-button></p>
+
+<p>添加：</p>
 <ul>
-<li>代码书写不太符合常规习惯，模块的引入与代码逻辑掺杂在一起。    </li>
-<li>只能将js文件作为模块加载。    </li>
-<li>一个加载依赖多个模块就要并行发出多次HTTP请求，影响网页加载速度。虽然require.js提供了一个优化工具可以将多个模块合并在一个文件中只发出一次请求，但一次加载所有模块也很浪费流量，初始化过程慢。</li>
+<li>Vue.use(SwanUI)</li>
+<li>Vue.component(Button.name, Button)</li>
 </ul>
-<p>关于RequireJS可参考：   </p>
-<ul>
-<li><a href="http://requirejs.org/" target="_blank" rel="external">RequireJS 官网</a>   </li>
-<li><a href="http://www.requirejs.cn/" target="_blank" rel="external">RequireJS 中文网</a>   </li>
-<li><a href="https://github.com/requirejs" target="_blank" rel="external">RequireJS GitHub</a> 这里有很多RequireJS使用demo</li>
-</ul>
-<h2 id="webpack模块管理"><a href="#webpack模块管理" class="headerlink" title="webpack模块管理"></a>webpack模块管理</h2><p>webpack可以做到按需异步加载所有资源，除了js文件，图片、样式文件、html、模板库等都可以视作模块加载。当然，webpack本身只能加载js文件，需要借助Loader转换器来完成。</p>
-<p>在用RequireJS加载非AMD规范模块前，需要先用require.config()方法定义shim属性，标注依赖模块的输出值和依赖性。webpack则只需要直接require,不管模块形式是CommonJS、AM还是普通的JS文件。</p>
-<p>在webpack-demo文件目录下新建文件目录如下：   </p>
-<pre><code>.
-├── entry.js
-├── index.html
-└── module
-    ├── module1.js
-    └── module2.js
-</code></pre><p>index.html    </p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-    &lt;head&gt;
-        &lt;title&gt;webpack&lt;/title&gt;
-        &lt;meta charset=&quot;utf-8&quot;&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;script src=&quot;./dist/bundle.js&quot;&gt;&lt;/script&gt;
-    &lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>entry.js    </p>
-<pre><code>var printModule1 = require(&apos;./module/module1.js&apos;)
-var printModule2 = require(&apos;./module/module2.js&apos;)
+<h3 id="七：-webpack2中的后缀-loader不能省略"><a href="#七：-webpack2中的后缀-loader不能省略" class="headerlink" title="七： webpack2中的后缀-loader不能省略"></a>七： webpack2中的后缀-loader不能省略</h3><p style="color:red;"><br>Module build failed: Error: The node API for <code>babel</code> has been moved to <code>babel-core</code>.</p>
 
-function printEntryFileName(){    
-    printModule1();
-    printModule2();
-}
+<p>webpack中的loader：  babel 改成 babel-loader</p>
+<h3 id="八、样式文件中引入npm安装包报错"><a href="#八、样式文件中引入npm安装包报错" class="headerlink" title="八、样式文件中引入npm安装包报错"></a>八、样式文件中引入npm安装包报错</h3><p style="color:red;"><br>Module not found: Error: Can’t resolve ‘./phoenix-styles/less/public.less’ in ‘/Users/chang/future-team/swan-ui/src/modules’<br> @ ./~/css-loader!./~/vue-loader/lib/style-compiler?{“vue”:true,”id”:”data-v-e577e6cc”,”scoped”:false,”hasInlineConfig”:false}!./~/vue-loader/lib/selector.js?type=styles&amp;index=0!./src/modules/Input.vue 3:10-95<br></p>
 
-printEntryFileName();
-</code></pre><p>module1.js    </p>
-<pre><code>var filename = &quot;module1&quot;;
-function printModule1FileName(){
-    document.write(`This is ${filename}&lt;br/&gt;`);
-}
+<p> *.vue文件中引入npm安装包:</p>
+ <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;style lang="less" src="phoenix-styles/less/public.less"&gt;&lt;/style&gt;</div></pre></td></tr></table></figure>
+<h3 id="九、class属性不能作为组件的prop"><a href="#九、class属性不能作为组件的prop" class="headerlink" title="九、class属性不能作为组件的prop"></a>九、class属性不能作为组件的prop</h3><p style="color:red;"><br> “class” is a reserved attribute and cannot be used as component prop.<br></p>
 
-module.exports = printModule1FileName;
-</code></pre><p>html中引入的是bundle.js文件，这个文件是从哪里来的呢？<br>在得到这个文件之前需要先一次安装nodejs和webpack,node安装和升级参见：xxx<br>全局安装webpack    <code>npm install webpack -g</code><br>在webpack目录下执行  <code>webpack entry.js ./dist.bundle.js</code>,命令行会输出如下信息： </p>
-<pre><code>Hash: 71d45b6722deab7e60ec
-Version: webpack 1.13.2
-Time: 75ms
-        Asset              Size     Chunks  Chunk      Names
-        bundle.js          2 kB       0     [emitted]  main
-   [0] ./entry.js          192 bytes {0}    [built]
-   [1] ./module/module1.js 147 bytes {0}    [built]
-   [2] ./module/module2.js 145 bytes {0}    [built]
-</code></pre><p>打开index.html文件可以看到输出   </p>
-<pre><code>This is module1    
-This is module2
-</code></pre><p>这里涉及到了webpack几个重要的概念：入口(entry)、模块(module)、分块(chunk)<br>Asset这一列是webpack编译输出的文件，bundle.js是入口，在html中通过script标签引入，其他的是被entry依赖的模块，webpack将他们按照依赖顺序进行编号.</p>
-<p>若要给输出加一个样式，需要在package.json文件中加入loader转换器依赖。   </p>
-<pre><code>npm init    
-npm install css-loader style-loader
-</code></pre><p>然后在entry.js中引入css模块，然后重新编译  </p>
-<pre><code>require(&quot;!style!css!./style/style.css&quot;)
-var printModule1 = require(&apos;./module/module1.js&apos;)
-var printModule2 = require(&apos;./module/module2.js&apos;)
-
-function printEntryFileName(){    
-    printModule1();
-    printModule2();
-}
-
-printEntryFileName();
-</code></pre><p>webpack还可以根据配置文件编译打包，不需要在webpack命令后写参数（输入文件和输出文件），<br>默认情况下会搜索当前目录下webpack.config.js文件，也可以通过  –config来指定配置文件。在webpack-demo文件目录下新增webpack.config.js<br>var webpack = require(‘webpack’);</p>
-<pre><code>module.exports = {
-    entry:&apos;./entry.js&apos;,
-    output: {
-        path: __dirname + &apos;/dist&apos;,
-        filename: &apos;bundle.js&apos;
-    },
-    module: {
-        loaders:[
-            {
-                test:/\.css$/,loader:&apos;style!css&apos;
-            }
-        ]
-
-    }
-}
-</code></pre><p>在终端运行webpack,会得到跟webpack entry.js ./dist.bundle.js一样的结果。最后的文件目录是这样子的    </p>
-<pre><code>.
-├── dist
-│   └── bundle.js
-├── entry.js
-├── index.html
-├── module
-│   ├── module1.js
-│   └── module2.js
-├── package.json
-├── style
-│   └── style.css
-└── webpack.config.js
-</code></pre><h2 id="当webpack遇见ES6"><a href="#当webpack遇见ES6" class="headerlink" title="当webpack遇见ES6"></a>当webpack遇见ES6</h2><p>把上面最后的文件目录copy出来放到webpack-es6文件目录中，进入webpack-es6目录下操作。在项目中使用ES6语法需要做一些配置。</p>
-<h3 id="babelrc文件"><a href="#babelrc文件" class="headerlink" title=".babelrc文件"></a>.babelrc文件</h3><p>在webpack-demo目录下新建.babelrc，这个是将ES6转码成ES5必须要有的文件。文件中的配置如下：    </p>
-<pre><code>{
-  &quot;presets&quot;: [&quot;es2015&quot;],
-  &quot;plugins&quot;: []
-}
-</code></pre><p>.babelrc文件的配置可以参考<a href="http://www.ruanyifeng.com/blog/2016/01/babel.html" target="_blank" rel="external">Babel 入门教程</a>，如果项目使用的React+ES6，presets中则加入 “react”。</p>
-<h3 id="配置webpack-config-js"><a href="#配置webpack-config-js" class="headerlink" title="配置webpack.config.js"></a>配置webpack.config.js</h3><p>在loaders中加入babel配置</p>
-<pre><code>var webpack = require(&apos;webpack&apos;);
-module.exports = {
-    entry:&apos;./entry.js&apos;,
-    output: {
-        path: __dirname + &apos;/dist&apos;,
-        filename: &apos;bundle.js&apos;
-    },
-    module: {
-        loaders:[
-            {
-                test:/\.css$/,loader:&apos;style!css&apos;
-            },
-            {
-              test: /\.js$/,
-              loader: &apos;babel&apos;,
-              exclude: /node_modules/
-            }
-        ]
-    }
-}
-</code></pre><p>这里既然用到了npm install babel babel-loader –save</p>
-<h3 id="安装必须的依赖"><a href="#安装必须的依赖" class="headerlink" title="安装必须的依赖"></a>安装必须的依赖</h3><p>.babelrc这个配置加了之后需要安装规则集    </p>
-<pre><code>ES2015转码规则
-npm install babel-preset-es2015 --save
-
-react转码规则
-npm install babel-preset-react --save
-</code></pre><p>webpack.config.js中加入babel-loader也需要安装，还有最基本的bable模块  </p>
-<pre><code>npm install babel babel-loader --save
-</code></pre><h3 id="使用ES6语法改造项目"><a href="#使用ES6语法改造项目" class="headerlink" title="使用ES6语法改造项目"></a>使用ES6语法改造项目</h3><p>module1.js 与 module2.js    </p>
-<pre><code>export function printModule1FileName(filename){
-    document.getElementById(&apos;module1&apos;).innerHTML = `This is ${filename}`
-}
-</code></pre><p>entry.js    </p>
-<pre><code>import &quot;!style!css!./style/style.css&quot;
-import * as Module1 from &apos;./module/module1.js&apos;
-import * as Module2 from &apos;./module/module2.js&apos;
-
-class Entry{
-    constructor(filename1,filename2){
-        Module1.printModule1FileName(filename1);
-        Module2.printModule2FileName(filename2);
-    }
-}
-
-(() =&gt; new Entry(&quot;es6module1&quot;,&quot;es6module1&quot;))();
-</code></pre><p>或者这样的entry.js    </p>
-<pre><code>import &quot;!style!css!./style/style.css&quot;
-import * as Module1 from &apos;./module/module1.js&apos;
-import * as Module2 from &apos;./module/module2.js&apos;
-
-class Entry{
-    constructor(filename1,filename2){
-        this.filename1 = filename1;
-        this.filename2 = filename2;        
-    }
-
-    printModuleFileName(){
-        Module1.printModule1FileName(this.filename1);
-        Module2.printModule2FileName(this.filename2);
-    }
-}
-
-var entry = new Entry(&quot;es6module1&quot;,&quot;es6module2&quot;);
-entry.printModuleFileName();
-</code></pre><p>其他的文件内容不变，在webpack-es6目录下执行webpack输出内容：    </p>
-<pre><code>This is es6module1
-This is es6module1
-</code></pre><p>最后的目录    </p>
-<pre><code>.
-├── .babelrc
-├── dist
-│   └── bundle.js
-├── entry.js
-├── index.html
-├── module
-│   ├── module1.js
-│   └── module2.js
-├── package.json
-├── style
-│   └── style.css
-└── webpack.config.js
-</code></pre><p>关于ES6可参考：  </p>
-<ul>
-<li><a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">ECMAScript 6入门</a>    </li>
-<li><a href="http://www.ruanyifeng.com/blog/2016/01/babel.html" target="_blank" rel="external">Babel 入门教程</a>    </li>
-<li><a href="http://ruanyf.github.io/es-checker/index.cn.html" target="_blank" rel="external">检测浏览器支持的ES6特性</a></li>
+<p>我想拿到传给组件的class，不想让他直接添加到组件根元素上肿么破？</p>
+<blockquote>
+<p>Vue handles passing the class attribute through automatically - I think you can just delete the entire object and prop declaration and it will continue working fine.</p>
+</blockquote>
+<h2 id="开发技巧"><a href="#开发技巧" class="headerlink" title="开发技巧"></a>开发技巧</h2><h3 id="一、将属性合并赋值"><a href="#一、将属性合并赋值" class="headerlink" title="一、将属性合并赋值"></a>一、将属性合并赋值</h3><p>利用v-bind可以直接赋值对象</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"ph-multi-group"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">"`ph-$&#123;type&#125;`"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-bind</span>=<span class="string">"nativeProps"</span> @<span class="attr">change</span>=<span class="string">"handleChange"</span>/&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123;label&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>-</p>
+<h3 id="二、-在vue的render方法中使用JSX"><a href="#二、-在vue的render方法中使用JSX" class="headerlink" title="二、 在vue的render方法中使用JSX"></a>二、 在vue的render方法中使用JSX</h3><p>babel配置文件.babelrc添加插件 transform-vue-jsx</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"presets"</span>: [[<span class="string">"es2015"</span>, &#123; <span class="attr">"loose"</span>: <span class="literal">false</span> &#125;]],</div><div class="line">  <span class="attr">"plugins"</span>: [<span class="string">"transform-vue-jsx"</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>安装插件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev babel-plugin-transform-vue-jsx</div></pre></td></tr></table></figure>
+<h3 id="三、自定义-v-model-mixins"><a href="#三、自定义-v-model-mixins" class="headerlink" title="三、自定义 v-model + mixins"></a>三、自定义 v-model + mixins</h3><p>隐藏/显示类组件采用双向绑定，避免书写关闭打开等样板代码。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 定制隐藏/显示切换类组件的 v-model</div><div class="line"> */</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">    <span class="attr">model</span>: &#123;</div><div class="line">        <span class="attr">prop</span>: <span class="string">'visible'</span>,</div><div class="line">        <span class="attr">event</span>: <span class="string">'toggle'</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">methods</span>: &#123;</div><div class="line">        handleToggle(val)&#123;</div><div class="line">            <span class="keyword">this</span>.$emit(<span class="string">'toggle'</span>,val)</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">props</span>: &#123;</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 是否可见标识</div><div class="line">         * @property visible</div><div class="line">         * @type Boolean</div><div class="line">         * */</div><div class="line">        visible: &#123;</div><div class="line">            <span class="attr">type</span>: <span class="built_in">Boolean</span>,</div><div class="line">            <span class="attr">default</span>: <span class="literal">false</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="四、声明组件props时，同时声明组件内部使用的其他组件的props"><a href="#四、声明组件props时，同时声明组件内部使用的其他组件的props" class="headerlink" title="四、声明组件props时，同时声明组件内部使用的其他组件的props"></a>四、声明组件props时，同时声明组件内部使用的其他组件的props</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">sw-checkbox</span> <span class="attr">v-bind</span>=<span class="string">"$props"</span> @<span class="attr">change</span>=<span class="string">"handleChange"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    <span class="keyword">import</span> SwCheckbox <span class="keyword">from</span> <span class="string">'../checkbox/Checkbox.vue'</span></div><div class="line">    <span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">        <span class="attr">name</span>: <span class="string">'SwRadio'</span>,</div><div class="line">        <span class="attr">components</span>: &#123;SwCheckbox&#125;,</div><div class="line">        <span class="attr">methods</span>: &#123;</div><div class="line">            handleChange(value,evt)&#123;</div><div class="line">                <span class="keyword">this</span>.$emit(<span class="string">'change'</span>,value,evt)</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">props</span>: <span class="built_in">Object</span>.assign(&#123;&#125;,SwCheckbox.props,&#123;</div><div class="line">            <span class="attr">type</span>: &#123;</div><div class="line">                <span class="attr">type</span>: <span class="built_in">String</span>,</div><div class="line">                <span class="attr">default</span>: <span class="string">'radio'</span></div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="我希望vue可以改进的地方"><a href="#我希望vue可以改进的地方" class="headerlink" title="我希望vue可以改进的地方"></a>我希望vue可以改进的地方</h2><ul>
+<li>props校验希望能自定义错误提示信息</li>
+<li>props属性必须声明才有用，这对类似Input之类的组件扩展性不好，需要把input属性都声明出来，有点啰嗦。</li>
 </ul>
 
       
@@ -753,11 +496,7 @@ This is es6module1
       
         <div class="post-tags">
           
-            <a href="/tags/模块化编程/" rel="tag"># 模块化编程</a>
-          
-            <a href="/tags/webpack/" rel="tag"># webpack</a>
-          
-            <a href="/tags/requirejs/" rel="tag"># requirejs</a>
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
           
         </div>
       
@@ -770,8 +509,8 @@ This is es6module1
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/React快速开始（十一）组合vs继承/" rel="next" title="React快速开始（十一）组合 vs 继承">
-                <i class="fa fa-chevron-left"></i> React快速开始（十一）组合 vs 继承
+              <a href="/给hexo+githubpage博客绑定域名的一些问题/" rel="next" title="给Hexo+Github page博客绑定域名的一些问题">
+                <i class="fa fa-chevron-left"></i> 给Hexo+Github page博客绑定域名的一些问题
               </a>
             
           </div>
@@ -779,10 +518,6 @@ This is es6module1
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/java与javascript/" rel="prev" title="Java 与 Javascript">
-                Java 与 Javascript <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -912,7 +647,7 @@ This is es6module1
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原始的JS文件加载"><span class="nav-number">1.</span> <span class="nav-text">原始的JS文件加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用RequireJS加载模块"><span class="nav-number">2.</span> <span class="nav-text">使用RequireJS加载模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CommonJS规范"><span class="nav-number">2.1.</span> <span class="nav-text">CommonJS规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AMD规范"><span class="nav-number">2.2.</span> <span class="nav-text">AMD规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RequireJS"><span class="nav-number">2.3.</span> <span class="nav-text">RequireJS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack模块管理"><span class="nav-number">3.</span> <span class="nav-text">webpack模块管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#当webpack遇见ES6"><span class="nav-number">4.</span> <span class="nav-text">当webpack遇见ES6</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#babelrc文件"><span class="nav-number">4.1.</span> <span class="nav-text">.babelrc文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置webpack-config-js"><span class="nav-number">4.2.</span> <span class="nav-text">配置webpack.config.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装必须的依赖"><span class="nav-number">4.3.</span> <span class="nav-text">安装必须的依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用ES6语法改造项目"><span class="nav-number">4.4.</span> <span class="nav-text">使用ES6语法改造项目</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常见问题"><span class="nav-number">1.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、-click-native-组件原生事件触发两次"><span class="nav-number">1.1.</span> <span class="nav-text">一、@click.native 组件原生事件触发两次</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、props检测设定任意类型"><span class="nav-number">1.2.</span> <span class="nav-text">二、props检测设定任意类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、组件外部传入class无法覆盖组件内部动态class"><span class="nav-number">1.3.</span> <span class="nav-text">三、组件外部传入class无法覆盖组件内部动态class</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、根节点需唯一"><span class="nav-number">1.4.</span> <span class="nav-text">四、根节点需唯一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、找不到vue-template-compiler模块"><span class="nav-number">1.5.</span> <span class="nav-text">五、找不到vue-template-compiler模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六：组件未注册"><span class="nav-number">1.6.</span> <span class="nav-text">六：组件未注册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七：-webpack2中的后缀-loader不能省略"><span class="nav-number">1.7.</span> <span class="nav-text">七： webpack2中的后缀-loader不能省略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八、样式文件中引入npm安装包报错"><span class="nav-number">1.8.</span> <span class="nav-text">八、样式文件中引入npm安装包报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九、class属性不能作为组件的prop"><span class="nav-number">1.9.</span> <span class="nav-text">九、class属性不能作为组件的prop</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发技巧"><span class="nav-number">2.</span> <span class="nav-text">开发技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、将属性合并赋值"><span class="nav-number">2.1.</span> <span class="nav-text">一、将属性合并赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、-在vue的render方法中使用JSX"><span class="nav-number">2.2.</span> <span class="nav-text">二、 在vue的render方法中使用JSX</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、自定义-v-model-mixins"><span class="nav-number">2.3.</span> <span class="nav-text">三、自定义 v-model + mixins</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、声明组件props时，同时声明组件内部使用的其他组件的props"><span class="nav-number">2.4.</span> <span class="nav-text">四、声明组件props时，同时声明组件内部使用的其他组件的props</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我希望vue可以改进的地方"><span class="nav-number">3.</span> <span class="nav-text">我希望vue可以改进的地方</span></a></li></ol></div>
             
 
           </div>

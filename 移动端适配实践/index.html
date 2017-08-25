@@ -24,7 +24,7 @@
 <meta property="og:image" content="http://chang20159.com/mobile-web-adaptive/image/scale_pixcel.png">
 <meta property="og:image" content="http://chang20159.com/mobile-web-adaptive/demo3/demo3_200_200.png">
 <meta property="og:image" content="http://chang20159.com/mobile-web-adaptive/demo4/demo4_200_200_10.png">
-<meta property="og:updated_time" content="2017-08-25T02:32:11.000Z">
+<meta property="og:updated_time" content="2017-08-25T02:35:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端适配实践">
 <meta name="twitter:description" content="一般我们在做前端项目之前，都会先拿到视觉稿和交互稿，我们可以根据视觉稿上的尺寸、颜色等信息编写CSS样式，可以根据交互稿来写JS。 每个公司的视觉规范不同，视觉稿也就不同。甚至在一些大公司里，每个部门都有自己的视觉规范。比如页面画布大小是以640为基准还是750。最终给前端开发人员的文件也可能不同，比如psd文件、sketch文件或者图片文件，其中包括页面文件和切图。">
@@ -381,12 +381,12 @@ var _hmt = _hmt || [];
 <h2 id="淘宝和网易的做法"><a href="#淘宝和网易的做法" class="headerlink" title="淘宝和网易的做法"></a>淘宝和网易的做法</h2><p>这里讲的适配方案是今天[2017-08-11]的，以后网站方案可能会有改动，所以我把代码保存下来了，可以看<strong>适配代码</strong></p>
 <h3 id="手机淘宝"><a href="#手机淘宝" class="headerlink" title="手机淘宝"></a>手机淘宝</h3><ul>
 <li><a href="https://m.taobao.com/#index" target="_blank" rel="external">网站</a></li>
-<li><a href="./lib/taobao_flexible.js">适配代码</a></li>
+<li><a href="//chang20159.com/mobile-web-adaptive/lib/taobao_flexible.js">适配代码</a></li>
 </ul>
 <p>淘宝统一定为10，iphone6是 1rem = 75px，iphone5 1rem = 64px,可以到<a href="https://m.taobao.com/#index" target="_blank" rel="external">手机淘宝</a>验证。不同基准的视觉稿rem与px换算比例不同。</p>
 <h3 id="网易"><a href="#网易" class="headerlink" title="网易"></a>网易</h3><ul>
 <li><a href="http://3g.163.com/" target="_blank" rel="external">网站</a></li>
-<li><a href="./lib/wangyi_adaptive.js">适配代码</a></li>
+<li><a href="//chang20159.com/mobile-web-adaptive/lib/wangyi_adaptive.js">适配代码</a></li>
 </ul>
 <p>并没有做缩放，只使用了相对单位rem。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">html的font-size = 布局视口宽度/7.5 = 设备屏幕宽度 / 7.5</div></pre></td></tr></table></figure>

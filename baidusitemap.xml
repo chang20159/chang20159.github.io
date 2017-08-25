@@ -3,10 +3,9 @@
 
 
     
-    
   <url>
-    <loc>http://chang20159.com/README/</loc>
-    <lastmod>2017-08-24T13:02:34.000Z</lastmod>
+    <loc>http://chang20159.com/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D%E5%AE%9E%E8%B7%B5/</loc>
+    <lastmod>2017-08-25T02:25:20.000Z</lastmod>
     <data>
         <display>
         <title>移动端适配实践</title>
@@ -21,6 +20,7 @@
     </data>
     </url>
 
+    
     
   <url>
     <loc>http://chang20159.com/%E4%B8%8B%E9%9B%A8%E5%A4%A9/</loc>
@@ -185,6 +185,21 @@
     
     
     
+    
+  <url>
+    <loc>http://chang20159.com/drafts/normalize.css%E4%B8%8Ereset.css.html</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>normalize.css与reset.css</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+         
+        </display>
+    </data>
+    </url>
+
+    
   <url>
     <loc>http://chang20159.com/drafts/javascript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B.html</loc>
     <lastmod>2017-07-15T07:40:45.000Z</lastmod>
@@ -199,19 +214,6 @@
     </url>
 
     
-  <url>
-    <loc>http://chang20159.com/drafts/JavaScript%E5%AF%B9%E8%B1%A1.html</loc>
-    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript对象</title>
-        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
-        
-         
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>http://chang20159.com/drafts/Nodejs%E5%85%A5%E9%97%A8.html</loc>
@@ -231,14 +233,12 @@
     
     
     
-    
-    
   <url>
-    <loc>http://chang20159.com/drafts/normalize.css%E4%B8%8Ereset.css.html</loc>
+    <loc>http://chang20159.com/drafts/JavaScript%E5%AF%B9%E8%B1%A1.html</loc>
     <lastmod>2017-07-15T07:40:45.000Z</lastmod>
     <data>
         <display>
-        <title>normalize.css与reset.css</title>
+        <title>JavaScript对象</title>
         <pubTime>2017-07-15T07:40:45.000Z</pubTime>
         
          

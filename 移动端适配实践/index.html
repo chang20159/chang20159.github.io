@@ -24,7 +24,7 @@
 <meta property="og:image" content="http://chang20159.com/mobile-web-adaptive/image/scale_pixcel.png">
 <meta property="og:image" content="http://chang20159.com/mobile-web-adaptive/demo3/demo3_200_200.png">
 <meta property="og:image" content="http://chang20159.com/mobile-web-adaptive/demo4/demo4_200_200_10.png">
-<meta property="og:updated_time" content="2017-08-25T02:25:20.000Z">
+<meta property="og:updated_time" content="2017-08-25T02:32:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端适配实践">
 <meta name="twitter:description" content="一般我们在做前端项目之前，都会先拿到视觉稿和交互稿，我们可以根据视觉稿上的尺寸、颜色等信息编写CSS样式，可以根据交互稿来写JS。 每个公司的视觉规范不同，视觉稿也就不同。甚至在一些大公司里，每个部门都有自己的视觉规范。比如页面画布大小是以640为基准还是750。最终给前端开发人员的文件也可能不同，比如psd文件、sketch文件或者图片文件，其中包括页面文件和切图。">
@@ -248,13 +248,17 @@ var _hmt = _hmt || [];
 <p>这个主要看视觉规范怎么定，有的觉得这样挺好，有的就希望字体大小都一样，还有的希望字体大小不是根据屏幕大小按比例缩放而是对一定范围内的屏幕宽度设定特定的字体大小。</p>
 </li>
 </ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><pre><code>【原理】设定布局视口宽度为视觉稿画布宽度，动态设置缩放比例scale=屏幕宽度/视觉稿画布宽度
-【优点】实现简单，可解决不同屏幕大小的布局问题，在各种屏幕上布局一致
-【缺点】
-    - 不能解决1px边框问题；
-    - 缩放值依赖于屏幕宽度，demo里是通过screen.width获取屏幕宽度的，这在chrome里iphone6返回的是屏幕宽度值375，但在其他浏览器就不一定了，比如safari中返回的是1280。
-    - 所有元素都会缩放，比如字体，在iphone5上就会小很多，这不一定是大家想要的。
-</code></pre><h2 id="设置布局视口的宽度-设备宽度"><a href="#设置布局视口的宽度-设备宽度" class="headerlink" title="设置布局视口的宽度 = 设备宽度"></a>设置布局视口的宽度 = 设备宽度</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p>【原理】设定布局视口宽度为视觉稿画布宽度，动态设置缩放比例scale=屏幕宽度/视觉稿画布宽度</p>
+<p>【优点】实现简单，可解决不同屏幕大小的布局问题，在各种屏幕上布局一致</p>
+<p>【缺点】</p>
+<ul>
+<li>不能解决1px边框问题；</li>
+<li>缩放值依赖于屏幕宽度，demo里是通过screen.width获取屏幕宽度的，这在chrome里iphone6返回的是屏幕宽度值375，但在其他浏览器就不一定了，比如safari中返回的是1280。</li>
+<li>所有元素都会缩放，比如字体，在iphone5上就会小很多，这不一定是大家想要的。</li>
+</ul>
+</blockquote>
+<h2 id="设置布局视口的宽度-设备宽度"><a href="#设置布局视口的宽度-设备宽度" class="headerlink" title="设置布局视口的宽度 = 设备宽度"></a>设置布局视口的宽度 = 设备宽度</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>这种情况下有什么效果呢？</p>
 <p><a href="http://chang20159.com/mobile-web-adaptive/demo2/demo2.html">demo2</a></p>
 <p>图片太长，横着放了^^</p>
@@ -338,7 +342,9 @@ var _hmt = _hmt || [];
 <p>因为scale=1/dpr &amp;&amp; 基于750宽的视觉稿，元素的css样式（rem）可以直接由视觉稿尺寸除以100</p>
 <p>最后的效果是： </p>
 <p><a href="http://chang20159.com/mobile-web-adaptive/demo4/demo4.html">demo4</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">html元素的font-size = 布局视口宽度 / 10</div></pre></td></tr></table></figure>
 <p><a href="http://chang20159.com/mobile-web-adaptive/demo5/demo5.html">demo5</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">html元素的font-size = 布局视口宽度 / 7.5</div></pre></td></tr></table></figure>
 <p><img src="//chang20159.com/mobile-web-adaptive/demo4/demo4_200_200_10.png"></p>
 <p><strong>那有人会问啦，我的视觉稿是基于iphone6的，但给的是一倍图宽375怎么办？</strong></p>
 <p>视觉稿一般有两种类型： 一倍图 和 二倍图，比如基于iphone6的：</p>
@@ -346,7 +352,7 @@ var _hmt = _hmt || [];
 <p>缩放一般有两种：</p>
 <p>scale = 1，布局视口宽度 = 375个css像素<br>scale = 1/dpr，布局视口宽度 = 750个css像素</p>
 <p>如果视觉稿选择画布宽750，并且scale=1，那元素css像素应该由<strong>视觉稿中的尺寸除以2</strong>，使布局视口宽度375中400/2 x 400/2 与 视觉稿宽750中400 x 400的元素比例一致</p>
-<p>如果视觉稿选择画布宽375，并且scale=1/dpr，那元素css像素应该由<strong>视觉稿中的尺寸乘以2</strong>，使布局视口宽度375<em>2中200</em>2 x 200*2 与 视觉稿宽375中400 x 400的元素比例一致</p>
+<p>如果视觉稿选择画布宽375，并且scale=1/dpr，那元素css像素应该由<strong>视觉稿中的尺寸乘以2</strong>，使布局视口宽度750中的元素200x2 x 200x2 与 视觉稿宽375中400 x 400的元素比例一致</p>
 <p>其他情况，元素css像素值就是视觉稿中的值。</p>
 <p>知道这个之后，再决定px与rem的换算值：html元素的font-size，然后再写css样式（rem）。</p>
 <p>举几个例子：</p>
@@ -366,10 +372,12 @@ var _hmt = _hmt || [];
 <li>画布宽375 &amp; scale=1，html元素的font-size = 375 / 7.5 = 50，200 ／ 50 = 4rem</li>
 </ul>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">img</span>&#123;</div><div class="line"> <span class="attribute">width</span>: <span class="number">4rem</span>;</div><div class="line"> <span class="attribute">height</span>: <span class="number">4rem</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><p>1、 设置html元素的font-size与布局视口宽度成比例，css样式使用相对单位rem，元素尺寸也就与布局视口宽度成比例，从而在每个设备布局一致。用视觉稿来确定这个比例值就能与视觉稿的布局一致。</p>
+<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p>1、 设置html元素的font-size与布局视口宽度成比例，css样式使用相对单位rem，元素尺寸也就与布局视口宽度成比例，从而在每个设备布局一致。用视觉稿来确定这个比例值就能与视觉稿的布局一致。</p>
 <p>2、 设置缩放比例为 1/dpr可以解决 1px边框 和图片高清的问题。</p>
 <p>为了rem与px换算方便，选定的比例值可以让html元素的font-size为100px。<br>iphone6就是7.5，iphone5就是6.4，不同基准的视觉稿rem与px换算比例都是100. </p>
 <p>最后，如果不想动态适配的内容，可以直接使用px单位，比如字体，还有1px边框。</p>
+</blockquote>
 <h2 id="淘宝和网易的做法"><a href="#淘宝和网易的做法" class="headerlink" title="淘宝和网易的做法"></a>淘宝和网易的做法</h2><p>这里讲的适配方案是今天[2017-08-11]的，以后网站方案可能会有改动，所以我把代码保存下来了，可以看<strong>适配代码</strong></p>
 <h3 id="手机淘宝"><a href="#手机淘宝" class="headerlink" title="手机淘宝"></a>手机淘宝</h3><ul>
 <li><a href="https://m.taobao.com/#index" target="_blank" rel="external">网站</a></li>

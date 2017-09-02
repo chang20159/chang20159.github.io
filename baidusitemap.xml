@@ -210,6 +210,9 @@
 
     
     
+    
+    
+    
   <url>
     <loc>http://chang20159.com/drafts/normalize.css%E4%B8%8Ereset.css.html</loc>
     <lastmod>2017-07-15T07:40:45.000Z</lastmod>
@@ -223,26 +226,6 @@
     </data>
     </url>
 
-    
-  <url>
-    <loc>http://chang20159.com/drafts/Nodejs%E5%85%A5%E9%97%A8.html</loc>
-    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
-    <data>
-        <display>
-        <title>阅读笔记】JavaScript权威指南-理解闭包</title>
-        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
-        
-         
-        </display>
-    </data>
-    </url>
-
-    
-    
-    
-    
-    
-    
     
     
   <url>
@@ -265,6 +248,21 @@
     
     
     
+  <url>
+    <loc>http://chang20159.com/drafts/Nodejs%E5%85%A5%E9%97%A8.html</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>阅读笔记】JavaScript权威指南-理解闭包</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+         
+        </display>
+    </data>
+    </url>
+
+    
+    
     
   <url>
     <loc>http://chang20159.com/drafts/JavaScript%E5%AF%B9%E8%B1%A1.html</loc>
@@ -279,6 +277,8 @@
     </data>
     </url>
 
+    
+    
     
   <url>
     <loc>http://chang20159.com/%E7%BB%99hexo+githubpage%E5%8D%9A%E5%AE%A2%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</loc>

@@ -333,10 +333,6 @@ var _hmt = _hmt || [];
       
       
 	<div class="declare">
-	  <strong>本文作者：</strong><a  href="https://github.com/chang20159">C^.Y.^F</a>
-	  <br>
-	  <strong>本文链接：</strong><a  href="http://chang20159.com/理解BFC/index.html">http://chang20159.com/理解BFC/index.html</a>
-	  <br>
 	  <strong>版权声明：</strong>本文采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>许可协议。转载请注明出处！
 	</div>
 
@@ -362,9 +358,11 @@ var _hmt = _hmt || [];
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/CSS/" class="article-tag-list-link color4">CSS</a>
-        		</li>
+				
+					<li class="article-tag-list-item">
+        				<a href="/categories/CSS/" class="article-tag-list-link color4">CSS</a>
+        			</li>
+				
       		
 		</ul>
 	</div>
@@ -490,12 +488,20 @@ var _hmt = _hmt || [];
   
     <section id="comments">
       <div id="disqus_thread"></div>
+        <script id="dsq-count-scr" src="https://{{theme.disqus}}.disqus.com/count.js" async></script>
         <script type="text/javascript">
 
-        var disqus_shortname = 'true';
-
+        var disqus_shortname = 'chang20159';
+        var disqus_config = function () {
+          this.page.url = 'http://chang20159.com/理解BFC/';
+          this.page.identifier = '理解BFC/';
+          this.page.title = '理解BFC';
+          this.language = 'zh';
+          console.log(this.page)
+        };
         (function() {
-          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          var dsq = document.createElement('script'); 
+          dsq.type = 'text/javascript'; dsq.async = true;
           dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();

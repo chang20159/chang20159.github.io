@@ -663,190 +663,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Immutable.js使用mergeWith解决Map和List相互嵌套时的合并问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Immutable.js使用mergeWith解决Map和List相互嵌套时的合并问题/">Immutable.js 使用mergeWith解决Map和List相互嵌套时的合并问题</a>
-    </h1>
-  
-
-        
-        <a href="/Immutable.js使用mergeWith解决Map和List相互嵌套时的合并问题/" class="archive-article-date">
-  	<time datetime="2017-06-10T08:56:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这里有两组不可变数据，Map里面有List，List 又包含Map。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> defaultData = Immutable.fromJS(&#123;</div><div class="line">	  <span class="attr">condition</span>:&#123;</div><div class="line">	    <span class="attr">mainCategory</span>: <span class="number">23</span>,</div><div class="line">	    <span class="attr">category</span>: <span class="number">2185</span></div><div class="line">	  &#125;,</div><div class="line">	  <span class="attr">categoryOptions</span>: [</div><div class="line">	        &#123; <span class="attr">id</span>:<span class="number">51</span>, <span class="attr">name</span>:<span class="string">"KTV"</span> &#125;,</div><div class="line">	        &#123; <span class="attr">id</span>:<span class="number">2184</span>, <span class="attr">name</span>:<span class="string">"录音棚"</span> &#125;,</div><div class="line">	        &#123; <span class="attr">id</span>:<span class="number">2185</span>, <span class="attr">name</span>:<span class="string">"其他KTV"</span> &#125;</div><div class="line">	  ],</div><div class="line">	  <span class="attr">regionOptions</span>: [</div><div class="line">	      &#123; <span class="attr">id</span>: <span class="number">1924</span>, <span class="attr">name</span>: <span class="string">"古城/八角"</span> &#125;</div><div class="line">	  ]</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">const</span> data = Immutable.fromJS(&#123;</div><div class="line">	  <span class="attr">condition</span>:&#123;</div><div class="line">	    <span class="attr">category</span>: <span class="number">275</span></div><div class="line">	  &#125;,</div><div class="line">	  <span class="attr">categoryOptions</span>: [</div><div class="line">	      &#123; <span class="attr">id</span>:<span class="number">275</span>, <span class="attr">name</span>: <span class="string">"洗浴足疗养生"</span> &#125;,</div><div class="line">	      &#123; <span class="attr">id</span>:<span class="number">2139</span>, <span class="attr">name</span>: <span class="string">"棋牌"</span> &#125;</div><div class="line">	  ]</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>要将data与defaultData合并，Immutable.js合并有哪些方法？ </p>
-<ul>
-<li>merge </li>
-<li>mergeDeep</li>
-<li>mergeWith</li>
-</ul>
-        
-          <!--<a class="article-more-a" href="/Immutable.js使用mergeWith解决Map和List相互嵌套时的合并问题/#more">more >></a>-->
-        
-      
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-				
-					<li class="article-tag-list-item">
-        				<a href="/categories/工作/" class="article-tag-list-link color3">工作</a>
-        			</li>
-				
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Immutable.js使用mergeWith解决Map和List相互嵌套时的合并问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-socket.io开发问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/socket.io开发问题/">使用socket.io进行websocket通信无法连接</a>
-    </h1>
-  
-
-        
-        <a href="/socket.io开发问题/" class="archive-article-date">
-  	<time datetime="2017-05-20T10:31:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="socket-io连接后一直polling"><a href="#socket-io连接后一直polling" class="headerlink" title="socket.io连接后一直polling"></a>socket.io连接后一直polling</h2><p>客户端启动后一直发送这个连接<strong><a href="http://127.0.0.1:8080/socket.io/?EIO=3&amp;transport=polling&amp;t=1496800827548-2891" target="_blank" rel="external">http://127.0.0.1:8080/socket.io/?EIO=3&amp;transport=polling&amp;t=1496800827548-2891</a></strong><br><img src="/images/socketio_pooling.png" alt=""><br>
-        
-          <!--<a class="article-more-a" href="/socket.io开发问题/#more">more >></a>-->
-        
-      
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">socket.io</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">websocket</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-				
-					<li class="article-tag-list-item">
-        				<a href="/categories/工作/" class="article-tag-list-link color3">工作</a>
-        			</li>
-				
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/socket.io开发问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-理解BFC" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1016,9 +832,184 @@ var _hmt = _hmt || [];
 
 
   
+    <article id="post-常用WebAPI接口" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/常用WebAPI接口/">常用 Web API 接口</a>
+    </h1>
+  
+
+        
+        <a href="/常用WebAPI接口/" class="archive-article-date">
+  	<time datetime="2017-04-22T03:49:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>有时候是不是很容易头大，很多常见的api分不清，看下面这些，能弄明白它们的区别么？</p>
+<ul>
+<li>document.location 与 window.location</li>
+<li>document.URL 与 document.documentURI</li>
+<li>nodeValue、innerText 、textContent、innerHTML、outerHTML、outerText</li>
+<li>clientHeight、scrollHeight、offsetHeight（Left/Top/Width）</li>
+</ul>
+        
+          <!--<a class="article-more-a" href="/常用WebAPI接口/#more">more >></a>-->
+        
+      
+      
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+				
+					<li class="article-tag-list-item">
+        				<a href="/categories/JavaScript/" class="article-tag-list-link color1">JavaScript</a>
+        			</li>
+				
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/常用WebAPI接口/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-小程序初体验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/小程序初体验/">小程序初体验</a>
+    </h1>
+  
+
+        
+        <a href="/小程序初体验/" class="archive-article-date">
+  	<time datetime="2017-02-23T12:04:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>小程序刚出来的时候就刷爆了朋友圈，各种铺天盖地的文章说是小程序的到来要改变前端的开发模式，不再需要客户端开发云云。。当时我也是热血沸腾，以为属于前端的时代来了，加入了“微信应用号开发群-4”，关注了微信公众号“很小的程序”，还加入了github上的组织“微信小程序开发者”。每天看着群里各种开发中遇到的问题抛出来，大家聊得很high，然而我也就运行了一下官方demo，浏览了一遍官网文档。大概那时候是没有太多时间去学习了。。。。<br>
+        
+          <!--<a class="article-more-a" href="/小程序初体验/#more">more >></a>-->
+        
+      
+      
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+				
+					<li class="article-tag-list-item">
+        				<a href="/categories/小程序/" class="article-tag-list-link color4">小程序</a>
+        			</li>
+				
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/小程序初体验/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 

@@ -24,26 +24,6 @@
 
     
   <url>
-    <loc>http://chang20159.com/React%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%EF%BC%88%E4%BA%94%EF%BC%89State%E5%92%8C%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</loc>
-    <lastmod>2017-09-06T12:53:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>React快速开始（五）State和生命周期</title>
-        <pubTime>2016-07-13T00:54:00.000Z</pubTime>
-        
-        <tag>React快速开始</tag>
-         
-         
-           
-             
-              <breadCrumb title="React" url="http://chang20159.com/categories/React/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://chang20159.com/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D%E5%AE%9E%E8%B7%B5/</loc>
     <lastmod>2017-09-05T12:48:48.000Z</lastmod>
     <data>
@@ -131,26 +111,6 @@
            
              
               <breadCrumb title="其他" url="http://chang20159.com/categories/%E5%85%B6%E4%BB%96/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chang20159.com/React%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%EF%BC%88%E4%B8%83%EF%BC%89%E6%9D%A1%E4%BB%B6%E6%B8%B2%E6%9F%93/</loc>
-    <lastmod>2017-08-29T02:10:03.000Z</lastmod>
-    <data>
-        <display>
-        <title>React快速开始（七）条件渲染</title>
-        <pubTime>2016-07-28T01:33:00.000Z</pubTime>
-        
-        <tag>React快速开始</tag>
-         
-         
-           
-             
-              <breadCrumb title="React" url="http://chang20159.com/categories/React/"/>
           
         </display>
     </data>
@@ -270,13 +230,12 @@
 
     
     
-    
   <url>
-    <loc>http://chang20159.com/drafts/JavaScript%E5%AF%B9%E8%B1%A1.html</loc>
+    <loc>http://chang20159.com/drafts/Nodejs%E5%85%A5%E9%97%A8.html</loc>
     <lastmod>2017-07-15T07:40:45.000Z</lastmod>
     <data>
         <display>
-        <title>JavaScript对象</title>
+        <title>阅读笔记】JavaScript权威指南-理解闭包</title>
         <pubTime>2017-07-15T07:40:45.000Z</pubTime>
         
          
@@ -284,14 +243,6 @@
     </data>
     </url>
 
-    
-    
-    
-    
-    
-    
-    
-    
     
     
   <url>
@@ -310,6 +261,7 @@
     
     
     
+    
   <url>
     <loc>http://chang20159.com/drafts/javascript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B.html</loc>
     <lastmod>2017-07-15T07:40:45.000Z</lastmod>
@@ -324,12 +276,20 @@
     </url>
 
     
+    
+    
+    
+    
+    
+    
+    
+    
   <url>
-    <loc>http://chang20159.com/drafts/Nodejs%E5%85%A5%E9%97%A8.html</loc>
+    <loc>http://chang20159.com/drafts/JavaScript%E5%AF%B9%E8%B1%A1.html</loc>
     <lastmod>2017-07-15T07:40:45.000Z</lastmod>
     <data>
         <display>
-        <title>阅读笔记】JavaScript权威指南-理解闭包</title>
+        <title>JavaScript对象</title>
         <pubTime>2017-07-15T07:40:45.000Z</pubTime>
         
          
@@ -337,7 +297,6 @@
     </data>
     </url>
 
-    
     
     
   <url>
@@ -356,48 +315,6 @@
            
              
               <breadCrumb title="静态博客" url="http://chang20159.com/categories/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chang20159.com/Immutable.js%E4%BD%BF%E7%94%A8mergeWith%E8%A7%A3%E5%86%B3Map%E5%92%8CList%E7%9B%B8%E4%BA%92%E5%B5%8C%E5%A5%97%E6%97%B6%E7%9A%84%E5%90%88%E5%B9%B6%E9%97%AE%E9%A2%98/</loc>
-    <lastmod>2017-06-10T08:56:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>Immutable.js 使用mergeWith解决Map和List相互嵌套时的合并问题</title>
-        <pubTime>2017-06-10T08:56:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="工作" url="http://chang20159.com/categories/%E5%B7%A5%E4%BD%9C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chang20159.com/socket.io%E5%BC%80%E5%8F%91%E9%97%AE%E9%A2%98/</loc>
-    <lastmod>2017-05-20T10:31:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>使用socket.io进行websocket通信无法连接</title>
-        <pubTime>2017-05-20T10:31:00.000Z</pubTime>
-        
-        <tag>nodejs</tag>
-         
-        <tag>socket.io</tag>
-         
-        <tag>websocket</tag>
-         
-         
-           
-             
-              <breadCrumb title="工作" url="http://chang20159.com/categories/%E5%B7%A5%E4%BD%9C/"/>
           
         </display>
     </data>
@@ -577,30 +494,6 @@
 
     
   <url>
-    <loc>http://chang20159.com/IE%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B7%A8%E5%9F%9F%E8%AE%BF%E9%97%AE%E5%A4%B1%E8%B4%A5/</loc>
-    <lastmod>2016-12-24T10:44:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>IE浏览器跨域访问失败</title>
-        <pubTime>2016-12-24T10:44:00.000Z</pubTime>
-        
-        <tag>CORS</tag>
-         
-        <tag>兼容性问题</tag>
-         
-        <tag>IE</tag>
-         
-         
-           
-             
-              <breadCrumb title="工作" url="http://chang20159.com/categories/%E5%B7%A5%E4%BD%9C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://chang20159.com/ECharts%E7%BB%98%E5%88%B6%E5%9B%BE%E5%BD%A2%EF%BC%8C%E4%B8%8D%E5%90%8C%E6%97%B6%E9%97%B4%E6%AE%B5%E5%8C%BA%E5%9F%9F%E9%A2%9C%E8%89%B2%E4%B8%8D%E5%90%8C/</loc>
     <lastmod>2016-12-10T09:06:00.000Z</lastmod>
     <data>
@@ -743,26 +636,6 @@
 
     
   <url>
-    <loc>http://chang20159.com/Linux%E5%91%BD%E4%BB%A4/</loc>
-    <lastmod>2016-10-31T01:38:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>常用Linux命令</title>
-        <pubTime>2016-10-31T01:38:00.000Z</pubTime>
-        
-        <tag>Linux</tag>
-         
-         
-           
-             
-              <breadCrumb title="工具" url="http://chang20159.com/categories/%E5%B7%A5%E5%85%B7/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://chang20159.com/drafts/JavaScript%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0.html</loc>
     <lastmod>2016-10-29T03:02:00.000Z</lastmod>
     <data>
@@ -797,50 +670,6 @@
 
     
   <url>
-    <loc>http://chang20159.com/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
-    <lastmod>2016-10-17T09:49:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>跨域问题解决方案</title>
-        <pubTime>2016-10-17T09:49:00.000Z</pubTime>
-        
-        <tag>CORS</tag>
-         
-        <tag>Cookie</tag>
-         
-        <tag>跨域</tag>
-         
-         
-           
-             
-              <breadCrumb title="工作" url="http://chang20159.com/categories/%E5%B7%A5%E4%BD%9C/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chang20159.com/java%E4%B8%8Ejavascript/</loc>
-    <lastmod>2016-09-20T14:10:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>Java 与 Javascript</title>
-        <pubTime>2016-09-20T14:10:00.000Z</pubTime>
-        
-        <tag>JavaScript</tag>
-         
-         
-           
-             
-              <breadCrumb title="JavaScript" url="http://chang20159.com/categories/JavaScript/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://chang20159.com/%E6%A8%A1%E5%9D%97%E7%AE%A1%E7%90%86%E4%B8%8E%E6%89%93%E5%8C%85%E5%AE%9E%E8%B7%B5/</loc>
     <lastmod>2016-09-10T04:24:00.000Z</lastmod>
     <data>
@@ -858,106 +687,6 @@
            
              
               <breadCrumb title="工具" url="http://chang20159.com/categories/%E5%B7%A5%E5%85%B7/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chang20159.com/React%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89%E7%BB%84%E5%90%88vs%E7%BB%A7%E6%89%BF/</loc>
-    <lastmod>2016-08-15T13:04:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>React快速开始（十一）组合 vs 继承</title>
-        <pubTime>2016-08-15T13:04:00.000Z</pubTime>
-        
-        <tag>React快速开始</tag>
-         
-         
-           
-             
-              <breadCrumb title="React" url="http://chang20159.com/categories/React/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chang20159.com/React%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%EF%BC%88%E5%8D%81%EF%BC%89state%E6%8F%90%E5%8D%87/</loc>
-    <lastmod>2016-08-09T00:47:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>React快速开始（十）state提升</title>
-        <pubTime>2016-08-09T00:47:00.000Z</pubTime>
-        
-        <tag>React快速开始</tag>
-         
-         
-           
-             
-              <breadCrumb title="React" url="http://chang20159.com/categories/React/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chang20159.com/React%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%EF%BC%88%E4%B9%9D%EF%BC%89%E8%A1%A8%E5%8D%95/</loc>
-    <lastmod>2016-08-05T01:20:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>React快速开始（九）React中的表单</title>
-        <pubTime>2016-08-05T01:20:00.000Z</pubTime>
-        
-        <tag>React快速开始</tag>
-         
-         
-           
-             
-              <breadCrumb title="React" url="http://chang20159.com/categories/React/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chang20159.com/React%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%EF%BC%88%E5%85%AB%EF%BC%89Lists%E5%92%8CKeys/</loc>
-    <lastmod>2016-07-29T00:46:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>React快速开始（八）Lists和Keys</title>
-        <pubTime>2016-07-29T00:46:00.000Z</pubTime>
-        
-        <tag>React快速开始</tag>
-         
-         
-           
-             
-              <breadCrumb title="React" url="http://chang20159.com/categories/React/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chang20159.com/React%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%EF%BC%88%E5%85%AD%EF%BC%89%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/</loc>
-    <lastmod>2016-07-25T13:16:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>React快速开始（六）事件处理</title>
-        <pubTime>2016-07-25T13:16:00.000Z</pubTime>
-        
-        <tag>React快速开始</tag>
-         
-         
-           
-             
-              <breadCrumb title="React" url="http://chang20159.com/categories/React/"/>
           
         </display>
     </data>
@@ -1005,46 +734,6 @@
 
     
   <url>
-    <loc>http://chang20159.com/React%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%EF%BC%88%E5%9B%9B%EF%BC%89%E7%BB%84%E4%BB%B6%E5%92%8Cprops/</loc>
-    <lastmod>2016-07-07T01:13:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>React快速开始（四）组件和props</title>
-        <pubTime>2016-07-07T01:13:00.000Z</pubTime>
-        
-        <tag>React快速开始</tag>
-         
-         
-           
-             
-              <breadCrumb title="React" url="http://chang20159.com/categories/React/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chang20159.com/React%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%EF%BC%88%E4%B8%89%EF%BC%89%E6%B8%B2%E6%9F%93%E5%85%83%E7%B4%A0/</loc>
-    <lastmod>2016-07-01T04:04:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>React快速开始（三）渲染元素</title>
-        <pubTime>2016-07-01T04:04:00.000Z</pubTime>
-        
-        <tag>React快速开始</tag>
-         
-         
-           
-             
-              <breadCrumb title="React" url="http://chang20159.com/categories/React/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://chang20159.com/call%E3%80%81apply%E5%92%8Cbind%E5%87%BD%E6%95%B0%E7%9A%84polyfill%E5%AE%9E%E7%8E%B0/</loc>
     <lastmod>2016-06-30T13:43:00.000Z</lastmod>
     <data>
@@ -1058,46 +747,6 @@
            
              
               <breadCrumb title="JavaScript" url="http://chang20159.com/categories/JavaScript/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chang20159.com/React%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%EF%BC%88%E4%BA%8C%EF%BC%89%E4%BD%BF%E7%94%A8JSX/</loc>
-    <lastmod>2016-06-30T00:44:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>React快速开始（二）使用JSX</title>
-        <pubTime>2016-06-30T00:44:00.000Z</pubTime>
-        
-        <tag>React快速开始</tag>
-         
-         
-           
-             
-              <breadCrumb title="React" url="http://chang20159.com/categories/React/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chang20159.com/React%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%EF%BC%88%E4%B8%80%EF%BC%89%E5%AE%89%E8%A3%85/</loc>
-    <lastmod>2016-06-29T11:27:00.000Z</lastmod>
-    <data>
-        <display>
-        <title>React快速开始（一）安装</title>
-        <pubTime>2016-06-29T11:27:00.000Z</pubTime>
-        
-        <tag>React快速开始</tag>
-         
-         
-           
-             
-              <breadCrumb title="React" url="http://chang20159.com/categories/React/"/>
           
         </display>
     </data>

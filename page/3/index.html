@@ -160,6 +160,101 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-JavaScript事件机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/JavaScript事件机制/">JavaScript事件</a>
+    </h1>
+  
+
+        
+        <a href="/JavaScript事件机制/" class="archive-article-date">
+  	<time datetime="2016-12-02T01:02:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在web浏览器中操作页面时，会发生各种不同的事件，比如光标停留，鼠标点击。我们可以使用javascript应用程序关注特定类型的事件，并注册当事件发生时要调用的函数,即事件处理器。<br>事件有几个重要的概念：这几个概念：</p>
+<ul>
+<li>事件类型 event type</li>
+<li>事件目标 event target</li>
+<li>事件处理程序（event handler）或 事件监听程序（event listener）</li>
+<li>事件对象：与特定事件相关的，包含该事件详细信息的对象，作为参数传递给事件处理函数。
+        
+          <!--<a class="article-more-a" href="/JavaScript事件机制/#more">more >></a>-->
+        
+      
+      
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+				
+					<li class="article-tag-list-item">
+        				<a href="/categories/JavaScript/" class="article-tag-list-link color1">JavaScript</a>
+        			</li>
+				
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/JavaScript事件机制/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-前端构建工具Gulp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -994,97 +1089,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-call、apply和bind函数的polyfill实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/call、apply和bind函数的polyfill实现/">call、apply和bind函数的polyfill实现</a>
-    </h1>
-  
-
-        
-        <a href="/call、apply和bind函数的polyfill实现/" class="archive-article-date">
-  	<time datetime="2016-06-30T13:43:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">'chen'</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> foo = &#123;</div><div class="line">	<span class="attr">name</span>: <span class="string">'chang'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params">age,sex</span>)</span>&#123;</div><div class="line">	alert(<span class="keyword">this</span>.name + age + sex);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这里有一个对象foo，一个函数sayHello，如果直接调用sayHello(),结果是弹出<code>chenundefinedundefined</code><br>我们希望调用函数sayHello,this能指向foo,通过this.name获得foo.name.<br>
-        
-          <!--<a class="article-more-a" href="/call、apply和bind函数的polyfill实现/#more">more >></a>-->
-        
-      
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-				
-					<li class="article-tag-list-item">
-        				<a href="/categories/JavaScript/" class="article-tag-list-link color1">JavaScript</a>
-        			</li>
-				
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/call、apply和bind函数的polyfill实现/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1143,7 +1147,7 @@ var _hmt = _hmt || [];
     
     	<section class="tools-section tools-section-all" q-show="innerArchive">
         <div class="search-wrap">
-          <input class="search-ipt" q-model="search" type="text" placeholder="find something…">
+          <input class="search-ipt" q-model="search" type="text" placeholder="搜搜看...">
           <i class="icon-search icon" q-show="search|isEmptyStr"></i>
           <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
         </div>
@@ -1159,15 +1163,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ECharts</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1237,11 +1241,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-category color3">工具</a>
+                <a href="javascript:void(0)" class="js-category color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-category color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-category color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1257,11 +1261,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-category color3">日常</a>
+                <a href="javascript:void(0)" class="js-category color5">前端构建</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-category color5">前端构建</a>
+                <a href="javascript:void(0)" class="js-category color3">日常</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1274,6 +1278,10 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-category color3">其他</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-category color4">css</a>
               </li>
             
             <div class="clearfix"></div>

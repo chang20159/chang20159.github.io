@@ -5,10 +5,10 @@
     
   <url>
     <loc>http://chang20159.com/%E7%90%86%E8%A7%A3Flexbox%E5%BC%B9%E6%80%A7%E7%9B%92%E5%B8%83%E5%B1%80/</loc>
-    <lastmod>2017-09-17T08:42:15.000Z</lastmod>
+    <lastmod>2017-09-17T08:50:30.000Z</lastmod>
     <data>
         <display>
-        <title>Flexbox弹性盒布局</title>
+        <title>理解Flexbox弹性盒布局</title>
         <pubTime>2017-09-11T08:39:35.000Z</pubTime>
         
          
@@ -249,19 +249,8 @@
     
     
     
-  <url>
-    <loc>http://chang20159.com/drafts/JavaScript%E5%AF%B9%E8%B1%A1.html</loc>
-    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript对象</title>
-        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
-        
-         
-        </display>
-    </data>
-    </url>
-
+    
+    
     
     
   <url>
@@ -278,6 +267,19 @@
     </url>
 
     
+  <url>
+    <loc>http://chang20159.com/drafts/JavaScript%E5%AF%B9%E8%B1%A1.html</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript对象</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+         
+        </display>
+    </data>
+    </url>
+
     
   <url>
     <loc>http://chang20159.com/drafts/javascript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B.html</loc>
@@ -313,8 +315,6 @@
     </data>
     </url>
 
-    
-    
     
     
   <url>

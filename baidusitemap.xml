@@ -4,8 +4,44 @@
 
     
   <url>
+    <loc>http://chang20159.com/%E5%85%B3%E4%BA%8ECORS/</loc>
+    <lastmod>2017-09-25T12:03:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>关于CORS</title>
+        <pubTime>2017-09-20T02:45:20.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="工作" url="http://chang20159.com/categories/%E5%B7%A5%E4%BD%9C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/%E8%A6%81%E5%81%9A%E4%B8%80%E4%B8%AA%E5%90%88%E6%A0%BC%E7%9A%84%E5%89%8D%E7%AB%AF%E6%94%BB%E5%9F%8E%E7%8B%AE/</loc>
+    <lastmod>2017-09-21T09:54:19.000Z</lastmod>
+    <data>
+        <display>
+        <title>要做一个合格的前端攻城狮</title>
+        <pubTime>2017-06-19T02:43:25.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="其他" url="http://chang20159.com/categories/%E5%85%B6%E4%BB%96/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://chang20159.com/%E7%90%86%E8%A7%A3Flexbox%E5%BC%B9%E6%80%A7%E7%9B%92%E5%B8%83%E5%B1%80/</loc>
-    <lastmod>2017-09-17T10:47:09.000Z</lastmod>
+    <lastmod>2017-09-17T10:59:01.000Z</lastmod>
     <data>
         <display>
         <title>理解Flexbox弹性盒布局</title>
@@ -111,24 +147,6 @@
            
              
               <breadCrumb title="CSS" url="http://chang20159.com/categories/CSS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chang20159.com/%E8%A6%81%E5%81%9A%E4%B8%80%E4%B8%AA%E5%90%88%E6%A0%BC%E7%9A%84%E5%89%8D%E7%AB%AF%E6%94%BB%E5%9F%8E%E7%8B%AE/</loc>
-    <lastmod>2017-09-02T12:19:19.000Z</lastmod>
-    <data>
-        <display>
-        <title>要做一个合格的前端攻城狮</title>
-        <pubTime>2017-06-19T02:43:25.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="其他" url="http://chang20159.com/categories/%E5%85%B6%E4%BB%96/"/>
           
         </display>
     </data>
@@ -250,6 +268,8 @@
     
     
     
+    
+    
   <url>
     <loc>http://chang20159.com/drafts/normalize.css%E4%B8%8Ereset.css.html</loc>
     <lastmod>2017-07-15T07:40:45.000Z</lastmod>
@@ -263,35 +283,6 @@
     </data>
     </url>
 
-    
-  <url>
-    <loc>http://chang20159.com/drafts/Nodejs%E5%85%A5%E9%97%A8.html</loc>
-    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
-    <data>
-        <display>
-        <title>阅读笔记】JavaScript权威指南-理解闭包</title>
-        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
-        
-         
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chang20159.com/drafts/JavaScript%E5%AF%B9%E8%B1%A1.html</loc>
-    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript对象</title>
-        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
-        
-         
-        </display>
-    </data>
-    </url>
-
-    
     
   <url>
     <loc>http://chang20159.com/drafts/javascript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B.html</loc>
@@ -310,7 +301,34 @@
     
     
     
+  <url>
+    <loc>http://chang20159.com/drafts/Nodejs%E5%85%A5%E9%97%A8.html</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>阅读笔记】JavaScript权威指南-理解闭包</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+         
+        </display>
+    </data>
+    </url>
+
     
+    
+  <url>
+    <loc>http://chang20159.com/drafts/JavaScript%E5%AF%B9%E8%B1%A1.html</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript对象</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+         
+        </display>
+    </data>
+    </url>
+
     
     
     

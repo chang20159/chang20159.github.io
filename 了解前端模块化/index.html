@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://chang20159.com">
-  <title>Category: 其他 | 茉莉蜜茶only的博客</title>
+  <title>了解前端模块化 | 茉莉蜜茶only的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="茉莉蜜茶only的博客">
-<meta property="og:url" content="http://chang20159.com/categories/其他/index.html">
+  <meta name="description" content="之前写过一个Demo，还顺便写了一篇文 模块管理与打包实践，但对于前端模块化的规范和模块加载器原理没有深入探究。 关于为什么要前端模块化，实际上是要解决文件依赖和命名空间的问题，具体可以看 模块管理与打包实践  或者 玉伯的这篇 前端模块化开发的价值">
+<meta property="og:type" content="article">
+<meta property="og:title" content="了解前端模块化">
+<meta property="og:url" content="http://chang20159.com/了解前端模块化/index.html">
 <meta property="og:site_name" content="茉莉蜜茶only的博客">
+<meta property="og:description" content="之前写过一个Demo，还顺便写了一篇文 模块管理与打包实践，但对于前端模块化的规范和模块加载器原理没有深入探究。 关于为什么要前端模块化，实际上是要解决文件依赖和命名空间的问题，具体可以看 模块管理与打包实践  或者 玉伯的这篇 前端模块化开发的价值">
+<meta property="og:updated_time" content="2017-09-30T08:04:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="茉莉蜜茶only的博客">
+<meta name="twitter:title" content="了解前端模块化">
+<meta name="twitter:description" content="之前写过一个Demo，还顺便写了一篇文 模块管理与打包实践，但对于前端模块化的规范和模块加载器原理没有深入探究。 关于为什么要前端模块化，实际上是要解决文件依赖和命名空间的问题，具体可以看 模块管理与打包实践  或者 玉伯的这篇 前端模块化开发的价值">
   
     <link rel="alternative" href="/atom.xml" title="茉莉蜜茶only的博客" type="application/atom+xml">
   
@@ -158,44 +162,162 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-了解前端模块化" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/要做一个合格的前端攻城狮/" class="archive-article-date">
-  	<time datetime="2017-06-19T02:43:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-19</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/要做一个合格的前端攻城狮/">要做一个合格的前端攻城狮</a>
+    <h1 class="article-title" itemprop="name">
+      了解前端模块化
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/了解前端模块化/" class="archive-article-date">
+  	<time datetime="2017-06-19T02:43:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前写过一个Demo，还顺便写了一篇文 <a href="./模块管理与打包实践.md">模块管理与打包实践</a>，但对于前端模块化的规范和模块加载器原理没有深入探究。</p>
+<p>关于为什么要前端模块化，实际上是要解决<code>文件依赖</code>和<code>命名空间</code>的问题，具体可以看 <a href="./模块管理与打包实践.md">模块管理与打包实践</a>  或者 玉伯的这篇 <a href="https://github.com/seajs/seajs/issues/547?utm_source=caibaojian.com" target="_blank" rel="external">前端模块化开发的价值</a></p>
+<a id="more"></a>
+<h2 id="了解历史"><a href="#了解历史" class="headerlink" title="了解历史"></a>了解历史</h2><p>JavaScript本身一直没有模块体系，js文件的加载都是使用最简单的script标签，使得每个模块的接口都暴露在全局作用域中。容易造成一些问题，比如:</p>
+<ul>
+<li>全局作用域下变量冲突</li>
+<li>相互依赖的文件需要按以来的顺序书写，开发人员需要自己解决模块间依赖关系</li>
+<li>模块只能按script标签的顺序加载</li>
+</ul>
+<p>所以后来就有社区制定了一些模块加载方案，经常会看到CommonJS、AMD、CMD等规范，还有一些常见的模块加载器RequireJS、SeaJS等。</p>
+<p>关于这些模块加载方案的由来可以看下玉伯的这篇 <a href="https://github.com/seajs/seajs/issues/588" target="_blank" rel="external">前端模块化开发那点历史 </a>  或者 阮一峰的 <a href="http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html" target="_blank" rel="external">Javascript模块化编程（二）：AMD规范</a></p>
+<p>大概的历史是这样的：</p>
+<blockquote>
+<ol>
+<li>2009年1月，Mozilla 的工程师 Kevin Dangoor创建了ServerJS；2009年8月，项目改名为 CommonJS。<code>CommonJS</code> 是一套规范。</li>
+<li>2009年，美国程序员Ryan Dahl创造了node.js项目，<code>node.js的模块系统</code>就是参照CommonJS的模块规范写的。</li>
+<li>但是CommonJS规范中的require是同步的，这在浏览器端是不能接受的。所以后来就有了 <code>AMD 规范</code>，<code>RequireJS</code>是AMD规范的实现。</li>
+<li>再后来玉伯觉得RequireJS不够完善，给RequireJS团队提的很多意见都不被采纳，就自己写了Sea.js，并制定了<code>CMD规范</code>，<code>Sea.js</code>遵循CMD规范。</li>
+<li>2015年6月正式发布了<code>ECMAScript6标准</code>，在语言标准层面实现了模块功能，完全可以取代 CommonJS 和 AMD 规范，成为浏览器和服务器通用的模块解决方案。</li>
+</ol>
+</blockquote>
+<h2 id="主流模块加载器和它的规范"><a href="#主流模块加载器和它的规范" class="headerlink" title="主流模块加载器和它的规范"></a>主流模块加载器和它的规范</h2><h3 id="CommonJS-与-Nodejs"><a href="#CommonJS-与-Nodejs" class="headerlink" title="CommonJS 与 Nodejs"></a>CommonJS 与 Nodejs</h3><p>CommonJS对模块的定义十分简单，主要分为模块加载、模块定义和模块标识3个部分。</p>
+<p><strong>模块加载</strong></p>
+<pre><code>通过require方法引入一个模块，require方法接受一个模块标识作为参数。
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> math = <span class="built_in">require</span>(<span class="string">'math'</span>)</div></pre></td></tr></table></figure>
+<p><strong>模块定义</strong></p>
+<p><code>module</code>对象表示模块本身，<code>exports</code>是<code>module</code>对象的属性，module.exports是模块唯一的导出口，用于导出当前模块的方法或变量。Node为每个模块提供一个exports变量，指向module.exports。这也是为什么不能直接对exports赋值的原因，因为这样就切断了exports与module.exports的联系。我们可以直接向exports对象添加方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//math.js</span></div><div class="line">exports.add = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;...&#125;</div></pre></td></tr></table></figure>
+<p>在另一个文件中，通过require就可以引入了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//index.js</span></div><div class="line"><span class="keyword">var</span> math = <span class="built_in">require</span>(<span class="string">'math'</span>)</div><div class="line"><span class="keyword">export</span>.result = math.add(<span class="number">1</span>,<span class="number">3</span>);</div></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>模块标识</strong></p>
+<p>  模块标识就是传递给require的参数，可以是以.、..等开头的相对路径、或者绝对路径、或者字符串。</p>
+</li>
+</ul>
+<p>关于Node模块系统更详细的使用方法可以参考阮一峰的 <a href="http://javascript.ruanyifeng.com/nodejs/module.html" target="_blank" rel="external">CommonJS规范</a></p>
+<h3 id="AMD-与-RequireJS"><a href="#AMD-与-RequireJS" class="headerlink" title="AMD 与 RequireJS"></a>AMD 与 RequireJS</h3><p>全称： Asynchronous Module Definition ，异步模块加载机制。RequireJS正是AMD规范的一种实现。</p>
+<p><strong>AMD规范的的核心思想</strong>：模块的加载不影响在它之后的程序的执行，所有依赖这个模块的语句都定义在一个回调函数中，模块加载完成后，再运行回调函数。</p>
+<p>AMD规范也分模块加载、模块定义。</p>
+<p><strong>模块加载</strong></p>
+<p>也采用require()语句加载模块，并执行加载完之后的逻辑</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>([deps], callback);</div></pre></td></tr></table></figure>
+<p>例如：index.js中依赖module1，module2</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.config(&#123;</div><div class="line">    <span class="attr">path</span>: &#123;</div><div class="line">        <span class="attr">module</span>: <span class="string">'./module'</span>,</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"><span class="built_in">require</span>([<span class="string">'module/module1.js'</span>,<span class="string">'module/module2.js'</span>],<span class="function"><span class="keyword">function</span>(<span class="params">module1,module2</span>)</span>&#123;</div><div class="line">    module1.printModule1FileName();</div><div class="line">    module2.printModule2FileName();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><strong>模块定义</strong></p>
+<p>通过define函数定义在闭包中，define函数格式为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">define(id,[deps],factory)</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left">模块的名字，<strong>可选参数</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">deps</td>
+<td style="text-align:left">自身依赖的模块列表，<strong>这些依赖模块的输出作为factory的参数。可选参数。</strong><br>如果没有指定，则默认的依赖模块为[‘require’,’exports’,’module’]</td>
+</tr>
+<tr>
+<td style="text-align:left">factory</td>
+<td style="text-align:left">一个函数或者对象。<strong>若是一个函数，该函数的返回值就是模块的输出。</strong></td>
+</tr>
+</tbody>
+</table>
+<p>例如定义module1：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">define(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">printModule1FileName</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">document</span>.write(<span class="string">'This is module1&lt;br/&gt;'</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">filename</span>:<span class="string">"module1"</span>,</div><div class="line">        <span class="attr">printModule1FileName</span>:printModule1FileName</div><div class="line">    &#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="CMD-与-SeaJS"><a href="#CMD-与-SeaJS" class="headerlink" title="CMD 与 SeaJS"></a>CMD 与 SeaJS</h3><p>全称： Common Module Definition。</p>
+<p>CMD也采用define来定义模块，require来加载模块，但用法不太相同。</p>
+<p><strong>模块加载</strong></p>
+<p>require方法，接受 模块标识 作为唯一参数，用来获取其他模块提供的接口。</p>
+<p><strong>模块定义</strong></p>
+<p>define的用法有点像CommonJS 与 AMD的结合体，用法多样。可以直接看 <a href="https://github.com/seajs/seajs/issues/242" target="_blank" rel="external">CMD 模块定义规范</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">define(function(require, exports, module) &#123;</div><div class="line"></div><div class="line">  // 模块代码</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="ES6模块"><a href="#ES6模块" class="headerlink" title="ES6模块"></a>ES6模块</h3><p>模块功能主要由两个命令构成：export和import。关于ES6模块的用法可以参考 <a href="http://es6.ruanyifeng.com/#docs/module#%E6%A6%82%E8%BF%B0" target="_blank" rel="external">Module 的语法</a> 和 <a href="http://www.infoq.com/cn/articles/es6-in-depth-modules" target="_blank" rel="external">深入浅出ES6（十六）：模块 Modules</a>.ES6模块系统与那些模块加载器不同，它是一个静态的模块系统，在编译时就能确定模块关系。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>CommonJS 没有什么好说的，同步加载模块，只有加载完成，才能执行后面的操作。反而是在浏览器端使用的模块加载器 Require.js 与 Sea.js网上有很多争论和对比，然而我哪个都没用过。。。现在的项目都是用es6。</p>
+<p>这里直接给个传送门，还有知乎上一段很精彩的讨论： <a href="https://www.zhihu.com/question/20342350" target="_blank" rel="external">LABjs、RequireJS、SeaJS 哪个最好用？为什么？</a></p>
+<table> <tr> <td width="200" style=" vertical-align:top"> <strong>nodejs</strong> <ul> <li><a href="https://github.com/nodejs/node" target="_blank" rel="external">源码</a></li> <li><a href="http://nodejs.cn/api/modules.html" target="_blank" rel="external">文档</a></li> <li><a href="http://wiki.commonjs.org/wiki/Modules/1.1" target="_blank" rel="external"> CommonJS 规范</a></li> </ul> </td> <td width="200" style=" vertical-align:top"> <strong>requirejs</strong> <ul> <li><a href="https://github.com/requirejs/requirejs" target="_blank" rel="external">源码</a></li> <li><a href="http://requirejs.org/docs/whyamd.html" target="_blank" rel="external">文档</a></li> <li><a href="http://wiki.commonjs.org/wiki/Modules/AsynchronousDefinition" target="_blank" rel="external">AMD 规范</a></li> </ul></td> <td width="200" style=" vertical-align:top"> <strong>seajs</strong> <ul> <li><a href="https://github.com/seajs/seajs" target="_blank" rel="external">源码</a></li> <li><a href="https://seajs.github.io/seajs/docs/#docs" target="_blank" rel="external">文档</a></li> <li><a href="https://github.com/seajs/seajs/issues/242" target="_blank" rel="external">CMD 规范</a></li> </ul></td> </tr> </table>
+
+<h2 id="理解原理"><a href="#理解原理" class="headerlink" title="理解原理"></a>理解原理</h2><h3 id="requirejs"><a href="#requirejs" class="headerlink" title="requirejs"></a>requirejs</h3><p>module.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">define(<span class="string">"id"</span>,[<span class="string">'a'</span>,<span class="string">'b'</span>],<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">	<span class="built_in">module</span>.exports = &#123;</div><div class="line">		<span class="attr">name</span>: <span class="string">"I am module"</span></div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>index.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">define([<span class="string">'module'</span>],<span class="function"><span class="keyword">function</span>(<span class="params">module</span>)</span>&#123;</div><div class="line"> <span class="built_in">module</span>.exports = <span class="built_in">module</span>.name</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>1、 解析模块路径和依赖关系</p>
+<p>2、 按依赖关系递归执行创建script标签，请求js，并绑定onload事件来获取该模块加载完成的通知。（有的加载器也会通过 AJAX 去请求脚本然后eval执行，前提是没有跨域。）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> node =  <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</div><div class="line">node.type =  <span class="string">'text/javascript'</span>;</div><div class="line">node.charset = <span class="string">'utf-8'</span>;</div><div class="line">node.async = <span class="literal">true</span>;</div><div class="line">node.id=<span class="string">"xxx"</span>;</div><div class="line">node.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;...&#125;</div><div class="line">node.src = url;</div><div class="line"><span class="keyword">var</span> head = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>];</div><div class="line">head.appendChild(node);</div></pre></td></tr></table></figure>
+<p>3、依赖的js加载完成后，执行依赖的模块中的回调函数，并将结果给当前回调函数作为参数</p>
+<h3 id="seajs"><a href="#seajs" class="headerlink" title="seajs"></a>seajs</h3><p>module.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">define(<span class="string">'id'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">require,exports,modules</span>)</span>&#123;</div><div class="line">	<span class="built_in">module</span>.exports = &#123;</div><div class="line">		<span class="attr">name</span>: <span class="string">"I am module"</span></div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>index.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">define(<span class="string">'id'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">require,exports,modules</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> <span class="built_in">module</span> = <span class="built_in">require</span>(<span class="string">'module.js'</span>)</div><div class="line">	<span class="built_in">module</span>.exports = <span class="built_in">module</span>.name</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ol>
+<li>通过回调函数的Function.toString函数，使用正则表达式解析找到require(‘module.js’),找到内部依赖的模块</li>
+<li>根据配置文件，找到依赖的js文件的实际路径，在dom中插入script标签，载入模块指定的js，绑定加载完成的事件。<strong>(加载依赖模块逻辑跟requirejs是一样的)</strong>。载入后存储对应的factory函数</li>
+<li>回调函数内部依赖的js全部加载（暂不调用）完后，调用回调函数</li>
+<li>当回调函数调用require(‘module.js’)时，执行绑定在’module’这个id上的factory函数，并将返回值传给var module</li>
+</ol>
+<p>从seajs源码可以看出在调用require时才执行:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">seajs.require = <span class="function"><span class="keyword">function</span>(<span class="params">id</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> mod = Module.get(Module.resolve(id))</div><div class="line">  <span class="keyword">if</span> (mod.status &lt; STATUS.EXECUTING) &#123;</div><div class="line">    mod.onload()</div><div class="line">    mod.exec()</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> mod.exports</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><p>requirejs与seajs都是提前加载好所有依赖模块，只是模块的factory函数执行时机不同，requirejs是在模块的回调执行前执行依赖模块的factory，拿到依赖模块的输出作为自己的回调的入参。seajs在加载依赖模块后只是存储了模块id与对应的factory函数的关系，在调用require时才执行factory函数并返回结果。对于这一点，我感觉两者没什么差异。</p>
+<p>关于循环依赖的问题，例如：在引入b.js时，会去加载b模块的依赖，并执行依赖的factory函数，而它依赖的a模块又依赖了b，就会加载并执行b模块的factory函数。</p>
+<p>所以会出现 a模块和b模块的factory同时执行的情况，这样只会执行到相互引用的部分。</p>
+<p>b.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">define([<span class="string">"a"</span>],<span class="function"><span class="keyword">function</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">    <span class="comment">//"a"将是null，如果a/b间是循环依赖</span></div><div class="line">    <span class="keyword">var</span> a = <span class="built_in">require</span>(<span class="string">"a"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    	 a.doSomething();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果出现循环依赖，最好是重构解决。或者换种写法：</p>
+<p>b.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">define([<span class="string">"require"</span>, <span class="string">"a"</span>],<span class="function"><span class="keyword">function</span>(<span class="params">require, a</span>) </span>&#123;</div><div class="line">    <span class="comment">//"a"将是null，如果a/b间是循环依赖</span></div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">require</span>(<span class="string">"a"</span>).doSomething();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://www.ruanyifeng.com/blog/2015/11/circular-dependency.html" target="_blank" rel="external">JavaScript 模块的循环加载</a></li>
+<li><a href="http://caibaojian.com/js-module-define.html" target="_blank" rel="external">JS模块化编程之加载器原理</a></li>
+</ul>
+
+      
+      
+	<div class="declare">
+	  <strong>版权声明：</strong>本文采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>许可协议。转载请注明出处！
+	</div>
+
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
 				
 					<li class="article-tag-list-item">
-        				<a href="/categories/其他/" class="article-tag-list-link color3">其他</a>
+        				<a href="/categories/前端构建/" class="article-tag-list-link color5">前端构建</a>
         			</li>
 				
       		
@@ -203,17 +325,147 @@ var _hmt = _hmt || [];
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://chang20159.com/了解前端模块化/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/Vue组件库开发问题及技巧/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Vue组件开发常见问题及技巧
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/给hexo+githubpage博客绑定域名的一些问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">给Hexo+Github page博客绑定域名的一些问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font">目录</i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#了解历史"><span class="toc-number">1.</span> <span class="toc-text">了解历史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主流模块加载器和它的规范"><span class="toc-number">2.</span> <span class="toc-text">主流模块加载器和它的规范</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CommonJS-与-Nodejs"><span class="toc-number">2.1.</span> <span class="toc-text">CommonJS 与 Nodejs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AMD-与-RequireJS"><span class="toc-number">2.2.</span> <span class="toc-text">AMD 与 RequireJS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CMD-与-SeaJS"><span class="toc-number">2.3.</span> <span class="toc-text">CMD 与 SeaJS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6模块"><span class="toc-number">2.4.</span> <span class="toc-text">ES6模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">2.5.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#理解原理"><span class="toc-number">3.</span> <span class="toc-text">理解原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#requirejs"><span class="toc-number">3.1.</span> <span class="toc-text">requirejs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#seajs"><span class="toc-number">3.2.</span> <span class="toc-text">seajs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结-1"><span class="toc-number">3.3.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script id="dsq-count-scr" src="https://{{theme.disqus}}.disqus.com/count.js" async></script>
+        <script type="text/javascript">
+
+        var disqus_shortname = 'chang20159';
+        var disqus_config = function () {
+          this.page.url = 'http://chang20159.com/了解前端模块化/';
+          this.page.identifier = '了解前端模块化/';
+          this.page.title = '了解前端模块化';
+          this.language = 'zh';
+          console.log(this.page)
+        };
+        (function() {
+          var dsq = document.createElement('script'); 
+          dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
+  
 
 
           </div>
@@ -236,10 +488,10 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
@@ -283,6 +535,18 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -291,23 +555,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">语法高亮</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -316,6 +564,10 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Jekyll</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -361,7 +613,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-category color5">静态博客</a>
+                <a href="javascript:void(0)" class="js-category color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -369,11 +621,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-category color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-category color2">JQuery</a>
+                <a href="javascript:void(0)" class="js-category color5">静态博客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -381,11 +629,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-category color3">日常</a>
+                <a href="javascript:void(0)" class="js-category color2">JQuery</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-category color5">前端构建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-category color3">日常</a>
               </li>
              
               <li class="article-tag-list-item">

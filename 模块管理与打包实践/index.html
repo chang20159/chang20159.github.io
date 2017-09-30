@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://chang20159.com/模块管理与打包实践/index.html">
 <meta property="og:site_name" content="茉莉蜜茶only的博客">
 <meta property="og:description" content="关于javascript模块化编程的介绍可以参考阮一峰的Javascript模块化编程系列和webpack中文指南，详细讲述了模块系统的演进以及各种方式的使用方法。看完之后特来实践一下。">
-<meta property="og:updated_time" content="2016-09-10T04:24:00.000Z">
+<meta property="og:updated_time" content="2017-09-28T03:14:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="模块管理与打包实践">
 <meta name="twitter:description" content="关于javascript模块化编程的介绍可以参考阮一峰的Javascript模块化编程系列和webpack中文指南，详细讲述了模块系统的演进以及各种方式的使用方法。看完之后特来实践一下。">
@@ -300,13 +300,13 @@ require([&apos;module/module1.js&apos;,&apos;module/module2.js&apos;],function(m
 <pre><code>module1 and module2
 This is module1
 This is module2
-</code></pre><p>RequireJS解决了并行加载模块的问题，但因为还有以下弊端    </p>
+</code></pre><p>RequireJS解决了并行加载模块的问题，但因为还有以下弊端</p>
 <ul>
 <li>代码书写不太符合常规习惯，模块的引入与代码逻辑掺杂在一起。    </li>
 <li>只能将js文件作为模块加载。    </li>
 <li>一个加载依赖多个模块就要并行发出多次HTTP请求，影响网页加载速度。虽然require.js提供了一个优化工具可以将多个模块合并在一个文件中只发出一次请求，但一次加载所有模块也很浪费流量，初始化过程慢。</li>
 </ul>
-<p>关于RequireJS可参考：   </p>
+<p>关于RequireJS可参考：  </p>
 <ul>
 <li><a href="http://requirejs.org/" target="_blank" rel="external">RequireJS 官网</a>   </li>
 <li><a href="http://www.requirejs.cn/" target="_blank" rel="external">RequireJS 中文网</a>   </li>
@@ -495,7 +495,7 @@ This is es6module1
 ├── style
 │   └── style.css
 └── webpack.config.js
-</code></pre><p>关于ES6可参考：  </p>
+</code></pre><p>关于ES6可参考： </p>
 <ul>
 <li><a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">ECMAScript 6入门</a>    </li>
 <li><a href="http://www.ruanyifeng.com/blog/2016/01/babel.html" target="_blank" rel="external">Babel 入门教程</a>    </li>
@@ -754,6 +754,18 @@ This is es6module1
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
@@ -762,23 +774,7 @@ This is es6module1
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">语法高亮</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -787,6 +783,10 @@ This is es6module1
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Jekyll</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -832,7 +832,7 @@ This is es6module1
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-category color5">静态博客</a>
+                <a href="javascript:void(0)" class="js-category color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -840,11 +840,7 @@ This is es6module1
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-category color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-category color2">JQuery</a>
+                <a href="javascript:void(0)" class="js-category color5">静态博客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -852,11 +848,15 @@ This is es6module1
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-category color3">日常</a>
+                <a href="javascript:void(0)" class="js-category color2">JQuery</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-category color5">前端构建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-category color3">日常</a>
               </li>
              
               <li class="article-tag-list-item">

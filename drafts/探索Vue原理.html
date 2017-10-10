@@ -8,12 +8,19 @@
   <link rel="dns-prefetch" href="http://chang20159.com">
   <title>茉莉蜜茶only的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="vue 双向数据绑定实现原理 Vue 源码解析：深入响应式原理  luobotang/simply-vue  数据劫持: vue.js 则是采用数据劫持结合发布者-订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调。 1、 new Vue实例，将data中的属性代理到实例上。对data中">
+<meta property="og:type" content="website">
 <meta property="og:title" content="茉莉蜜茶only的博客">
-<meta property="og:url" content="http://chang20159.com/index.html">
+<meta property="og:url" content="http://chang20159.com/drafts/探索Vue原理.html">
 <meta property="og:site_name" content="茉莉蜜茶only的博客">
+<meta property="og:description" content="vue 双向数据绑定实现原理 Vue 源码解析：深入响应式原理  luobotang/simply-vue  数据劫持: vue.js 则是采用数据劫持结合发布者-订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调。 1、 new Vue实例，将data中的属性代理到实例上。对data中">
+<meta property="og:image" content="http://chang20159.com/images/vue/app_node.png">
+<meta property="og:image" content="http://chang20159.com/images/vue/app_vue.png">
+<meta property="og:updated_time" content="2017-10-09T09:00:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="茉莉蜜茶only的博客">
+<meta name="twitter:description" content="vue 双向数据绑定实现原理 Vue 源码解析：深入响应式原理  luobotang/simply-vue  数据劫持: vue.js 则是采用数据劫持结合发布者-订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调。 1、 new Vue实例，将data中的属性代理到实例上。对data中">
+<meta name="twitter:image" content="http://chang20159.com/images/vue/app_node.png">
   
     <link rel="alternative" href="/atom.xml" title="茉莉蜜茶only的博客" type="application/atom+xml">
   
@@ -158,605 +165,45 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-关于CORS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="page-undefined" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/关于CORS/">关于CORS</a>
-    </h1>
-  
-
-        
-        <a href="/关于CORS/" class="archive-article-date">
-  	<time datetime="2017-09-20T02:45:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-20</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>之前写过两篇关于CORS跨域的工作总结，<code>跨域问题解决方案</code>和<code>IE浏览器跨域访问失败</code>，由于纯粹是工作总结，没有讲明为什么要这么做，就删除了。</p>
-<p>最近又经常被问到一些问题，比如写java服务端的同学的来问：我服务端明明正确返回了，测试环境debug能看到，为什么前端就是拿不到数据？ 然后写前端的同学会问：为什么我明明设置了withCredentials=true，服务端同学还是拿不到cookie？</p>
-<p>所以决定重新捋一捋使用CORS解决跨域的问题，前后端要怎么做？为什么这么做？</p>
-        
-          <!--<a class="article-more-a" href="/关于CORS/#more">more >></a>-->
-        
-      
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-				
-					<li class="article-tag-list-item">
-        				<a href="/categories/工作/" class="article-tag-list-link color3">工作</a>
-        			</li>
-				
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/关于CORS/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-理解Flexbox弹性盒布局" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/理解Flexbox弹性盒布局/">理解Flexbox弹性盒布局</a>
-    </h1>
-  
-
-        
-        <a href="/理解Flexbox弹性盒布局/" class="archive-article-date">
-  	<time datetime="2017-09-11T08:39:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="../images/flexbox/flexbox1.png"><br>
-        
-          <!--<a class="article-more-a" href="/理解Flexbox弹性盒布局/#more">more >></a>-->
-        
-      
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-				
-					<li class="article-tag-list-item">
-        				<a href="/categories/CSS/" class="article-tag-list-link color4">CSS</a>
-        			</li>
-				
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/理解Flexbox弹性盒布局/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-移动端适配实践" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/移动端适配实践/">移动端适配实践</a>
-    </h1>
-  
-
-        
-        <a href="/移动端适配实践/" class="archive-article-date">
-  	<time datetime="2017-08-22T05:05:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一般我们在做前端项目之前，都会先拿到视觉稿和交互稿，我们可以根据视觉稿上的尺寸、颜色等信息编写CSS样式，可以根据交互稿来写JS。</p>
-<p>每个公司的视觉规范不同，视觉稿也就不同。甚至在一些大公司里，每个部门都有自己的视觉规范。比如页面画布大小是以640为基准还是750。最终给前端开发人员的文件也可能不同，比如psd文件、sketch文件或者图片文件，其中包括页面文件和切图。</p>
-        
-          <!--<a class="article-more-a" href="/移动端适配实践/#more">more >></a>-->
-        
-      
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-				
-					<li class="article-tag-list-item">
-        				<a href="/categories/工作/" class="article-tag-list-link color3">工作</a>
-        			</li>
-				
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/移动端适配实践/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-移动端web基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/移动端web基础知识/">移动端web基础</a>
-    </h1>
-  
-
-        
-        <a href="/移动端web基础知识/" class="archive-article-date">
-  	<time datetime="2017-08-04T02:03:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <div align="center"><br><img src="../images/mobile_web_knowledge/mobile_web_knowledge.png" height="250"><br></div>
-        
-          <!--<a class="article-more-a" href="/移动端web基础知识/#more">more >></a>-->
-        
-      
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-				
-					<li class="article-tag-list-item">
-        				<a href="/categories/工作/" class="article-tag-list-link color3">工作</a>
-        			</li>
-				
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/移动端web基础知识/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-图片预加载和懒加载" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/图片预加载和懒加载/">图片预加载和懒加载</a>
-    </h1>
-  
-
-        
-        <a href="/图片预加载和懒加载/" class="archive-article-date">
-  	<time datetime="2017-07-15T07:40:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>预加载和懒加载是两种加载资源的方式，适用于不同场景。常见的是图片的预加载和懒加载，最近开发组件库，图片组件就用到了预加载和懒加载，记录一下实现方式和相关知识点。</p>
-        
-          <!--<a class="article-more-a" href="/图片预加载和懒加载/#more">more >></a>-->
-        
-      
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-				
-					<li class="article-tag-list-item">
-        				<a href="/categories/工作/" class="article-tag-list-link color3">工作</a>
-        			</li>
-				
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/图片预加载和懒加载/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Vue组件库开发问题及技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Vue组件库开发问题及技巧/">Vue组件开发常见问题及技巧</a>
-    </h1>
-  
-
-        
-        <a href="/Vue组件库开发问题及技巧/" class="archive-article-date">
-  	<time datetime="2017-07-06T01:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Vue组件库开发，记录过程中的问题和经验。 手机端Vue组件库，戳&gt;  <a href="https://future-team.github.io/swan-ui/examples/index.html#/" target="_blank" rel="external">Swan UI</a></p>
-        
-          <!--<a class="article-more-a" href="/Vue组件库开发问题及技巧/#more">more >></a>-->
-        
-      
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-				
-					<li class="article-tag-list-item">
-        				<a href="/categories/Vue/" class="article-tag-list-link color4">Vue</a>
-        			</li>
-				
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Vue组件库开发问题及技巧/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-了解前端模块化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/了解前端模块化/">了解前端模块化</a>
-    </h1>
-  
-
-        
-        <a href="/了解前端模块化/" class="archive-article-date">
-  	<time datetime="2017-06-19T02:43:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>之前写过一个Demo，还顺便写了一篇文 <a href="./模块管理与打包实践.md">模块管理与打包实践</a>，但对于前端模块化的规范和模块加载器原理没有深入探究。</p>
-<p>关于为什么要前端模块化，实际上是要解决<code>文件依赖</code>和<code>命名空间</code>的问题，具体可以看 <a href="./模块管理与打包实践.md">模块管理与打包实践</a>  或者 玉伯的这篇 <a href="https://github.com/seajs/seajs/issues/547?utm_source=caibaojian.com" target="_blank" rel="external">前端模块化开发的价值</a></p>
-        
-          <!--<a class="article-more-a" href="/了解前端模块化/#more">more >></a>-->
-        
-      
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-				
-					<li class="article-tag-list-item">
-        				<a href="/categories/前端构建/" class="article-tag-list-link color5">前端构建</a>
-        			</li>
-				
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/了解前端模块化/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-给hexo+githubpage博客绑定域名的一些问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/给hexo+githubpage博客绑定域名的一些问题/">给Hexo+Github page博客绑定域名的一些问题</a>
-    </h1>
-  
-
-        
-        <a href="/给hexo+githubpage博客绑定域名的一些问题/" class="archive-article-date">
-  	<time datetime="2017-06-15T04:46:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>项目终于做完了，忽然想到买了很久的域名一直没有用，本来以为还要备案啥的，就一直没倒腾。<br>今天研究了下域名绑定，居然很快就弄好了。但是也遇到了几个问题，还是记录一下吧~</p>
-<ul>
-<li>升级Node.js后，执行hexo generate报错</li>
-<li>Hexo博客绑定域名 CNAME文件问题</li>
-<li>个人主页添加域名后项目主页访问不了了</li>
+        <ul>
+<li><a href="https://juejin.im/entry/59116fa6a0bb9f0058aaaa4c" target="_blank" rel="external">vue 双向数据绑定实现原理</a></li>
+<li><a href="https://github.com/DDFE/DDFE-blog/issues/7" target="_blank" rel="external">Vue 源码解析：深入响应式原理 </a></li>
+<li><a href="https://github.com/luobotang/simply-vue" target="_blank" rel="external">luobotang/simply-vue</a></li>
 </ul>
-        
-          <!--<a class="article-more-a" href="/给hexo+githubpage博客绑定域名的一些问题/#more">more >></a>-->
-        
+<p>数据劫持: vue.js 则是采用数据劫持结合发布者-订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调。</p>
+<p>1、 new Vue实例，将data中的属性代理到实例上。对data中的每个属性监听，为data中的每个属性new 一个Dep对象，用来存储订阅者 watcher和发布通知。<br>编译 HTML：nodeToFragement(id)。编译HTML时为每个与数据绑定相关的节点new 一个Watcher实例，并把它添加到相应属性的dep对象中（在Watcher构造函数中触发相应属性的get方法，在get方法中将watcher添加到dep）。</p>
+<p>数据初始化</p>
+<p>2、view &gt; model</p>
+<p>视图变化时，如果有v-model属性，会执行v-model指令的逻辑，更新对应的data属性。如果没有，而有事件处理函数的话会执行事件处理函数。</p>
+<p>3、model &gt; view</p>
+<p>data中的属性改变时，触发属性的set方法。在set方法中会调用相应dep的notify通知watcher，执行watcher的update方法，更新节点的nodeValue.(get方法中添加watcher回调)</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//index.html</div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></div><div class="line">	  &#123;&#123; message &#125;&#125;</div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//main.js</span></div><div class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></div><div class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#app'</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">message</span>: <span class="string">'Hello Vue!'</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>页面展示： Hello Vue!</p>
+<p>页面源码“</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">    &lt;div id=&quot;app&quot;&gt;</div><div class="line">      Hello Vue!</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;script type=&quot;text/javascript&quot; src=&quot;/app.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
+<p>打开控制台：</p>
+<p><img src="../images/vue/app_node.png" alt=""></p>
+<p><img src="../images/vue/app_vue.png" alt=""><br>这里可以看出来，我们new的一个Vue实例挂载在id为app的DOM节点上</p>
+<p>控制台输入</p>
+<blockquote>
+<p>app.<strong>vue</strong>.message = ‘bye bye’</p>
+</blockquote>
+<p>页面显示 bye bye</p>
+<p>官方文档所说的<a href="https://cn.vuejs.org/v2/guide/index.html#声明式渲染" target="_blank" rel="external">修改 app.message页面能相应地更新</a>并不起作用，这里app.message = ‘houhou’ 没有反应,app.<strong>vue</strong>.message也没有变化。</p>
+<p>这里有几个地方有message变量，且值是 <figure class="highlight plain"><figcaption><span>Vue!```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- app.__vue__.message</div><div class="line">- app.__vue__._data.message</div><div class="line">- app.__vue__.$data.message</div><div class="line"></div><div class="line">![](../images/vue/app_vue_message.png)</div><div class="line"></div><div class="line">在控制台修改 app.\_\_vue\_\_.message、app.\_\_vue\_\_.\_data.message、app.__vue__.$data.message中热任意一个都能让页面展示数据发生相应变化，并且其他两个都会相应变化。</div><div class="line"></div><div class="line">[官方文档](https://cn.vuejs.org/v2/guide/instance.html#属性与方法)有这么一句话： **每个 Vue 实例都会代理其 data 对象里所有的属性**。这也是为什么app.__vue__会有message的原因。并且**只有这些被代理的属性是响应的。如果在实例创建之后添加新的属性到实例上，它不会触发视图更新。**</div></pre></td></tr></table></figure></p>
+<p>//main.js<br>import Vue from ‘vue’<br>var app = new Vue({<br>  el: ‘#app’,<br>  data: {<br>    message: ‘Hello Vue!’<br>  }<br>})<br>app.message_not_proxyed = ‘not_proxyed’<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">在Vue实例创建后，再添加属性message\_not\_proxyed到实例上</div><div class="line">![](../images/vue/app_vue_message_not_proxyed.png)</div><div class="line"></div><div class="line">可以看到，Vue实例上添加了属性，但\_data和$data中并没有。</div><div class="line"></div><div class="line">那挂载在DOM上的Vue实例为什么会有\_data、$data这样的区分呢？它们都有什么作用呢？创建Vue实例都干了什么？</div><div class="line"></div><div class="line">先来回答最后一个问题：一张图就可以解释</div><div class="line"></div><div class="line">&lt;img src=&quot;https://cn.vuejs.org/images/lifecycle.png&quot; /&gt;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">在这个过程中，如果用户定义了生命周期钩子，则会执行生命周期钩子函数</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">官网文档说：**Vue 实例暴露了一些有用的实例属性与方法。这些属性与方法都有前缀 $**</div><div class="line"></div><div class="line">那应该是暴露出来的用户使用的吗？</div><div class="line"></div><div class="line"></div><div class="line">--------分割线------这里是粗糙笔记</div><div class="line"></div><div class="line">**vue组件不能从父组件接收所有prop吗？**</div><div class="line"></div><div class="line">跨组件数据流，自定义事件通信以及构建工具集成</div><div class="line"></div><div class="line">所有的 Vue.js 组件其实都是被扩展的 Vue 实例。</div><div class="line"></div><div class="line">你的站点上动态渲染的任意 HTML 可能会非常危险，因为它很容易导致 XSS 攻击</div><div class="line"></div><div class="line">指令的职责就是当其表达式的值改变时相应地将某些行为应用到 DOM 上</div><div class="line"></div><div class="line">在 v-bind 用于 class 和 style 时， Vue.js 专门增强了它。表达式的结果类型除了字符串之外，还可以是对象或数组</div><div class="line"></div><div class="line">过滤器，可被用作一些常见的文本格式化，过滤器只能在 mustache 绑定和 v-bind 表达式</div><div class="line"></div><div class="line">指令修饰符</div><div class="line"></div><div class="line">缩写</div><div class="line"></div><div class="line">计算属性的缓存特性</div><div class="line">/Users/chang/vue/vue-example/build</div><div class="line">computed vs methods vs watch</div><div class="line"></div><div class="line"></div><div class="line">computed ： 只有原始数据变化才需要计算更新的数据</div><div class="line">watch,数据变化时，执行异步操作或开销较大的操作。watch 选项允许我们执行异步操作（访问一个 API），限制我们执行该操作的频率，并在我们得到最终结果前，设置中间状态。这是计算属性无法做到的</div><div class="line"></div><div class="line"></div><div class="line">v-for  数组迭代、对象迭代、整数迭代</div><div class="line"></div><div class="line"></div><div class="line">key的用途</div></pre></td></tr></table></figure></p>
+<!-- 完整语法 -->
+<p><a v-bind:href="url"></a><br><!-- 缩写 --><br><a :href="url"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<!-- 完整语法 -->
+<p><a v-on:click="doSomething"></a><br><!-- 缩写 --><br><a @click="doSomething"></a><br>```</p>
+<p>v-once 与 shouldComponentUpdate</p>
+
       
       
       
@@ -765,47 +212,68 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">GitHub</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-				
-					<li class="article-tag-list-item">
-        				<a href="/categories/静态博客/" class="article-tag-list-link color5">静态博客</a>
-        			</li>
-				
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/给hexo+githubpage博客绑定域名的一些问题/">展开全文 >></a>
-        </p>
       
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://chang20159.com/drafts/探索Vue原理.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -820,186 +288,53 @@ var _hmt = _hmt || [];
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-理解BFC" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/理解BFC/">理解BFC</a>
-    </h1>
-  
-
-        
-        <a href="/理解BFC/" class="archive-article-date">
-  	<time datetime="2017-05-11T02:14:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>网上有太多关于BFC的文章，看了很多，还是不能理解。想想还是看全英文的官方文档，关于BFC的规则，在w3c文档中的<a href="https://www.w3.org/TR/CSS21/visuren.html" target="_blank" rel="external">第9章</a>和<a href="https://www.w3.org/TR/CSS21/visudet.html" target="_blank" rel="external">第10章</a>全局搜一下Block formatting context，就能找到。<br>
-        
-          <!--<a class="article-more-a" href="/理解BFC/#more">more >></a>-->
-        
-      
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-				
-					<li class="article-tag-list-item">
-        				<a href="/categories/CSS/" class="article-tag-list-link color4">CSS</a>
-        			</li>
-				
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/理解BFC/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font">目录</i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-移动端H5开发小经验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/移动端H5开发小经验/">移动端H5开发小经验</a>
-    </h1>
-  
-
-        
-        <a href="/移动端H5开发小经验/" class="archive-article-date">
-  	<time datetime="2017-04-26T00:53:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Android手机软键盘挡住输入框？Android设置border-radius,背景颜色溢出？页面上数字变成可以点击的电话号码？<br>
-        
-          <!--<a class="article-more-a" href="/移动端H5开发小经验/#more">more >></a>-->
-        
-      
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-				
-					<li class="article-tag-list-item">
-        				<a href="/categories/工作/" class="article-tag-list-link color3">工作</a>
-        			</li>
-				
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/移动端H5开发小经验/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script id="dsq-count-scr" src="https://{{theme.disqus}}.disqus.com/count.js" async></script>
+        <script type="text/javascript">
+
+        var disqus_shortname = 'chang20159';
+        var disqus_config = function () {
+          this.page.url = 'http://chang20159.com/drafts/探索Vue原理.html';
+          this.page.identifier = 'drafts/探索Vue原理.html';
+          this.page.title = '';
+          this.language = 'zh';
+          console.log(this.page)
+        };
+        (function() {
+          var dsq = document.createElement('script'); 
+          dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
   
 
 
@@ -1022,7 +357,7 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
 		isTag: false,

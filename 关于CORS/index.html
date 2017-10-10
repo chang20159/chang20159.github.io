@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://chang20159.com/images/CORS/client_4_cookie_success_console.png">
 <meta property="og:image" content="http://chang20159.com/images/CORS/client_4_cookie_success.png">
 <meta property="og:image" content="http://chang20159.com/images/CORS/client_4_cookie_preflight_error.png">
-<meta property="og:updated_time" content="2017-09-25T12:03:00.000Z">
+<meta property="og:updated_time" content="2017-10-10T02:15:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于CORS">
 <meta name="twitter:description" content="之前写过两篇关于CORS跨域的工作总结，跨域问题解决方案和IE浏览器跨域访问失败，由于纯粹是工作总结，没有讲明为什么要这么做，就删除了。 最近又经常被问到一些问题，比如写java服务端的同学的来问：我服务端明明正确返回了，测试环境debug能看到，为什么前端就是拿不到数据？ 然后写前端的同学会问：为什么我明明设置了withCredentials=true，服务端同学还是拿不到cookie？ 所以决">
@@ -311,10 +311,10 @@ var _hmt = _hmt || [];
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Access-Control-Allow-Origin: *</div><div class="line">Access-Control-Allow-Origin: &lt;origin&gt;</div></pre></td></tr></table></figure>
 <p>那在java服务端给响应头设置Access-Control-Allow-Origin可以这么做：</p>
 <p>1、添加一个过滤器</p>
-<pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CrossDomainFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig filterConfig)</span> <span class="keyword">throws</span> ServletException </span>&#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</div><div class="line">        HttpServletResponse resp = (HttpServletResponse)servletResponse;</div><div class="line">        resp.setHeader(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"http://localhost:8000"</span>);</div><div class="line">        filterChain.doFilter(servletRequest,servletResponse);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><p>2、然后在web.xml文件中添加过滤器配置：</p>
-<pre><code><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>crossDomainFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>com.example.cors.filter.CrossDomainFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>crossDomainFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div></pre></td></tr></table></figure>
-</code></pre><p>3、然后重新启动tomcat，client重新发送请求<code>http://localhost:8000/index.html</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CrossDomainFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig filterConfig)</span> <span class="keyword">throws</span> ServletException </span>&#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</div><div class="line">        HttpServletResponse resp = (HttpServletResponse)servletResponse;</div><div class="line">        resp.setHeader(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"http://localhost:8000"</span>);</div><div class="line">        filterChain.doFilter(servletRequest,servletResponse);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>2、然后在web.xml文件中添加过滤器配置：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>crossDomainFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>com.example.cors.filter.CrossDomainFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>crossDomainFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>3、然后重新启动tomcat，client重新发送请求<code>http://localhost:8000/index.html</code></p>
 <p><img src="../images/CORS/client_2_access_success.png"><br><img src="../images/CORS/client_2_access_response.png"></p>
 <p>可以看到我们能够拿到返回结果了，响应头中有我们在服务端设置的Access-Control-Allow-Origin: <code>http://localhost:8000</code>，这个应该跟请求头中的origin一致，或者设置Access-Control-Allow-Origin:*也是可以的，这就允许任何网站来访问资源了（前提是不带凭证信息，这个后面讲）</p>
 <p><strong>以上就是允许一个简单的跨域请求的做法，只需要服务端设置响应头Access-Control-Allow-Origin。</strong></p>
@@ -322,23 +322,29 @@ var _hmt = _hmt || [];
 <p>那怎样的请求算是一个简单请求？与简单请求相对应的是什么样的请求呢？解决跨域的方式又有什么不一样呢？</p>
 <p>符合以下条件的可视为简单请求：</p>
 <p>1、使用下列HTTP方法之一</p>
-<pre><code>- GET
-- HEAD
-- POST，并且Content-Type的值在下列之一： 
-    - text/plain
-    - multipart/form-data
-    - application/x-www-form-urlencoded
-</code></pre><p>2、并且请求头中只有下面这些</p>
-<pre><code>- Accept
-- Accept-Language
-- Content-Language
-- Content-Type （需要注意额外的限制）
-- DPR
-- Downlink
-- Save-Data
-- Viewport-Width
-- Width
-</code></pre><p>不满足上述要求的在发送正式请求前都要先发送一个预检请求，预检请求以OPTIONS方法发送，浏览器通过请求方法和请求头能够判断是否发送预检请求。</p>
+<ul>
+<li>GET</li>
+<li>HEAD</li>
+<li>POST，并且Content-Type的值在下列之一： <ul>
+<li>text/plain</li>
+<li>multipart/form-data</li>
+<li>application/x-www-form-urlencoded</li>
+</ul>
+</li>
+</ul>
+<p>2、并且请求头中只有下面这些</p>
+<ul>
+<li>Accept</li>
+<li>Accept-Language</li>
+<li>Content-Language</li>
+<li>Content-Type （需要注意额外的限制）</li>
+<li>DPR</li>
+<li>Downlink</li>
+<li>Save-Data</li>
+<li>Viewport-Width</li>
+<li>Width</li>
+</ul>
+<p>不满足上述要求的在发送正式请求前都要先发送一个预检请求，预检请求以OPTIONS方法发送，浏览器通过请求方法和请求头能够判断是否发送预检请求。</p>
 <p>比如Client发送如下请求：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Request().send(<span class="string">'http://localhost:8080/server/options'</span>,&#123;</div><div class="line">	<span class="attr">method</span>: <span class="string">'POST'</span>,</div><div class="line">	<span class="attr">header</span>: &#123;</div><div class="line">		<span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>  <span class="comment">//告诉服务器实际发送的数据类型</span></div><div class="line">	&#125;,</div><div class="line">	<span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">		<span class="built_in">document</span>.write(data)</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>Server端处理请求的controller:</p>
@@ -373,9 +379,9 @@ var _hmt = _hmt || [];
 <h3 id="带凭证信息的请求"><a href="#带凭证信息的请求" class="headerlink" title="带凭证信息的请求"></a>带凭证信息的请求</h3><p>还有一种情况我们经常遇到。浏览器在发送请求时需要给服务端发送cookie，服务端根据cookie中的信息做一些身份验证等。</p>
 <p>默认情况下，浏览器向不同域的发送ajax请求，不会携带发送cookie信息。</p>
 <p>Client: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var containerElem = document.getElementById(&apos;container&apos;)</div><div class="line">new Request().send(&apos;http://localhost:8080/server/testCookie&apos;,&#123;</div><div class="line">	success: function(data)&#123;</div><div class="line">		containerElem.innerHTML = data</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> containerElem = <span class="built_in">document</span>.getElementById(<span class="string">'container'</span>)</div><div class="line"><span class="keyword">new</span> Request().send(<span class="string">'http://localhost:8080/server/testCookie'</span>,&#123;</div><div class="line">	<span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">		containerElem.innerHTML = data</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>Server:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@RequestMapping(value=&quot;/testCookie&quot;, method= RequestMethod.GET)</div><div class="line">@ResponseBody</div><div class="line">public String testCookie(HttpServletRequest request,HttpServletResponse response) throws Exception&#123;</div><div class="line">    String str = &quot;SUCCESS&quot;;</div><div class="line">    Cookie[] cookies = request.getCookies();</div><div class="line">    String school = getSchool(cookies);</div><div class="line">    if(school == null || school.length() == 0)&#123;</div><div class="line">        addCookie(response);</div><div class="line">    &#125;</div><div class="line">    return str + buildText(cookies);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"/testCookie"</span>, method= RequestMethod.GET)</div><div class="line"><span class="meta">@ResponseBody</span></div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">testCookie</span><span class="params">(HttpServletRequest request,HttpServletResponse response)</span> <span class="keyword">throws</span> Exception</span>&#123;</div><div class="line">    String str = <span class="string">"SUCCESS"</span>;</div><div class="line">    Cookie[] cookies = request.getCookies();</div><div class="line">    String school = getSchool(cookies);</div><div class="line">    <span class="keyword">if</span>(school == <span class="keyword">null</span> || school.length() == <span class="number">0</span>)&#123;</div><div class="line">        addCookie(response);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> str + buildText(cookies);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>服务端收到请求，判断cookie中有没有school，没有就添加cookie.</p>
 <p><img src="../images/CORS/client_4_cookie_none.png"></p>
 <p>可以看到响应头中有Set-Cookie，再次请求时，如果是同源请求，浏览器会将Set-Cookie中的值放在请求头中，但是<strong>对于跨域请求，默认是不发送这个Cookie的。</strong></p>
@@ -443,6 +449,9 @@ var _hmt = _hmt || [];
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS" target="_blank" rel="external">HTTP-访问控制（CORS）</a></li>
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie" target="_blank" rel="external">Document - Document.cookie</a></li>
 <li><a href="https://segmentfault.com/a/1190000004556040" target="_blank" rel="external">聊一聊 cookie</a></li>
+</ul>
+<h2 id="Demo源码"><a href="#Demo源码" class="headerlink" title="Demo源码"></a>Demo源码</h2><ul>
+<li><a href="https://github.com/chang20159/daily-example/tree/master/CORS" target="_blank" rel="external">https://github.com/chang20159/daily-example/tree/master/CORS</a></li>
 </ul>
 
       
@@ -563,7 +572,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么会有跨域的问题？"><span class="toc-number">1.</span> <span class="toc-text">为什么会有跨域的问题？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CORS跨域原理"><span class="toc-number">2.</span> <span class="toc-text">CORS跨域原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-number">3.</span> <span class="toc-text">实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#没有允许跨域的情况"><span class="toc-number">3.1.</span> <span class="toc-text">没有允许跨域的情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置Access-Control-Allow-Origin允许跨域"><span class="toc-number">3.2.</span> <span class="toc-text">设置Access-Control-Allow-Origin允许跨域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简单请求与预检请求"><span class="toc-number">3.3.</span> <span class="toc-text">简单请求与预检请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#带凭证信息的请求"><span class="toc-number">3.4.</span> <span class="toc-text">带凭证信息的请求</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">4.</span> <span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie的同源策略"><span class="toc-number">4.1.</span> <span class="toc-text">cookie的同源策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IE上跨域访问没有权限"><span class="toc-number">4.2.</span> <span class="toc-text">IE上跨域访问没有权限</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么会有跨域的问题？"><span class="toc-number">1.</span> <span class="toc-text">为什么会有跨域的问题？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CORS跨域原理"><span class="toc-number">2.</span> <span class="toc-text">CORS跨域原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-number">3.</span> <span class="toc-text">实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#没有允许跨域的情况"><span class="toc-number">3.1.</span> <span class="toc-text">没有允许跨域的情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置Access-Control-Allow-Origin允许跨域"><span class="toc-number">3.2.</span> <span class="toc-text">设置Access-Control-Allow-Origin允许跨域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简单请求与预检请求"><span class="toc-number">3.3.</span> <span class="toc-text">简单请求与预检请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#带凭证信息的请求"><span class="toc-number">3.4.</span> <span class="toc-text">带凭证信息的请求</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">4.</span> <span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie的同源策略"><span class="toc-number">4.1.</span> <span class="toc-text">cookie的同源策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IE上跨域访问没有权限"><span class="toc-number">4.2.</span> <span class="toc-text">IE上跨域访问没有权限</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Demo源码"><span class="toc-number">6.</span> <span class="toc-text">Demo源码</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -669,11 +678,11 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ECharts</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color3">ECharts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -693,6 +702,10 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">语法高亮</a>
               </li>
              
@@ -701,15 +714,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Jekyll</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jQuery3.1.1源码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Jekyll</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -763,19 +772,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-category color4">Vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-category color2">JQuery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-category color5">前端构建</a>
+                <a href="javascript:void(0)" class="js-category color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-category color3">日常</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-category color5">前端构建</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -784,10 +793,6 @@ var _hmt = _hmt || [];
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-category color4">小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-category color3">其他</a>
               </li>
             
             <div class="clearfix"></div>

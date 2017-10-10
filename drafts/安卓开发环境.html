@@ -8,12 +8,16 @@
   <link rel="dns-prefetch" href="http://chang20159.com">
   <title>茉莉蜜茶only的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="开发环境安装JDK 下载地址： 安装默认地址：   /Library/Java/JavaVirtualMachines 配置环境： 打开.bash_profile 文件  open ~/.bash_profile 文件，  没有就新建一个  touch ~/.bash_profile  加入配置：  12JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk">
+<meta property="og:type" content="website">
 <meta property="og:title" content="茉莉蜜茶only的博客">
-<meta property="og:url" content="http://chang20159.com/index.html">
+<meta property="og:url" content="http://chang20159.com/drafts/安卓开发环境.html">
 <meta property="og:site_name" content="茉莉蜜茶only的博客">
+<meta property="og:description" content="开发环境安装JDK 下载地址： 安装默认地址：   /Library/Java/JavaVirtualMachines 配置环境： 打开.bash_profile 文件  open ~/.bash_profile 文件，  没有就新建一个  touch ~/.bash_profile  加入配置：  12JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk">
+<meta property="og:updated_time" content="2017-09-21T07:39:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="茉莉蜜茶only的博客">
+<meta name="twitter:description" content="开发环境安装JDK 下载地址： 安装默认地址：   /Library/Java/JavaVirtualMachines 配置环境： 打开.bash_profile 文件  open ~/.bash_profile 文件，  没有就新建一个  touch ~/.bash_profile  加入配置：  12JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk">
   
     <link rel="alternative" href="/atom.xml" title="茉莉蜜茶only的博客" type="application/atom+xml">
   
@@ -158,34 +162,36 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-关于CORS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="page-undefined" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/关于CORS/">关于CORS</a>
-    </h1>
-  
-
-        
-        <a href="/关于CORS/" class="archive-article-date">
-  	<time datetime="2017-09-20T02:45:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-20</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>之前写过两篇关于CORS跨域的工作总结，<code>跨域问题解决方案</code>和<code>IE浏览器跨域访问失败</code>，由于纯粹是工作总结，没有讲明为什么要这么做，就删除了。</p>
-<p>最近又经常被问到一些问题，比如写java服务端的同学的来问：我服务端明明正确返回了，测试环境debug能看到，为什么前端就是拿不到数据？ 然后写前端的同学会问：为什么我明明设置了withCredentials=true，服务端同学还是拿不到cookie？</p>
-<p>所以决定重新捋一捋使用CORS解决跨域的问题，前后端要怎么做？为什么这么做？</p>
-        
-          <!--<a class="article-more-a" href="/关于CORS/#more">more >></a>-->
-        
+        <h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><h3 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h3><p> 下载地址：<br> 安装默认地址：   /Library/Java/JavaVirtualMachines<br> 配置环境：<br> 打开.bash_profile 文件<br>  open ~/.bash_profile 文件，<br>  没有就新建一个<br>  touch ~/.bash_profile<br>  加入配置：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home</div><div class="line">PATH=$JAVA_HOME/bin:$PATH</div></pre></td></tr></table></figure>
+<p> 保存文件</p>
+<p> 在~/.目录下执行  source .bash_profile 使配置生效</p>
+<p> java -version  测试是否成功</p>
+<p>2.下载sdk<br>             下载地址：<a href="https://developer.android.com/sdk/index.html#Other" target="_blank" rel="external">https://developer.android.com/sdk/index.html#Other</a><br>             下载后，将其mv到某个文件夹下，比如放在users/<yourname>/ 下。</yourname></p>
+<h3 id="安装-Android-Studio"><a href="#安装-Android-Studio" class="headerlink" title="安装 Android Studio"></a>安装 Android Studio</h3><p>下载地址： <a href="https://developer.android.com/studio/index.html#Other" target="_blank" rel="external">https://developer.android.com/studio/index.html#Other</a></p>
+<p>安装过程会自动下载sdk，过程比较缓慢。</p>
+<p>输入adb，如果没有出现-bash: adb: command not found；而出现adb的命令参数解释。则表明环境变量配置成功。</p>
+<h3 id="Genymotion-模拟器"><a href="#Genymotion-模拟器" class="headerlink" title="Genymotion 模拟器"></a>Genymotion 模拟器</h3><ol>
+<li>下载VirtualBOX（虚拟环境），<a href="https://www.virtualbox.org/" target="_blank" rel="external">https://www.virtualbox.org/</a> 自行安装。</li>
+<li>下载Genymotion（飞快的android模拟器），<a href="https://www.genymotion.com/" target="_blank" rel="external">https://www.genymotion.com/</a> 自行安装。</li>
+<li><p>新建模拟器（需要注册一个账户），官网注册</p>
+<pre><code>https://www.genymotion.com/#!/auth/account-created
+注意：如果出现了 VirtualBox 无法启动虚拟设备的错误，那可能是虚拟设备 分配的内存 太大了，将内存减小就可以了。
+</code></pre><p>  例如将分配的2g内存改成1G等。</p>
+<ol>
+<li>android studio中绑定 Genymotion。<br> 安装Genymotion插件，重启 as。</li>
+</ol>
+</li>
+<li><p>启动运行</p>
+<pre><code>http://jingyan.baidu.com/article/6b97984d81e7eb1ca2b0bf36.html
+</code></pre></li>
+</ol>
+
       
       
       
@@ -195,31 +201,67 @@ var _hmt = _hmt || [];
       
       
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-				
-					<li class="article-tag-list-item">
-        				<a href="/categories/工作/" class="article-tag-list-link color3">工作</a>
-        			</li>
-				
-      		
-		</ul>
-	</div>
-
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/关于CORS/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://chang20159.com/drafts/安卓开发环境.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -234,772 +276,53 @@ var _hmt = _hmt || [];
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-理解Flexbox弹性盒布局" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/理解Flexbox弹性盒布局/">理解Flexbox弹性盒布局</a>
-    </h1>
-  
-
-        
-        <a href="/理解Flexbox弹性盒布局/" class="archive-article-date">
-  	<time datetime="2017-09-11T08:39:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="../images/flexbox/flexbox1.png"><br>
-        
-          <!--<a class="article-more-a" href="/理解Flexbox弹性盒布局/#more">more >></a>-->
-        
-      
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-				
-					<li class="article-tag-list-item">
-        				<a href="/categories/CSS/" class="article-tag-list-link color4">CSS</a>
-        			</li>
-				
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/理解Flexbox弹性盒布局/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font">目录</i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开发环境"><span class="toc-number">1.</span> <span class="toc-text">开发环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装JDK"><span class="toc-number">1.1.</span> <span class="toc-text">安装JDK</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-Android-Studio"><span class="toc-number">1.2.</span> <span class="toc-text">安装 Android Studio</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Genymotion-模拟器"><span class="toc-number">1.3.</span> <span class="toc-text">Genymotion 模拟器</span></a></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-移动端适配实践" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/移动端适配实践/">移动端适配实践</a>
-    </h1>
-  
-
-        
-        <a href="/移动端适配实践/" class="archive-article-date">
-  	<time datetime="2017-08-22T05:05:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一般我们在做前端项目之前，都会先拿到视觉稿和交互稿，我们可以根据视觉稿上的尺寸、颜色等信息编写CSS样式，可以根据交互稿来写JS。</p>
-<p>每个公司的视觉规范不同，视觉稿也就不同。甚至在一些大公司里，每个部门都有自己的视觉规范。比如页面画布大小是以640为基准还是750。最终给前端开发人员的文件也可能不同，比如psd文件、sketch文件或者图片文件，其中包括页面文件和切图。</p>
-        
-          <!--<a class="article-more-a" href="/移动端适配实践/#more">more >></a>-->
-        
-      
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-				
-					<li class="article-tag-list-item">
-        				<a href="/categories/工作/" class="article-tag-list-link color3">工作</a>
-        			</li>
-				
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/移动端适配实践/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-移动端web基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/移动端web基础知识/">移动端web基础</a>
-    </h1>
-  
-
-        
-        <a href="/移动端web基础知识/" class="archive-article-date">
-  	<time datetime="2017-08-04T02:03:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <div align="center"><br><img src="../images/mobile_web_knowledge/mobile_web_knowledge.png" height="250"><br></div>
-        
-          <!--<a class="article-more-a" href="/移动端web基础知识/#more">more >></a>-->
-        
-      
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-				
-					<li class="article-tag-list-item">
-        				<a href="/categories/工作/" class="article-tag-list-link color3">工作</a>
-        			</li>
-				
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/移动端web基础知识/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-图片预加载和懒加载" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/图片预加载和懒加载/">图片预加载和懒加载</a>
-    </h1>
-  
-
-        
-        <a href="/图片预加载和懒加载/" class="archive-article-date">
-  	<time datetime="2017-07-15T07:40:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>预加载和懒加载是两种加载资源的方式，适用于不同场景。常见的是图片的预加载和懒加载，最近开发组件库，图片组件就用到了预加载和懒加载，记录一下实现方式和相关知识点。</p>
-        
-          <!--<a class="article-more-a" href="/图片预加载和懒加载/#more">more >></a>-->
-        
-      
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-				
-					<li class="article-tag-list-item">
-        				<a href="/categories/工作/" class="article-tag-list-link color3">工作</a>
-        			</li>
-				
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/图片预加载和懒加载/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Vue组件库开发问题及技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Vue组件库开发问题及技巧/">Vue组件开发常见问题及技巧</a>
-    </h1>
-  
-
-        
-        <a href="/Vue组件库开发问题及技巧/" class="archive-article-date">
-  	<time datetime="2017-07-06T01:00:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Vue组件库开发，记录过程中的问题和经验。 手机端Vue组件库，戳&gt;  <a href="https://future-team.github.io/swan-ui/examples/index.html#/" target="_blank" rel="external">Swan UI</a></p>
-        
-          <!--<a class="article-more-a" href="/Vue组件库开发问题及技巧/#more">more >></a>-->
-        
-      
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-				
-					<li class="article-tag-list-item">
-        				<a href="/categories/Vue/" class="article-tag-list-link color4">Vue</a>
-        			</li>
-				
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Vue组件库开发问题及技巧/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-了解前端模块化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/了解前端模块化/">了解前端模块化</a>
-    </h1>
-  
-
-        
-        <a href="/了解前端模块化/" class="archive-article-date">
-  	<time datetime="2017-06-19T02:43:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>之前写过一个Demo，还顺便写了一篇文 <a href="./模块管理与打包实践.md">模块管理与打包实践</a>，但对于前端模块化的规范和模块加载器原理没有深入探究。</p>
-<p>关于为什么要前端模块化，实际上是要解决<code>文件依赖</code>和<code>命名空间</code>的问题，具体可以看 <a href="./模块管理与打包实践.md">模块管理与打包实践</a>  或者 玉伯的这篇 <a href="https://github.com/seajs/seajs/issues/547?utm_source=caibaojian.com" target="_blank" rel="external">前端模块化开发的价值</a></p>
-        
-          <!--<a class="article-more-a" href="/了解前端模块化/#more">more >></a>-->
-        
-      
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-				
-					<li class="article-tag-list-item">
-        				<a href="/categories/前端构建/" class="article-tag-list-link color5">前端构建</a>
-        			</li>
-				
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/了解前端模块化/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-给hexo+githubpage博客绑定域名的一些问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/给hexo+githubpage博客绑定域名的一些问题/">给Hexo+Github page博客绑定域名的一些问题</a>
-    </h1>
-  
-
-        
-        <a href="/给hexo+githubpage博客绑定域名的一些问题/" class="archive-article-date">
-  	<time datetime="2017-06-15T04:46:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>项目终于做完了，忽然想到买了很久的域名一直没有用，本来以为还要备案啥的，就一直没倒腾。<br>今天研究了下域名绑定，居然很快就弄好了。但是也遇到了几个问题，还是记录一下吧~</p>
-<ul>
-<li>升级Node.js后，执行hexo generate报错</li>
-<li>Hexo博客绑定域名 CNAME文件问题</li>
-<li>个人主页添加域名后项目主页访问不了了</li>
-</ul>
-        
-          <!--<a class="article-more-a" href="/给hexo+githubpage博客绑定域名的一些问题/#more">more >></a>-->
-        
-      
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">GitHub</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-				
-					<li class="article-tag-list-item">
-        				<a href="/categories/静态博客/" class="article-tag-list-link color5">静态博客</a>
-        			</li>
-				
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/给hexo+githubpage博客绑定域名的一些问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-理解BFC" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/理解BFC/">理解BFC</a>
-    </h1>
-  
-
-        
-        <a href="/理解BFC/" class="archive-article-date">
-  	<time datetime="2017-05-11T02:14:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>网上有太多关于BFC的文章，看了很多，还是不能理解。想想还是看全英文的官方文档，关于BFC的规则，在w3c文档中的<a href="https://www.w3.org/TR/CSS21/visuren.html" target="_blank" rel="external">第9章</a>和<a href="https://www.w3.org/TR/CSS21/visudet.html" target="_blank" rel="external">第10章</a>全局搜一下Block formatting context，就能找到。<br>
-        
-          <!--<a class="article-more-a" href="/理解BFC/#more">more >></a>-->
-        
-      
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-				
-					<li class="article-tag-list-item">
-        				<a href="/categories/CSS/" class="article-tag-list-link color4">CSS</a>
-        			</li>
-				
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/理解BFC/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-移动端H5开发小经验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/移动端H5开发小经验/">移动端H5开发小经验</a>
-    </h1>
-  
-
-        
-        <a href="/移动端H5开发小经验/" class="archive-article-date">
-  	<time datetime="2017-04-26T00:53:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Android手机软键盘挡住输入框？Android设置border-radius,背景颜色溢出？页面上数字变成可以点击的电话号码？<br>
-        
-          <!--<a class="article-more-a" href="/移动端H5开发小经验/#more">more >></a>-->
-        
-      
-      
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-				
-					<li class="article-tag-list-item">
-        				<a href="/categories/工作/" class="article-tag-list-link color3">工作</a>
-        			</li>
-				
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/移动端H5开发小经验/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script id="dsq-count-scr" src="https://{{theme.disqus}}.disqus.com/count.js" async></script>
+        <script type="text/javascript">
+
+        var disqus_shortname = 'chang20159';
+        var disqus_config = function () {
+          this.page.url = 'http://chang20159.com/drafts/安卓开发环境.html';
+          this.page.identifier = 'drafts/安卓开发环境.html';
+          this.page.title = '';
+          this.language = 'zh';
+          console.log(this.page)
+        };
+        (function() {
+          var dsq = document.createElement('script'); 
+          dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
   
 
 
@@ -1022,7 +345,7 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
 		isTag: false,

@@ -6,19 +6,36 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://chang20159.com">
-  <title>jQuery在动态生成的节点上绑定事件无效 | 茉莉蜜茶only的博客</title>
+  <title>CORS跨域原理浅析 | 茉莉蜜茶only的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在有些情况下，需要在DOM节点存在之前就给这个节点绑定事件，在使用Jquery给尚不存在的dom节点绑定事件时发现并不起作用，事件并没有绑定在dom节点上，但也不报错。而使用原生的JavaScript绑定事件，如果绑定事件的DOM节点不存在，是会报错的。">
-<meta name="keywords" content="jQuery">
+  <meta name="description" content="之前写过两篇关于CORS跨域的工作总结，跨域问题解决方案和IE浏览器跨域访问失败，由于纯粹是工作总结，没有讲明为什么要这么做，就删除了。 最近又经常被问到一些问题，比如写java服务端的同学的来问：我服务端明明正确返回了，测试环境debug能看到，为什么前端就是拿不到数据？ 然后写前端的同学会问：为什么我明明设置了withCredentials=true，服务端同学还是拿不到cookie？ 所以决">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jQuery在动态生成的节点上绑定事件无效">
-<meta property="og:url" content="http://chang20159.com/Jquery在动态生成的DOM节点绑定事件无效/index.html">
+<meta property="og:title" content="CORS跨域原理浅析">
+<meta property="og:url" content="http://chang20159.com/CORS跨域原理浅析/index.html">
 <meta property="og:site_name" content="茉莉蜜茶only的博客">
-<meta property="og:description" content="在有些情况下，需要在DOM节点存在之前就给这个节点绑定事件，在使用Jquery给尚不存在的dom节点绑定事件时发现并不起作用，事件并没有绑定在dom节点上，但也不报错。而使用原生的JavaScript绑定事件，如果绑定事件的DOM节点不存在，是会报错的。">
-<meta property="og:updated_time" content="2016-12-25T03:29:00.000Z">
+<meta property="og:description" content="之前写过两篇关于CORS跨域的工作总结，跨域问题解决方案和IE浏览器跨域访问失败，由于纯粹是工作总结，没有讲明为什么要这么做，就删除了。 最近又经常被问到一些问题，比如写java服务端的同学的来问：我服务端明明正确返回了，测试环境debug能看到，为什么前端就是拿不到数据？ 然后写前端的同学会问：为什么我明明设置了withCredentials=true，服务端同学还是拿不到cookie？ 所以决">
+<meta property="og:image" content="http://chang20159.com/images/CORS/server_1.png">
+<meta property="og:image" content="http://chang20159.com/images/CORS/client_1_network.png">
+<meta property="og:image" content="http://chang20159.com/images/CORS/client_network_response.png">
+<meta property="og:image" content="http://chang20159.com/images/CORS/client_1_console_error.png">
+<meta property="og:image" content="http://chang20159.com/images/CORS/client_2_access_success.png">
+<meta property="og:image" content="http://chang20159.com/images/CORS/client_2_access_response.png">
+<meta property="og:image" content="http://chang20159.com/images/CORS/client_3_options_error.png">
+<meta property="og:image" content="http://chang20159.com/images/CORS/client_3_options_console_error.png">
+<meta property="og:image" content="http://chang20159.com/images/CORS/client_3_options_console_success.png">
+<meta property="og:image" content="http://chang20159.com/images/CORS/client_3_options_success.png">
+<meta property="og:image" content="http://chang20159.com/images/CORS/client_3_options_2_post.png">
+<meta property="og:image" content="http://chang20159.com/images/CORS/client_4_cookie_none.png">
+<meta property="og:image" content="http://chang20159.com/images/CORS/client_4_cookie_error.png">
+<meta property="og:image" content="http://chang20159.com/images/CORS/client_4_credentials_error.png">
+<meta property="og:image" content="http://chang20159.com/images/CORS/client_4_cookie_success_console.png">
+<meta property="og:image" content="http://chang20159.com/images/CORS/client_4_cookie_success.png">
+<meta property="og:image" content="http://chang20159.com/images/CORS/client_4_cookie_preflight_error.png">
+<meta property="og:updated_time" content="2017-10-13T07:43:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jQuery在动态生成的节点上绑定事件无效">
-<meta name="twitter:description" content="在有些情况下，需要在DOM节点存在之前就给这个节点绑定事件，在使用Jquery给尚不存在的dom节点绑定事件时发现并不起作用，事件并没有绑定在dom节点上，但也不报错。而使用原生的JavaScript绑定事件，如果绑定事件的DOM节点不存在，是会报错的。">
+<meta name="twitter:title" content="CORS跨域原理浅析">
+<meta name="twitter:description" content="之前写过两篇关于CORS跨域的工作总结，跨域问题解决方案和IE浏览器跨域访问失败，由于纯粹是工作总结，没有讲明为什么要这么做，就删除了。 最近又经常被问到一些问题，比如写java服务端的同学的来问：我服务端明明正确返回了，测试环境debug能看到，为什么前端就是拿不到数据？ 然后写前端的同学会问：为什么我明明设置了withCredentials=true，服务端同学还是拿不到cookie？ 所以决">
+<meta name="twitter:image" content="http://chang20159.com/images/CORS/server_1.png">
   
     <link rel="alternative" href="/atom.xml" title="茉莉蜜茶only的博客" type="application/atom+xml">
   
@@ -163,61 +180,292 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Jquery在动态生成的DOM节点绑定事件无效" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-CORS跨域原理浅析" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      jQuery在动态生成的节点上绑定事件无效
+      CORS跨域原理浅析
     </h1>
   
 
         
-        <a href="/Jquery在动态生成的DOM节点绑定事件无效/" class="archive-article-date">
-  	<time datetime="2016-12-25T03:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-25</time>
+        <a href="/CORS跨域原理浅析/" class="archive-article-date">
+  	<time datetime="2017-09-20T02:45:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在有些情况下，需要在DOM节点存在之前就给这个节点绑定事件，在使用Jquery给尚不存在的dom节点绑定事件时发现并不起作用，事件并没有绑定在dom节点上，但也不报错。而使用原生的JavaScript绑定事件，如果绑定事件的DOM节点不存在，是会报错的。<br><a id="more"></a></p>
-<h3 id="原生JS绑定事件"><a href="#原生JS绑定事件" class="headerlink" title="原生JS绑定事件"></a>原生JS绑定事件</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span> !<span class="attr">DOCTYPE</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>原生js绑定事件<span class="tag">&lt;/<span class="name">title</span>&gt;</span>	</div><div class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"J_confirm"</span>&gt;</span>确定<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"J_content"</span>&gt;</span></div><div class="line">			<span class="comment">&lt;!-- 动态生成dom节点 --&gt;</span></div><div class="line">			<span class="comment">&lt;!-- &lt;button id="J_jump"&gt;跳转&lt;/button&gt; --&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">			<span class="comment">// 已存在节点</span></div><div class="line">			<span class="built_in">document</span>.getElementById(<span class="string">'J_confirm'</span>).onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">				<span class="built_in">console</span>.log(<span class="string">"J_confirm is clicked."</span>);</div><div class="line">			&#125;;</div><div class="line"></div><div class="line">			<span class="comment">// 在尚未生成的节点上绑定事件</span></div><div class="line">			<span class="built_in">document</span>.getElementById(<span class="string">'J_jump'</span>).onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">				<span class="built_in">console</span>.log(<span class="string">"J_jump is clicked without event delegate using onclick."</span>);</div><div class="line">			&#125;;</div><div class="line"></div><div class="line">			<span class="comment">// 在尚未生成的节点上绑定事件</span></div><div class="line">			<span class="built_in">document</span>.getElementById(<span class="string">'J_jump'</span>).addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			 	<span class="built_in">console</span>.log(<span class="string">"J_jump is clicked without event delegate using addEventListener."</span>);</div><div class="line">			&#125;);</div><div class="line"></div><div class="line">			<span class="comment">// 在事件绑定之后才生成节点</span></div><div class="line">			<span class="built_in">document</span>.getElementById(<span class="string">'J_content'</span>).appendChild();</div><div class="line">			<span class="function"><span class="keyword">function</span> <span class="title">genNode</span>(<span class="params"></span>)</span>&#123;</div><div class="line">				<span class="keyword">var</span> node = <span class="built_in">document</span>.createElement(<span class="string">'button'</span>);</div><div class="line">				node.setAttribute(<span class="string">'id'</span>,<span class="string">'J_jump'</span>);</div><div class="line">				node.append(<span class="string">"跳转"</span>);</div><div class="line">				<span class="keyword">return</span> node;</div><div class="line">			&#125;</div><div class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>先给id为J_jump的dom节点绑定事件，然后再生成此节点，刷新页面就会报错，动态产生的跳转按钮也不会出现在页面上。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Uncaught TypeError: Cannot read property &apos;addEventListener&apos; of null</div><div class="line"></div><div class="line">Uncaught TypeError: Cannot set property &apos;onclick&apos; of null</div></pre></td></tr></table></figure>
-<h3 id="JQuery绑定事件"><a href="#JQuery绑定事件" class="headerlink" title="JQuery绑定事件"></a>JQuery绑定事件</h3><p>而使用Jquery在未生成的节点上绑定事件，跳转按钮是会正常展示的，但是点击没有反应。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span> !<span class="attr">DOCTYPE</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>动态生成的元素绑定事件<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"J_confirm"</span>&gt;</span>确定<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"J_content"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://code.jquery.com/jquery-3.0.0.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">			$(<span class="string">'#J_confirm'</span>).on(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">				<span class="built_in">console</span>.log(<span class="string">"J_confirm is clicked."</span>);</div><div class="line">			&#125;);</div><div class="line">			$(<span class="string">'#J_jump'</span>).on(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">				<span class="built_in">console</span>.log(<span class="string">"J_jump is clicked."</span>);</div><div class="line">			&#125;);</div><div class="line">			$(<span class="string">'#J_content'</span>).html(<span class="string">'&lt;button id="J_jump"&gt;跳转&lt;/button&gt;'</span>);</div><div class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h3 id="原生JS事件委托"><a href="#原生JS事件委托" class="headerlink" title="原生JS事件委托"></a>原生JS事件委托</h3><p>可以通过事件代理解决这个问题，在使用原生的javascript绑定事件时，可以将事件绑定在确定会存在的祖先节点上，委托祖先节点处理事件.<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span> !<span class="attr">DOCTYPE</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>原生js绑定事件<span class="tag">&lt;/<span class="name">title</span>&gt;</span>	</div><div class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"J_confirm"</span>&gt;</span>确定<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"J_content"</span>&gt;</span></div><div class="line">			<span class="comment">&lt;!-- &lt;button id="J_jump"&gt;跳转&lt;/button&gt; --&gt;</span></div><div class="line">			<span class="comment">&lt;!-- 动态生成dom节点 --&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">			<span class="comment">// 已存在节点</span></div><div class="line">			<span class="built_in">document</span>.getElementById(<span class="string">'J_confirm'</span>).onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">				<span class="built_in">console</span>.log(<span class="string">"J_confirm is clicked."</span>);</div><div class="line">			&#125;;</div><div class="line">			<span class="comment">// 事件委托</span></div><div class="line">			<span class="built_in">document</span>.getElementById(<span class="string">'J_content'</span>).onclick=<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">				<span class="keyword">var</span> target = e.target;</div><div class="line">				<span class="built_in">console</span>.log(target.innerText + <span class="string">" is clicked with event delegate using onclick."</span>);</div><div class="line">			&#125;;</div><div class="line"></div><div class="line">			<span class="comment">// 事件委托</span></div><div class="line">			<span class="built_in">document</span>.getElementById(<span class="string">'J_content'</span>).addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">			 	<span class="keyword">var</span> target = e.target;</div><div class="line">				<span class="built_in">console</span>.log(target.innerText + <span class="string">" is clicked with event delegate using addEventListener."</span>);</div><div class="line">			&#125;);</div><div class="line"></div><div class="line">			<span class="comment">// 在事件绑定之后才生成节点</span></div><div class="line">			<span class="built_in">document</span>.getElementById(<span class="string">'J_content'</span>).appendChild(genNode(<span class="string">"跳转1"</span>));</div><div class="line">			<span class="built_in">document</span>.getElementById(<span class="string">'J_content'</span>).appendChild(genNode(<span class="string">"跳转2"</span>));</div><div class="line">			<span class="function"><span class="keyword">function</span> <span class="title">genNode</span>(<span class="params">text</span>)</span>&#123;</div><div class="line">				<span class="keyword">var</span> node = <span class="built_in">document</span>.createElement(<span class="string">'button'</span>);</div><div class="line">				node.setAttribute(<span class="string">'id'</span>,<span class="string">'J_jump'</span>);</div><div class="line">				node.append(text);</div><div class="line">				<span class="keyword">return</span> node;</div><div class="line">			&#125;</div><div class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">跳转1 is clicked with event delegate using onclick.</div><div class="line">跳转1 is clicked with event delegate using addEventListener.</div><div class="line">跳转2 is clicked with event delegate using onclick.</div><div class="line">跳转2 is clicked with event delegate using addEventListener.</div></pre></td></tr></table></figure></p>
-<h3 id="JQuery事件委托"><a href="#JQuery事件委托" class="headerlink" title="JQuery事件委托"></a>JQuery事件委托</h3><p>在Jquery中还是可以用on方法实现事件代理。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span> !<span class="attr">DOCTYPE</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>动态生成的元素绑定事件<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"J_confirm"</span>&gt;</span>确定<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"J_content"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://code.jquery.com/jquery-3.0.0.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">			$(<span class="string">'#J_confirm'</span>).on(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">				<span class="built_in">console</span>.log(<span class="string">"J_confirm is clicked."</span>);</div><div class="line">			&#125;);</div><div class="line">			$(<span class="string">'#J_content'</span>).on(<span class="string">'click'</span>,<span class="string">'#J_jump1'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">				<span class="built_in">console</span>.log($(<span class="keyword">this</span>).text() + <span class="string">" is clicked with event delegate."</span>);</div><div class="line">			&#125;);</div><div class="line">			$(<span class="string">'#J_content'</span>).on(<span class="string">'click'</span>,<span class="string">'#J_jump2'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">				<span class="built_in">console</span>.log($(<span class="keyword">this</span>).text() + <span class="string">" is clicked with event delegate."</span>);</div><div class="line">			&#125;);</div><div class="line">			$(<span class="string">'#J_content'</span>).append(<span class="string">'&lt;button id="J_jump1"&gt;跳转1&lt;/button&gt;'</span>);	</div><div class="line">			$(<span class="string">'#J_content'</span>).append(<span class="string">'&lt;button id="J_jump2"&gt;跳转2&lt;/button&gt;'</span>);</div><div class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>所以，动态生成的节点上绑定事件无效，其实是如果事件在dom节点不存在时绑定，才会无效，对于动态生成的节点如果事件是在节点存在之后绑定的，是没有问题的。</p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><a href="http://api.jquery.com/category/events/event-handler-attachment/" target="_blank" rel="external">JQuery Event Handler Attachment</a></li>
-<li><a href="http://api.jquery.com/on/" target="_blank" rel="external">JQuery .on()</a></li>
-<li><a href="http://jquery.cuishifeng.cn/index.html" target="_blank" rel="external">jQuery API </a></li>
-<li><a href="http://www.jquery123.com/" target="_blank" rel="external">jQuery API 中文文档</a></li>
+        <p>之前写过两篇关于CORS跨域的工作总结，<code>跨域问题解决方案</code>和<code>IE浏览器跨域访问失败</code>，由于纯粹是工作总结，没有讲明为什么要这么做，就删除了。</p>
+<p>最近又经常被问到一些问题，比如写java服务端的同学的来问：我服务端明明正确返回了，测试环境debug能看到，为什么前端就是拿不到数据？ 然后写前端的同学会问：为什么我明明设置了withCredentials=true，服务端同学还是拿不到cookie？</p>
+<p>所以决定重新捋一捋使用CORS解决跨域的问题，前后端要怎么做？为什么这么做？</p>
+<a id="more"></a>
+<h2 id="为什么会有跨域的问题？"><a href="#为什么会有跨域的问题？" class="headerlink" title="为什么会有跨域的问题？"></a>为什么会有跨域的问题？</h2><p>为了保证用户信息的安全，所有的浏览器都遵循同源策略，那什么情况下算同源呢？同源策略又是什么呢？</p>
+<p><strong>记住：协议、域名、端口号完全相同时，才是同源</strong></p>
+<p>可以参考 <a href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy" target="_blank" rel="external">Web安全 - 浏览器的同源策略</a></p>
+<p>在同源策略下，会有以下限制：</p>
+<ul>
+<li>无法获取非同源的Cookie、LocalStorage、SessionStorage等</li>
+<li>无法获取非同源的dom</li>
+<li>无法向非同源的服务器发送ajax请求</li>
+</ul>
+<p>但是我们又经常会遇到前后端分离，不在同一个域名下，需要ajax请求数据的情况。那我们就要规避这种限制。</p>
+<p>可以在网上搜到很多解决跨域的方法，有些方法比较古老了，现在项目中用的比较多的是jsonp和CORS（跨域资源共享），这篇主要讲CORS的原理和具体实践。</p>
+<h2 id="CORS跨域原理"><a href="#CORS跨域原理" class="headerlink" title="CORS跨域原理"></a>CORS跨域原理</h2><p>CORS跨域的原理实际上是浏览器与服务器通过一些HTTP协议头来做一些约定和限制。可以查看  <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS" target="_blank" rel="external">HTTP-访问控制（CORS）</a></p>
+<p><strong>与跨域相关的协议头</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">请求头</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Origin</td>
+<td style="text-align:left">表明预检请求或实际请求的源站URI,不管是否跨域ORIGIN字段总是被发送</td>
+</tr>
+<tr>
+<td style="text-align:left">Access-Control-Request-Method</td>
+<td style="text-align:left">将实际请求所使用的 HTTP 方法告诉服务器</td>
+</tr>
+<tr>
+<td style="text-align:left">Access-Control-Request-Headers</td>
+<td style="text-align:left">将实际请求所携带的首部字段告诉服务器</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">响应头</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Access-Control-Allow-Origin</td>
+<td style="text-align:left">指定允许访问该资源的外域 URI，对于携带身份凭证的请求不可使用通配符*</td>
+</tr>
+<tr>
+<td style="text-align:left">Access-Control-Expose-Headers</td>
+<td style="text-align:left">指定XMLHttpRequest的getResponseHeader可以访问的响应头</td>
+</tr>
+<tr>
+<td style="text-align:left">Access-Control-Max-Age</td>
+<td style="text-align:left">指定preflight请求的结果能够被缓存多久</td>
+</tr>
+<tr>
+<td style="text-align:left">Access-Control-Allow-Credentials</td>
+<td style="text-align:left">是否允许浏览器读取response的内容；<br>当用在preflight预检请求的响应中时，指定实际的请求是否可使用credentials</td>
+</tr>
+<tr>
+<td style="text-align:left">Access-Control-Allow-Methods</td>
+<td style="text-align:left">指明实际请求所允许使用的 HTTP 方法</td>
+</tr>
+<tr>
+<td style="text-align:left">Access-Control-Allow-Headers</td>
+<td style="text-align:left">指明实际请求中允许携带的首部字段</td>
+</tr>
+</tbody>
+</table>
+<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><p>这里写了个demo，一步步来分析。</p>
+<p>目录如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── README.md</div><div class="line">├── client</div><div class="line">│   ├── index.html</div><div class="line">│   └── request.js</div><div class="line">└── server</div><div class="line">    ├── pom.xml</div><div class="line">    ├── server-web</div><div class="line">    │   ├── pom.xml</div><div class="line">    │   ├── server-web.iml</div><div class="line">    │   └── src</div><div class="line">    │       └── main</div><div class="line">    │           ├── java</div><div class="line">    │           │   └── com</div><div class="line">    │           │       └── example</div><div class="line">    │           │           └── cors</div><div class="line">    │           │               ├── constant</div><div class="line">    │           │               │   └── Constants.java</div><div class="line">    │           │               ├── controller</div><div class="line">    │           │               │   └── CorsController.java</div><div class="line">    │           │               └── filter</div><div class="line">    │           │                   └── CrossDomainFilter.java</div><div class="line">    │           ├── resources</div><div class="line">    │           │   └── config</div><div class="line">    │           │       └── applicationContext-core.xml</div><div class="line">    │           └── webapp</div><div class="line">    │               ├── WEB-INF</div><div class="line">    │               │   ├── dispatcher-servlet.xml</div><div class="line">    │               │   └── web.xml</div><div class="line">    │               └── index.jsp</div><div class="line">    └── server.iml</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>Client：前端，简单的ajax请求</strong></li>
+</ul>
+<p>在client文件夹下，启动静态服务器，前端页面通过<code>http://localhost:8000/index.html</code>访问</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">anywhere -h localhost -p 8000</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>Server： java项目，SpringMVC</strong></li>
+</ul>
+<p>在IntelliJ IDEA中本地启动tomcat，设置host: <code>http://localhost:8080/</code>，服务端数据通过<code>http://localhost:8080/server/cors</code>请求。</p>
+<p>这里前端和后端因为<strong>端口号不同</strong>，存在跨域限制，下面通过CORS来解决因为跨域无法通过ajax请求数据的问题。</p>
+<h3 id="没有允许跨域的情况"><a href="#没有允许跨域的情况" class="headerlink" title="没有允许跨域的情况"></a>没有允许跨域的情况</h3><p>这种情况就是前端什么都不做，服务端也什么都不做。</p>
+<p>Client: 请求成功后，将数据显示在页面上</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Request().send(<span class="string">'http://localhost:8080/server/cors'</span>,&#123;</div><div class="line">	<span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">		<span class="built_in">document</span>.write(data)</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Server:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Controller</span></div><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/server"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CorsController</span> </span>&#123;</div><div class="line">    <span class="meta">@RequestMapping</span>(value=<span class="string">"/cors"</span>, method= RequestMethod.GET)</div><div class="line">    <span class="meta">@ResponseBody</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">ajaxCors</span><span class="params">(HttpServletRequest request)</span> <span class="keyword">throws</span> Exception</span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"SUCCESS"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在浏览器地址栏输入<code>http://localhost:8080/server/cors</code>直接请求服务端，可以看到返回结果： ‘SUCCESS’</p>
+<p><img src="../images/CORS/server_1.png"></p>
+<p>在浏览器地址栏输入<code>http://localhost:8000/index.html</code>，从不同域的网页中向Server发送ajax请求。可以看到几个方面：</p>
+<p>从network可以看到，请求返回正常。<br><img src="../images/CORS/client_1_network.png"></p>
+<p>但Response中没有内容，显示 <code>Failed to load response data</code>。<br><img src="../images/CORS/client_network_response.png"></p>
+<p>并且控制台报错：<br><img src="../images/CORS/client_1_console_error.png"></p>
+<p><strong>总结：</strong></p>
+<blockquote>
+<ol>
+<li>浏览器请求是发出去了的，服务端也会正确返回，但是我们拿不到response的内容</li>
+<li>浏览器控制台会报错提示可以怎么做，而且提示的很明白：    xhr不能请求<code>http://localhost:8080/server/cors</code>，请求资源的响应头中没有设置Access-Control-Allow-Origin，Origin：<code>http://localhost:8000</code>是不允许跨域请求的。</li>
+</ol>
+</blockquote>
+<p>那下一步，我们要在服务端响应跨域请求时，设置响应头: Access-Control-Allow-Origin</p>
+<h3 id="设置Access-Control-Allow-Origin允许跨域"><a href="#设置Access-Control-Allow-Origin允许跨域" class="headerlink" title="设置Access-Control-Allow-Origin允许跨域"></a>设置Access-Control-Allow-Origin允许跨域</h3><p>先说明为什么要设置Access-Control-Allow-Origin，可以把Access-Control-Allow-Origin当作一个指令，服务端设置Access-Control-Allow-Origin就是告诉浏览器允许向服务端请求资源的域名，浏览器通过Response中的Access-Control-Allow-Origin就可以知道能不能把数据吐出来。</p>
+<p>官方解释是这样的： Access-Control-Allow-Origin 响应头指定了该响应的资源是否被允许与给定的origin共享。</p>
+<p>Access-Control-Allow-Origin可以设置的值有：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Access-Control-Allow-Origin: *</div><div class="line">Access-Control-Allow-Origin: &lt;origin&gt;</div></pre></td></tr></table></figure>
+<p>那在java服务端给响应头设置Access-Control-Allow-Origin可以这么做：</p>
+<p>1、添加一个过滤器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CrossDomainFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig filterConfig)</span> <span class="keyword">throws</span> ServletException </span>&#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</div><div class="line">        HttpServletResponse resp = (HttpServletResponse)servletResponse;</div><div class="line">        resp.setHeader(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"http://localhost:8000"</span>);</div><div class="line">        filterChain.doFilter(servletRequest,servletResponse);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>2、然后在web.xml文件中添加过滤器配置：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>crossDomainFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>com.example.cors.filter.CrossDomainFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>crossDomainFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>3、然后重新启动tomcat，client重新发送请求<code>http://localhost:8000/index.html</code></p>
+<p><img src="../images/CORS/client_2_access_success.png"><br><img src="../images/CORS/client_2_access_response.png"></p>
+<p>可以看到我们能够拿到返回结果了，响应头中有我们在服务端设置的Access-Control-Allow-Origin: <code>http://localhost:8000</code>，这个应该跟请求头中的origin一致，或者设置Access-Control-Allow-Origin:*也是可以的，这就允许任何网站来访问资源了（前提是不带凭证信息，这个后面讲）</p>
+<p><strong>以上就是允许一个简单的跨域请求的做法，只需要服务端设置响应头Access-Control-Allow-Origin。</strong></p>
+<h3 id="简单请求与预检请求"><a href="#简单请求与预检请求" class="headerlink" title="简单请求与预检请求"></a>简单请求与预检请求</h3><p>上面讲述了一个简单请求通过在服务端设置响应头Access-Control-Allow-Origin就可以完成跨域请求。</p>
+<p>那怎样的请求算是一个简单请求？与简单请求相对应的是什么样的请求呢？解决跨域的方式又有什么不一样呢？</p>
+<p>符合以下条件的可视为简单请求：</p>
+<p>1、使用下列HTTP方法之一</p>
+<ul>
+<li>GET</li>
+<li>HEAD</li>
+<li>POST，并且Content-Type的值在下列之一： <ul>
+<li>text/plain</li>
+<li>multipart/form-data</li>
+<li>application/x-www-form-urlencoded</li>
+</ul>
+</li>
+</ul>
+<p>2、并且请求头中只有下面这些</p>
+<ul>
+<li>Accept</li>
+<li>Accept-Language</li>
+<li>Content-Language</li>
+<li>Content-Type （需要注意额外的限制）</li>
+<li>DPR</li>
+<li>Downlink</li>
+<li>Save-Data</li>
+<li>Viewport-Width</li>
+<li>Width</li>
+</ul>
+<p>不满足上述要求的在发送正式请求前都要先发送一个预检请求，预检请求以OPTIONS方法发送，浏览器通过请求方法和请求头能够判断是否发送预检请求。</p>
+<p>比如Client发送如下请求：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Request().send(<span class="string">'http://localhost:8080/server/options'</span>,&#123;</div><div class="line">	<span class="attr">method</span>: <span class="string">'POST'</span>,</div><div class="line">	<span class="attr">header</span>: &#123;</div><div class="line">		<span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>  <span class="comment">//告诉服务器实际发送的数据类型</span></div><div class="line">	&#125;,</div><div class="line">	<span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">		<span class="built_in">document</span>.write(data)</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Server端处理请求的controller:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Controller</span></div><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/server"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CorsController</span> </span>&#123;</div><div class="line">    <span class="meta">@RequestMapping</span>(value=<span class="string">"/options"</span>, method= RequestMethod.POST)</div><div class="line">    <span class="meta">@ResponseBody</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">options</span><span class="params">(HttpServletRequest request)</span> <span class="keyword">throws</span> Exception</span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"SUCCESS"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>因为请求时，请求头中塞入了header，’Content-Type’: ‘application/json’。根据前面讲述的可以知道，浏览器会以OPTIONS方法发出一个预检请求，浏览器会在请求头中加入： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Access-Control-Request-Headers:content-type</div><div class="line">Access-Control-Request-Method:POST</div></pre></td></tr></table></figure>
+<p>这个预检请求的作用在这里就是告诉服务器：我会在后面请求的请求头中以POST方法发送数据类型是application/json的请求，询问服务器是否允许。</p>
+<p><img src="../images/CORS/client_3_options_error.png"></p>
+<p>在这里服务器还没有做任何允许这种请求的设置，所以浏览器控制台报错：</p>
+<p><img src="../images/CORS/client_3_options_console_error.png"></p>
+<p>也清楚的说明了出错的原因： <strong>服务端在预检请求的响应中没有告诉浏览器允许协议头Content-Type</strong>，即服务端需要设置响应头Access-Control-Allow-Headers，允许浏览器发送带Content-Type的请求。</p>
+<p>Server端过滤器中添加Access-Control-Allow-Headers：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CrossDomainFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig filterConfig)</span> <span class="keyword">throws</span> ServletException </span>&#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</div><div class="line">        HttpServletResponse resp = (HttpServletResponse)servletResponse;</div><div class="line">        resp.setHeader(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"http://localhost:8000"</span>);</div><div class="line">        resp.setHeader(<span class="string">"Access-Control-Allow-Headers"</span>, <span class="string">"Content-Type"</span>);</div><div class="line">        filterChain.doFilter(servletRequest,servletResponse);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>可以看到请求成功<br><img src="../images/CORS/client_3_options_console_success.png"></p>
+<p>再来看请求的具体信息，第一次以OPTIONS方法发送预检请求，浏览器设置请求头：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Access-Control-Request-Headers:content-type //请求中加入的请求头</div><div class="line">Access-Control-Request-Method:POST  //跨域请求的方法</div></pre></td></tr></table></figure>
+<p>服务端设置响应头：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Access-Control-Allow-Headers:Content-Type   //允许的header</div><div class="line">Access-Control-Allow-Origin:http://localhost:8000 //允许跨域的源</div></pre></td></tr></table></figure>
+<p><img src="../images/CORS/client_3_options_success.png"><br>也可以设置Access-Control-Allow-Methods来限制客户端的的请求方法。</p>
+<p>这样预检请求成功了，浏览器会发出第二个请求，这是真正请求数据的请求：<br><img src="../images/CORS/client_3_options_2_post.png"></p>
+<p>可以看到POST请求成功了，第二次请求头中没有设置Access-Control-Request-Headers和Access-Control-Request-Method。</p>
+<p><strong>但是这里有个问题</strong>，需要预检请求时，浏览器会发出两次请求，一次OPTIONS，一次POST。两次都返回了数据。这样服务端如果逻辑复杂一些，比如去数据库查找数据，从web层、service到数据库这段逻辑就会走两遍，浏览器会两次拿到相同的数据，所以服务端的filter可以改一下，如果是OPTIONS请求，在设置完跨域请求响应头后就不走后面的逻辑直接返回。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CrossDomainFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(FilterConfig filterConfig)</span> <span class="keyword">throws</span> ServletException </span>&#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</div><div class="line">        HttpServletResponse resp = (HttpServletResponse)servletResponse;</div><div class="line">        resp.setHeader(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"http://localhost:8000"</span>);</div><div class="line">        resp.setHeader(<span class="string">"Access-Control-Allow-Headers"</span>, <span class="string">"Content-Type"</span>);   </div><div class="line">        <span class="comment">//OPTION请求就直接返回</span></div><div class="line">        HttpServletRequest req = (HttpServletRequest) servletRequest;</div><div class="line">        <span class="keyword">if</span> (req.getMethod().equals(<span class="string">"OPTIONS"</span>)) &#123;</div><div class="line">            resp.setStatus(<span class="number">200</span>);</div><div class="line">            resp.flushBuffer();</div><div class="line">        &#125;<span class="keyword">else</span> &#123;</div><div class="line">            filterChain.doFilter(servletRequest,servletResponse);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>总结：</strong></p>
+<blockquote>
+<ol>
+<li>对于POST请求设置响应头Content-Type为某些值、自定义请求头等情况，浏览器会先以OPTIONS方法发送一个预检请求，并设置相应的请求头。</li>
+<li>服务端还是正常返回，但如果预检请求响应头中不设置相应的响应头，预检请求不通过，不会再发出第二次请求来获取数据。</li>
+<li>服务端设置相应的响应头，浏览器会发出第二个请求，并将服务端返回的数据吐出，我们可以获得response的内容</li>
+</ol>
+</blockquote>
+<h3 id="带凭证信息的请求"><a href="#带凭证信息的请求" class="headerlink" title="带凭证信息的请求"></a>带凭证信息的请求</h3><p>还有一种情况我们经常遇到。浏览器在发送请求时需要给服务端发送cookie，服务端根据cookie中的信息做一些身份验证等。</p>
+<p>默认情况下，浏览器向不同域的发送ajax请求，不会携带发送cookie信息。</p>
+<p>Client: </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> containerElem = <span class="built_in">document</span>.getElementById(<span class="string">'container'</span>)</div><div class="line"><span class="keyword">new</span> Request().send(<span class="string">'http://localhost:8080/server/testCookie'</span>,&#123;</div><div class="line">	<span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">		containerElem.innerHTML = data</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Server:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"/testCookie"</span>, method= RequestMethod.GET)</div><div class="line"><span class="meta">@ResponseBody</span></div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">testCookie</span><span class="params">(HttpServletRequest request,HttpServletResponse response)</span> <span class="keyword">throws</span> Exception</span>&#123;</div><div class="line">    String str = <span class="string">"SUCCESS"</span>;</div><div class="line">    Cookie[] cookies = request.getCookies();</div><div class="line">    String school = getSchool(cookies);</div><div class="line">    <span class="keyword">if</span>(school == <span class="keyword">null</span> || school.length() == <span class="number">0</span>)&#123;</div><div class="line">        addCookie(response);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> str + buildText(cookies);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>服务端收到请求，判断cookie中有没有school，没有就添加cookie.</p>
+<p><img src="../images/CORS/client_4_cookie_none.png"></p>
+<p>可以看到响应头中有Set-Cookie，再次请求时，如果是同源请求，浏览器会将Set-Cookie中的值放在请求头中，但是<strong>对于跨域请求，默认是不发送这个Cookie的。</strong></p>
+<p>如果要让浏览器发送cookie，需要在Client设置XMLHttpRequest的withCredentials属性为true。</p>
+<p>Client:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> containerElem = <span class="built_in">document</span>.getElementById(<span class="string">'container'</span>)</div><div class="line"><span class="keyword">new</span> Request().send(<span class="string">'http://localhost:8080/server/testCookie'</span>,&#123;</div><div class="line">	<span class="attr">withCredentials</span>: <span class="literal">true</span>,</div><div class="line">	<span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">		containerElem.innerHTML = data</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>现在浏览器在请求头中加入了cookie信息<br><img src="../images/CORS/client_4_cookie_error.png"><br>但是服务端返回的数据没有在页面中展示，并且报错：</p>
+<p><img src="../images/CORS/client_4_credentials_error.png"></p>
+<p>报错信息很明白： <strong>当请求中包含凭证信息时，需要设置响应头Access-Control-Allow-Credentials，是否带凭证信息是由XMLHttpRequest的withCredentials属性控制的。</strong></p>
+<p>所以我们在Server端filter中加入这个响应头：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</div><div class="line">        HttpServletResponse resp = (HttpServletResponse)servletResponse;</div><div class="line">        resp.setHeader(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"http://localhost:8000"</span>);</div><div class="line">        resp.setHeader(<span class="string">"Access-Control-Allow-Credentials"</span>,<span class="string">"true"</span>);</div><div class="line">        HttpServletRequest req = (HttpServletRequest) servletRequest;</div><div class="line">        <span class="keyword">if</span> (req.getMethod().equals(<span class="string">"OPTIONS"</span>)) &#123;</div><div class="line">            resp.setStatus(<span class="number">200</span>);</div><div class="line">            resp.flushBuffer();</div><div class="line">        &#125;<span class="keyword">else</span> &#123;</div><div class="line">            filterChain.doFilter(servletRequest,servletResponse);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>现在浏览器知道响应头中Access-Control-Allow-Credentials为true，就会把数据给吐出来了，我们能够从response中拿到内容了。</p>
+<p><img src="../images/CORS/client_4_cookie_success_console.png"></p>
+<p><img src="../images/CORS/client_4_cookie_success.png"></p>
+<p>那如果附带凭证信息并且有预检请求呢？如果有预检请求，并附带凭证信息（XMLHttpRequest的withCredentials设置为true）， 服务端需要设置Access-Control-Allow-Credentials: true，否则浏览器不会发出第二次请求，并报错。</p>
+<p><img src="../images/CORS/client_4_cookie_preflight_error.png"></p>
+<p><strong>总结：</strong></p>
+<blockquote>
+<ol>
+<li>跨域请求时，浏览器默认不会发送cookie，需要设置XMLHttpRequest的withCredentials属性为true</li>
+<li>浏览器设置XMLHttpRequest的withCredentials属性为true，表明要向服务端发送凭证信息(这里是cookie)。那么服务端就需要在响应头中添加Access-Control-Allow-Credentials为true。否则浏览器上有两种情况：<ul>
+<li>如果是简单请求，服务端结果吐出了，浏览器拿到了但就是不给吐出来，并报错。</li>
+<li>如果是预检请求，同样我们拿不到返回结果，并报错提示预检请求不通过，不会再发第二次请求。</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="cookie的同源策略"><a href="#cookie的同源策略" class="headerlink" title="cookie的同源策略"></a>cookie的同源策略</h3><p>另外就是设置了XMLHttpRequest的withCredentials属性为true，浏览器发出去了，服务端还是拿不到cookie的问题。</p>
+<p>cookie也遵循同源策略的，在设置cookie的时候可以发现除了键值对，还可以设置cookie的这些值： </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">cookie属性值</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">path</td>
+<td style="text-align:left">可访问cookie的路径，默认为当前文档位置的路径</td>
+</tr>
+<tr>
+<td style="text-align:left">domain</td>
+<td style="text-align:left">可访问cookie的域名，默认为当前文档位置的路径的域名部分</td>
+</tr>
+<tr>
+<td style="text-align:left">max-age</td>
+<td style="text-align:left">多久后失效，秒为单位时间。<br>负数：session内有效；0：删除cookie；正数：有效期为创建时刻+ max-age</td>
+</tr>
+<tr>
+<td style="text-align:left">expires</td>
+<td style="text-align:left">cookie失效日期.如果没有定义,cookie会在对话结束时过期,即会话cookie</td>
+</tr>
+<tr>
+<td style="text-align:left">secure</td>
+<td style="text-align:left">cookie只通过https协议传输</td>
+</tr>
+</tbody>
+</table>
+<p>如果获取不到cookie，可以检查下cookie的domain和path.</p>
+<h3 id="IE上跨域访问没有权限"><a href="#IE上跨域访问没有权限" class="headerlink" title="IE上跨域访问没有权限"></a>IE上跨域访问没有权限</h3><p>在跨域发送ajax请求时提示没有权限。 因为IE浏览器默认对跨域访问有限制。需要在浏览器设置中去除限制。 </p>
+<p><strong>方法：</strong> 设置 &gt; Internet选项 &gt; 安全 &gt; 自定义级别 &gt; 在设置中找到其他 - 在【其他】中将【通过域访问数据源】启用</p>
+<h2 id="Demo源码"><a href="#Demo源码" class="headerlink" title="Demo源码"></a>Demo源码</h2><ul>
+<li><a href="https://github.com/chang20159/daily-example/tree/master/CORS" target="_blank" rel="external">https://github.com/chang20159/daily-example/tree/master/CORS</a></li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy" target="_blank" rel="external">Web安全 - 浏览器的同源策略</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS" target="_blank" rel="external">HTTP-访问控制（CORS）</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie" target="_blank" rel="external">Document - Document.cookie</a></li>
+<li><a href="https://segmentfault.com/a/1190000004556040" target="_blank" rel="external">聊一聊 cookie</a></li>
 </ul>
 
       
       
+	<div class="declare">
+	  <strong>版权声明：</strong>本文采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>许可协议。转载请注明出处！
+	</div>
+
       
       
     </div>
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jQuery</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
@@ -225,7 +473,7 @@ var _hmt = _hmt || [];
 			 
 				
 					<li class="article-tag-list-item">
-        				<a href="/categories/JQuery/" class="article-tag-list-link color2">JQuery</a>
+        				<a href="/categories/工作/" class="article-tag-list-link color3">工作</a>
         			</li>
 				
       		
@@ -281,7 +529,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://chang20159.com/Jquery在动态生成的DOM节点绑定事件无效/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://chang20159.com/CORS跨域原理浅析/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -295,18 +543,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/jQuery源码-第一篇/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          【jQuery源码】第一篇
-        
-      </div>
-    </a>
   
-  
-    <a href="/ECharts绘制图形，不同时间段区域颜色不同/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ECharts绘制图形，不同时间段区域颜色不同</div>
+    <a href="/理解Flexbox弹性盒布局/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">理解Flexbox弹性盒布局</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -333,7 +572,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#原生JS绑定事件"><span class="toc-number">1.</span> <span class="toc-text">原生JS绑定事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JQuery绑定事件"><span class="toc-number">2.</span> <span class="toc-text">JQuery绑定事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原生JS事件委托"><span class="toc-number">3.</span> <span class="toc-text">原生JS事件委托</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JQuery事件委托"><span class="toc-number">4.</span> <span class="toc-text">JQuery事件委托</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么会有跨域的问题？"><span class="toc-number">1.</span> <span class="toc-text">为什么会有跨域的问题？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CORS跨域原理"><span class="toc-number">2.</span> <span class="toc-text">CORS跨域原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实践"><span class="toc-number">3.</span> <span class="toc-text">实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#没有允许跨域的情况"><span class="toc-number">3.1.</span> <span class="toc-text">没有允许跨域的情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置Access-Control-Allow-Origin允许跨域"><span class="toc-number">3.2.</span> <span class="toc-text">设置Access-Control-Allow-Origin允许跨域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简单请求与预检请求"><span class="toc-number">3.3.</span> <span class="toc-text">简单请求与预检请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#带凭证信息的请求"><span class="toc-number">3.4.</span> <span class="toc-text">带凭证信息的请求</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">4.</span> <span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie的同源策略"><span class="toc-number">4.1.</span> <span class="toc-text">cookie的同源策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IE上跨域访问没有权限"><span class="toc-number">4.2.</span> <span class="toc-text">IE上跨域访问没有权限</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Demo源码"><span class="toc-number">5.</span> <span class="toc-text">Demo源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">6.</span> <span class="toc-text">参考</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -358,9 +597,9 @@ var _hmt = _hmt || [];
 
         var disqus_shortname = 'chang20159';
         var disqus_config = function () {
-          this.page.url = 'http://chang20159.com/Jquery在动态生成的DOM节点绑定事件无效/';
-          this.page.identifier = 'Jquery在动态生成的DOM节点绑定事件无效/';
-          this.page.title = 'jQuery在动态生成的节点上绑定事件无效';
+          this.page.url = 'http://chang20159.com/CORS跨域原理浅析/';
+          this.page.identifier = 'CORS跨域原理浅析/';
+          this.page.title = 'CORS跨域原理浅析';
           this.language = 'zh';
           console.log(this.page)
         };

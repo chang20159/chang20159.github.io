@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://chang20159.com/CSS小经验/index.html">
 <meta property="og:site_name" content="茉莉蜜茶only的博客">
 <meta property="og:description" content="隐藏滚动条见::-webkit-scrollbar12345678.visible-scrollbar, .invisible-scrollbar &amp;#123;  display: block;  width: 10em;  overflow: auto;&amp;#125;.invisible-scrollbar::-webkit-scrollbar &amp;#123;  display: none;&amp;#12">
-<meta property="og:updated_time" content="2017-01-07T07:08:00.000Z">
+<meta property="og:updated_time" content="2017-10-12T10:55:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS小经验">
 <meta name="twitter:description" content="隐藏滚动条见::-webkit-scrollbar12345678.visible-scrollbar, .invisible-scrollbar &amp;#123;  display: block;  width: 10em;  overflow: auto;&amp;#125;.invisible-scrollbar::-webkit-scrollbar &amp;#123;  display: none;&amp;#12">
@@ -202,7 +202,7 @@ var _hmt = _hmt || [];
 <p>这样设置会让页面重置到没有滚动的状态。这样会造成一个问题，比如查看第二页时点击弹窗，页面会重置到第一页，关闭弹窗时就不是原来的位置了。所以在添加上面的属性之前要先记下body的scrollTop，remove class之后设置body的scrollTop为前面记下的值。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">this.html = document.getElementsByTagName(&apos;html&apos;)[0];</div><div class="line">this.body = document.getElementsByTagName(&apos;body&apos;)[0];</div><div class="line">this.scrollTop = 0</div><div class="line"></div><div class="line">forbiddenRootScroll(flag)&#123;</div><div class="line">    if(flag)&#123;</div><div class="line">        this.scrollTop = this.body.scrollTop</div><div class="line">        this.html.setAttribute(&apos;class&apos;,&apos;forbidden-root-scroll&apos;)</div><div class="line">        this.body.setAttribute(&apos;class&apos;,&apos;forbidden-root-scroll&apos;)</div><div class="line"></div><div class="line">    &#125;else&#123;</div><div class="line">        this.html.removeAttribute(&apos;class&apos;,&apos;forbidden-root-scroll&apos;)</div><div class="line">        this.body.removeAttribute(&apos;class&apos;,&apos;forbidden-root-scroll&apos;)</div><div class="line">        this.body.scrollTop = this.scrollTop</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//打开弹窗调用this.forbiddenRootScroll(true)</div><div class="line">//关闭弹窗调用this.forbiddenRootScroll(false)</div></pre></td></tr></table></figure>
 <h2 id="input-placeholder与value重叠"><a href="#input-placeholder与value重叠" class="headerlink" title="input placeholder与value重叠"></a>input placeholder与value重叠</h2><p>妖孽的问题啊  等我复现了再研究是个什么鬼</p>
-
+<h2 id="button去掉点击时的蓝框"><a href="#button去掉点击时的蓝框" class="headerlink" title="button去掉点击时的蓝框"></a>button去掉点击时的蓝框</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">button</span>&#123;</div><div class="line">	<span class="attribute">outline</span>: <span class="string">'none'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
       
       
@@ -337,7 +337,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#隐藏滚动条"><span class="toc-number">1.</span> <span class="toc-text">隐藏滚动条</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#display-inline-block-元素之间有空白间隙"><span class="toc-number">2.</span> <span class="toc-text">display:inline-block 元素之间有空白间隙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定宽不换行"><span class="toc-number">3.</span> <span class="toc-text">定宽不换行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单行文本溢出显示省略号"><span class="toc-number">4.</span> <span class="toc-text">单行文本溢出显示省略号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多行文本移除显示省略号"><span class="toc-number">5.</span> <span class="toc-text">多行文本移除显示省略号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#z-index无效"><span class="toc-number">6.</span> <span class="toc-text">z-index无效</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#弹窗滚动到底时，后面的页面也跟着滚动"><span class="toc-number">7.</span> <span class="toc-text">弹窗滚动到底时，后面的页面也跟着滚动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#input-placeholder与value重叠"><span class="toc-number"></span> <span class="toc-text">input placeholder与value重叠</span></a>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#隐藏滚动条"><span class="toc-number">1.</span> <span class="toc-text">隐藏滚动条</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#display-inline-block-元素之间有空白间隙"><span class="toc-number">2.</span> <span class="toc-text">display:inline-block 元素之间有空白间隙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定宽不换行"><span class="toc-number">3.</span> <span class="toc-text">定宽不换行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单行文本溢出显示省略号"><span class="toc-number">4.</span> <span class="toc-text">单行文本溢出显示省略号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多行文本移除显示省略号"><span class="toc-number">5.</span> <span class="toc-text">多行文本移除显示省略号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#z-index无效"><span class="toc-number">6.</span> <span class="toc-text">z-index无效</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#弹窗滚动到底时，后面的页面也跟着滚动"><span class="toc-number">7.</span> <span class="toc-text">弹窗滚动到底时，后面的页面也跟着滚动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#input-placeholder与value重叠"><span class="toc-number"></span> <span class="toc-text">input placeholder与value重叠</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#button去掉点击时的蓝框"><span class="toc-number"></span> <span class="toc-text">button去掉点击时的蓝框</span></a>
                     </div>
                 </span>
             </div>
@@ -443,15 +443,11 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ECharts</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -467,6 +463,14 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
@@ -475,15 +479,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+                <a href="javascript:void(0)" class="js-tag color2">Jekyll</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jQuery3.1.1源码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Jekyll</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -525,10 +525,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-category color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-category color3">工具</a>
               </li>
              
@@ -537,11 +533,15 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-category color2">JQuery</a>
+                <a href="javascript:void(0)" class="js-category color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-category color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-category color2">JQuery</a>
               </li>
              
               <li class="article-tag-list-item">

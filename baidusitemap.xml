@@ -4,6 +4,39 @@
 
     
   <url>
+    <loc>http://chang20159.com/%E4%BA%86%E8%A7%A3webpack%E7%BC%96%E8%AF%91%E6%B5%81%E7%A8%8B/</loc>
+    <lastmod>2017-10-21T10:55:27.000Z</lastmod>
+    <data>
+        <display>
+        <title>了解webpack编译流程</title>
+        <pubTime>2017-09-30T10:40:41.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="前端构建" url="http://chang20159.com/categories/%E5%89%8D%E7%AB%AF%E6%9E%84%E5%BB%BA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://chang20159.com/drafts/%E8%A6%81%E5%81%9A%E4%B8%80%E4%B8%AA%E5%90%88%E6%A0%BC%E7%9A%84%E5%89%8D%E7%AB%AF%E6%94%BB%E5%9F%8E%E7%8B%AE.html</loc>
+    <lastmod>2017-10-17T05:41:22.000Z</lastmod>
+    <data>
+        <display>
+        <title>要做一个合格的前端攻城狮</title>
+        <pubTime>2017-10-17T05:41:22.000Z</pubTime>
+        
+         
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
     <loc>http://chang20159.com/CORS%E8%B7%A8%E5%9F%9F%E5%8E%9F%E7%90%86%E6%B5%85%E6%9E%90/</loc>
     <lastmod>2017-10-13T07:43:29.000Z</lastmod>
     <data>
@@ -36,20 +69,6 @@
              
               <breadCrumb title="工作" url="http://chang20159.com/categories/%E5%B7%A5%E4%BD%9C/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://chang20159.com/drafts/%E8%A6%81%E5%81%9A%E4%B8%80%E4%B8%AA%E5%90%88%E6%A0%BC%E7%9A%84%E5%89%8D%E7%AB%AF%E6%94%BB%E5%9F%8E%E7%8B%AE.html</loc>
-    <lastmod>2017-10-10T01:54:03.000Z</lastmod>
-    <data>
-        <display>
-        <title>要做一个合格的前端攻城狮</title>
-        <pubTime>2017-10-10T01:54:03.000Z</pubTime>
-        
-         
         </display>
     </data>
     </url>
@@ -135,7 +154,6 @@
     </data>
     </url>
 
-    
     
   <url>
     <loc>http://chang20159.com/%E7%A7%BB%E5%8A%A8%E7%AB%AFweb%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
@@ -347,6 +365,19 @@
     
     
     
+  <url>
+    <loc>http://chang20159.com/drafts/JavaScript%E5%AF%B9%E8%B1%A1.html</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript对象</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+         
+        </display>
+    </data>
+    </url>
+
     
     
   <url>
@@ -364,6 +395,7 @@
 
     
     
+    
   <url>
     <loc>http://chang20159.com/drafts/javascript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B.html</loc>
     <lastmod>2017-07-15T07:40:45.000Z</lastmod>
@@ -378,19 +410,13 @@
     </url>
 
     
-  <url>
-    <loc>http://chang20159.com/drafts/JavaScript%E5%AF%B9%E8%B1%A1.html</loc>
-    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript对象</title>
-        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
-        
-         
-        </display>
-    </data>
-    </url>
-
+    
+    
+    
+    
+    
+    
+    
     
   <url>
     <loc>http://chang20159.com/drafts/Nodejs%E5%85%A5%E9%97%A8.html</loc>
@@ -405,14 +431,6 @@
     </data>
     </url>
 
-    
-    
-    
-    
-    
-    
-    
-    
     
     
   <url>

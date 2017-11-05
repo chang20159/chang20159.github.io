@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://chang20159.com/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%94%B6%E8%97%8F%E7%B3%BB%E5%88%97/</loc>
-    <lastmod>2017-11-05T13:57:30.000Z</lastmod>
+    <lastmod>2017-11-05T14:04:41.000Z</lastmod>
     <data>
         <display>
         <title>前端知识收藏系列</title>
@@ -399,6 +399,20 @@
 
     
   <url>
+    <loc>http://chang20159.com/drafts/%E3%80%90%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E3%80%91JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1.html</loc>
+    <lastmod>2017-07-15T09:28:44.000Z</lastmod>
+    <data>
+        <display>
+        <title>【阅读笔记】JavaScript高级程序设计-面向对象</title>
+        <pubTime>2017-07-15T09:28:44.000Z</pubTime>
+        
+         
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://chang20159.com/drafts/Immutable.js%20%E4%BD%BF%E7%94%A8mergeWith%E8%A7%A3%E5%86%B3Map%E5%92%8CList%E7%9B%B8%E4%BA%92%E5%B5%8C%E5%A5%97%E6%97%B6%E7%9A%84%E5%90%88%E5%B9%B6%E9%97%AE%E9%A2%98.html</loc>
     <lastmod>2017-07-15T09:28:44.000Z</lastmod>
     <data>
@@ -412,19 +426,40 @@
     </url>
 
     
+    
   <url>
-    <loc>http://chang20159.com/drafts/%E3%80%90%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E3%80%91JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1.html</loc>
-    <lastmod>2017-07-15T09:28:44.000Z</lastmod>
+    <loc>http://chang20159.com/drafts/normalize.css%E4%B8%8Ereset.css.html</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
     <data>
         <display>
-        <title>【阅读笔记】JavaScript高级程序设计-面向对象</title>
-        <pubTime>2017-07-15T09:28:44.000Z</pubTime>
+        <title>normalize.css与reset.css</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
         
          
         </display>
     </data>
     </url>
 
+    
+    
+  <url>
+    <loc>http://chang20159.com/drafts/javascript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B.html</loc>
+    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript异步编程</title>
+        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
+        
+         
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+    
+    
     
     
     
@@ -444,42 +479,7 @@
     </url>
 
     
-  <url>
-    <loc>http://chang20159.com/drafts/normalize.css%E4%B8%8Ereset.css.html</loc>
-    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
-    <data>
-        <display>
-        <title>normalize.css与reset.css</title>
-        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
-        
-         
-        </display>
-    </data>
-    </url>
-
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  <url>
-    <loc>http://chang20159.com/drafts/javascript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B.html</loc>
-    <lastmod>2017-07-15T07:40:45.000Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript异步编程</title>
-        <pubTime>2017-07-15T07:40:45.000Z</pubTime>
-        
-         
-        </display>
-    </data>
-    </url>
-
     
     
   <url>
